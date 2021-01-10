@@ -1,0 +1,13 @@
+---
+version: "3"
+
+services:
+
+  postgres:
+    environment:
+      POSTGRES_PASSWORD: # <- A long, multi-word passphrase is best.
+
+  rails:
+    environment:
+      POSTGRES_PASSWORD: # <- A long, multi-word passphrase is best.
+      RAILS_ENV: development
