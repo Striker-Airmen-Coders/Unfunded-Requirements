@@ -19,6 +19,9 @@ gem 'turbolinks', '~> 5'
 gem 'redis', '~> 4.0'
 
 gem 'sidekiq', '~> 6.1.2'
+gem 'trestle', '~> 0.9.4'
+gem 'trestle-auth', '~> 0.4.1'
+gem 'trestle-sidekiq', '~> 0.1.1'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
