@@ -16,7 +16,7 @@ system "rm tmp/pids/server.pid > /dev/null 2>&1"
 
 exec <<~HEREDOC
   bundle exec \
-    rails s \
+    rails server \
       -p 3000 \
       -b '0.0.0.0'
 HEREDOC
