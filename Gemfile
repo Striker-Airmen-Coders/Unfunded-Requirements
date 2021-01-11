@@ -18,6 +18,7 @@ gem 'turbolinks', '~> 5'
 # Use Redis adapter to run Action Cable in production
 gem 'redis', '~> 4.0'
 
+gem 'devise', '~> 4.7.3'
 gem 'sidekiq', '~> 6.1.2'
 gem 'trestle', '~> 0.9.4'
 gem 'trestle-auth', '~> 0.4.1'
