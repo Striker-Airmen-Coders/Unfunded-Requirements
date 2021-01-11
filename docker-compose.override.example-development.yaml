@@ -1,0 +1,30 @@
+---
+version: "3"
+
+services:
+
+  postgres:
+    environment:
+      POSTGRES_PASSWORD: # <- A long, multi-word passphrase is best.
+
+  rails:
+    environment:
+      POSTGRES_PASSWORD: # <- A long, multi-word passphrase is best.
+      RAILS_ENV: development
+    tty: true
+    stdin_open: true
+      # Above: These 2 lines let us work with the REPL we get from binding.pry.
+      # It is useful in development and unnecessary in production.
+      # Attach to the container using `docker attach`,
+      # and it will be like `rails server` is running on your machine outside a container.
+
+  jobs:
+    environment:
+      POSTGRES_PASSWORD: # <- A long, multi-word passphrase is best.
+      RAILS_ENV: development
+    tty: true
+    stdin_open: true
+      # Above: These 2 lines let us work with the REPL we get from binding.pry.
+      # It is useful in development and unnecessary in production.
+      # Attach to the container using `docker attach`,
+      # and it will be like `rails server` is running on your machine outside a container.

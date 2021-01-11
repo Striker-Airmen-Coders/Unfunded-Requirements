@@ -10,9 +10,9 @@ services:
   rails:
     environment:
       POSTGRES_PASSWORD: # <- A long, multi-word passphrase is best.
-      RAILS_ENV: development
+      RAILS_ENV: production
 
   jobs:
     environment:
       POSTGRES_PASSWORD: # <- A long, multi-word passphrase is best.
-      RAILS_ENV: development
+      RAILS_ENV: production
