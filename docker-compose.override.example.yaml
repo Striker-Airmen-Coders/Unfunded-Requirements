@@ -11,3 +11,8 @@ services:
     environment:
       POSTGRES_PASSWORD: # <- A long, multi-word passphrase is best.
       RAILS_ENV: development
+
+  jobs:
+    environment:
+      POSTGRES_PASSWORD: # <- A long, multi-word passphrase is best.
+      RAILS_ENV: development
