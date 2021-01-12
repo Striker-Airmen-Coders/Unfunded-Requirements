@@ -2,6 +2,7 @@ FROM ruby:2
 
 WORKDIR /app
 
+RUN curl -sL https://deb.nodesource.com/setup_lts.x | bash -
 RUN apt-get update -qq && apt-get install -y \
   # for the container
   wait-for-it \

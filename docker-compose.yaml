@@ -37,6 +37,7 @@ services:
       - "3000:3000"
     environment:
       REDIS_URL: redis://redis:6379
+      NODE_PATH: "/usr/lib/nodejs:/usr/share/nodejs"
 
   jobs:
     container_name: flagship-rails-jobs
@@ -51,3 +52,4 @@ services:
       - .:/app
     environment:
       REDIS_URL: redis://redis:6379
+      NODE_PATH: "/usr/lib/nodejs:/usr/share/nodejs"
