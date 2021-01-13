@@ -1,0 +1,86 @@
+body.example_pages.one_dialog {
+  display: grid;
+  grid-template-areas:
+    'header'
+    'content'
+    'footer';
+  grid-template-rows: 80px 1fr 150px;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+
+  header {
+    @apply bg-gray-800 text-gray-300;
+    grid-area: header;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 10px;
+
+    h1 {
+      font-weight: bold;
+      font-size: 150%;
+    }
+    & *:first-child {
+      @apply invisible md:visible;
+      margin-right: auto;
+    }
+    button, a {
+      @apply text-gray-300 hover:bg-gray-600 hover:text-white px-3 py-2 rounded-md text-sm font-medium;
+    }
+  }
+
+  div.content {
+    @apply md:bg-gray-100 p-4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .dialog {
+      @apply bg-white rounded-md md:shadow-sm;
+      width: 100%;
+      max-width: 600px;
+
+      h1 {
+        @apply text-lg font-bold p-4 border-b;
+        font-size: 125%;
+      }
+      form {
+        @apply grid grid-cols-3 gap-6 p-4 w-full;
+
+        & > div {
+
+          label {
+            @apply block text-sm font-medium text-gray-700;
+          }
+          input {
+            @apply mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md;
+          }
+          select {
+            @apply mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm;
+          }
+          button[type="submit"] {
+            @apply inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500;
+          }
+        }
+        .form-footer {
+          @apply text-right col-span-6;
+        }
+      }
+    }
+  }
+
+  footer {
+    @apply bg-gray-800 text-white p-4;
+    grid-area: footer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    p {
+      @apply text-gray-500;
+      max-width: 600px;
+    }
+  }
+
+}
