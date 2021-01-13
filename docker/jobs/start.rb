@@ -5,6 +5,7 @@
 if [nil, "development"].include?(ENV["RAILS_ENV"])
   system "bundle install"
 end
+system "yarn install"
 
 # Cron is useful for scheduling jobs to start
 # automatically at specified times.

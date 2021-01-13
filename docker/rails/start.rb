@@ -5,6 +5,7 @@
 if [nil, "development"].include?(ENV["RAILS_ENV"])
   system "bundle install"
 end
+system "yarn install"
 
 system "wait-for-it postgres:5432"
 system "wait-for-it redis:6379"
