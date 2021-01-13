@@ -20,5 +20,6 @@ module FlagshipRails
     # config.eager_load_paths << Rails.root.join("extras")
 
     config.active_job.queue_adapter = :sidekiq
+    config.web_console.whitelisted_ips = '172.25.0.4/16'
   end
 end
