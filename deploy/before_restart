@@ -1,6 +1,12 @@
 #!/usr/bin/env ruby
 oldrev, newrev = ARGV
 
+YELLOW="\e[33m"
+GREEN="\e[32m"
+MAGENTA="\e[35m"
+TEAL="\e[36m"
+END_COLOR="\e[0m"
+
 def run(cmd)
   full_cmd = "umask 002 && #{cmd}"
   puts "Running: #{TEAL}#{full_cmd}#{END_COLOR}"
