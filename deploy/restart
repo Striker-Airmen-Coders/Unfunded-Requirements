@@ -16,7 +16,7 @@ end
 
 puts "#{YELLOW}restarting containers...#{END_COLOR}"
 services_to_restart = %w{rails jobs}
-run "docker-compose up -d --no-deps #{services_to_restart.join(' ')}"
+run "docker-compose stop #{services_to_restart} ; docker-compose up -d --no-deps #{services_to_restart.join(' ')}"
 puts
 puts "Removing dangling images..."
 run 'docker rmi $(docker images -q -f "dangling=true"); true'

@@ -23,7 +23,7 @@ tasks = []
 
 run "sudo chown -R admin:admin ."
   # GOTCHA: Here we expect sudoers is configured to let us run this with no password prompt.
-run "docker-compose up -d --build --no-deps #{services_to_rebuild.join(' ')}"
+run "docker-compose build #{services_to_rebuild.join(' ')}"
 
 ####
 
