@@ -1,0 +1,42 @@
+#!/usr/bin/env ruby
+oldrev, newrev = ARGV
+
+def run(cmd)
+  full_cmd = "umask 002 && #{cmd}"
+  puts "Running: #{TEAL}#{full_cmd}#{END_COLOR}"
+  exit($?.exitstatus) unless system full_cmd
+end
+
+####
+
+rake_cmd = "rails"
+services_to_rebuild = %w{rails jobs}
+tasks = []
+
+####
+
+run "docker-compose build #{services_to_rebuild.join(' ')}"
+
+####
+
+if File.exist?('db/migrate')
+  num_migrations = `git diff #{oldrev} #{newrev} --diff-filter=A --name-only -z -- db/migrate`.split("\0").size
+else
+  num_migrations = 0
+end
+tasks << "db:migrate" if num_migrations > 0
+
+changed_assets = `git diff #{oldrev} #{newrev} --name-only -z -- app/assets`.split("\0")
+tasks << "assets:precompile" if changed_assets.size > 0
+changed_webpack_assets = `git diff #{oldrev} #{newrev} --name-only -z -- app/javascript`.split("\0")
+
+run "docker-compose run --rm rails #{rake_cmd} #{tasks.join(' ')}" if tasks.any?
+run "docker-compose run --rm rails /app/bin/webpack" if changed_webpack_assets.size > 0
+
+####
+
+# clear cached assets (unversioned/ignored files)
+run "git clean -x -f -- public/stylesheets public/javascripts"
+
+# clean unversioned files from vendor/plugins (e.g. old submodules)
+run "git clean -d -f -- vendor/plugins"
