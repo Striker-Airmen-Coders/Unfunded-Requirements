@@ -9,7 +9,7 @@ END_COLOR="\e[0m"
 
 def run(cmd)
   full_cmd = "umask 002 && #{cmd}"
-  puts "Running: #{TEAL}#{full_cmd}#{END_COLOR}"
+  puts "Running #{TEAL}#{full_cmd}#{END_COLOR}"
   exit($?.exitstatus) unless system full_cmd
 end
 
@@ -21,7 +21,9 @@ tasks = []
 
 ####
 
-run "docker-compose build #{services_to_rebuild.join(' ')}"
+run "sudo chown -R admin:admin ."
+  # GOTCHA: Here we expect sudoers is configured to let us run this with no password prompt.
+run "docker-compose up -d --build --no-deps #{services_to_rebuild.join(' ')}"
 
 ####
 

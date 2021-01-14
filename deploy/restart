@@ -8,7 +8,7 @@ END_COLOR="\e[0m"
 
 def run(cmd)
   full_cmd = "umask 002 && #{cmd}"
-  puts "Running: #{TEAL}#{full_cmd}#{END_COLOR}"
+  puts "Running #{TEAL}#{full_cmd}#{END_COLOR}"
   exit($?.exitstatus) unless system full_cmd
 end
 
@@ -19,10 +19,11 @@ services_to_restart = %w{rails jobs}
 run "docker-compose up -d --no-deps #{services_to_restart.join(' ')}"
 puts
 puts "Removing dangling images..."
-run 'docker rmi $(docker images -q -f "dangling=true")'
-puts "Dangling images removed. Errors can be ignored."
+run 'docker rmi $(docker images -q -f "dangling=true"); true'
+puts "#{GREEN}Any dangling images have been removed. docker-rmi errors can be ignored.#{END_COLOR}"
 
 ####
 
+puts
 puts "#{GREEN}Services restarted! Status:#{END_COLOR}\n"
 print `docker ps -a`
