@@ -75,4 +75,7 @@ Rails.application.configure do
   # config.action_cable.disable_request_forgery_protection = true
 
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  config.debug_exception_response_format = :api       # Error details will be in JSON format
+  # config.debug_exception_response_format = :default # Error details will be in an HTML page format
 end
