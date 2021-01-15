@@ -37,3 +37,6 @@ yarn-debug.log*
 
 ################################################################################
 docker-compose.override.yaml
+.tool-versions
+.ruby-version
+.ruby-gemset
