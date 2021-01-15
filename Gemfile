@@ -19,6 +19,7 @@ gem 'turbolinks', '~> 5'
 gem 'redis', '~> 4.0'
 
 gem 'devise', '~> 4.7.3'
+gem 'devise-jwt', '~> 0.7.0'
 gem 'sidekiq', '~> 6.1.2'
 gem 'trestle', '~> 0.9.4'
 gem 'trestle-auth', '~> 0.4.1'
