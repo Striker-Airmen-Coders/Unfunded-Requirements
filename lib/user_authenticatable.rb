@@ -6,7 +6,6 @@ module Devise
       def authenticate!
         controller = params["controller"]
         email = params["user"]["email"]
-        password = params["user"]["password"]
         user = User.find_for_authentication(:email => email)
 
         if controller == "trestle/auth/sessions"
