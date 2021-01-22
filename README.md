@@ -1,24 +1,77 @@
-# README
+Flagship Rails
+===
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Creating a Rails project based on this one
+```#!bash
+  git clone --depth 1 git@github.com:therubyshore/flagship_rails.git my_project_name
+  cd my_project_name
+  rm -rf .git && git init
+  LC_ALL=C find . -type f -not -path ./node_modules -exec sed -i '' -e "s/FlagshipRails/MyProjectName/g" {} \;
+  LC_ALL=C find . -type f -not -path ./node_modules -exec sed -i '' -e "s/Flagship Rails/My Project Name/g" {} \;
+  LC_ALL=C find . -type f -not -path ./node_modules -exec sed -i '' -e "s/flagship_rails/my_project_name/g" {} \;
+  LC_ALL=C find . -type f -not -path ./node_modules -exec sed -i '' -e "s/flagship-rails/my-project-name/g" {} \;
+  mv README.md.example README.md
+```
 
-Things you may want to cover:
+## Setting up a development environment, using these Docker containers
+```bash
+  # First, generate long, secure passwords for your local database and JWT secret:
 
-* Ruby version
+  docker run ruby:2 ruby -e "require 'securerandom'; 2.times { puts(SecureRandom.base64(64)) }"
+    # This does nothing but use a plain ruby container to generate a password. You can generate passwords in other ways too.
+    # This has the benefit of testing you're set up and able to run code in Docker containers.
 
-* System dependencies
+  # Now we need a docker-compose.override.yaml file:
 
-* Configuration
+  cp docker-compose.override.example-development.yaml docker-compose.override.yaml
+    # Copy the example docker-compose.override file for development
+  nano docker-compose.override.yaml
+    # ...and open it with a text editor like nano (or atom or kakoune or nvim or vim or subl or ed or...)
+    # This language is YAML. It's not a programming language, just a language to represent data or config data as text.
+    # Take one of the generated passwords, and set each "environment:" section's "POSTGRES_PASSWORD" block to that password.
+    # Take the other generated password, and set each "environment:" section's "DEVISE_JWT_SECRET_KEY" block to that password. Don't re-use the POSTGRES_PASSWORD.
+    # All "POSTGRES_PASSWORD" sections should have the same password set, and all DEVISE_JWT_SECRET_KEY sections should have the same password set.
 
-* Database creation
+  docker-compose up -d --build
+    # This will build the containers as we've defined them in docker-compose.yaml and docker-compose.override.yaml.
+    # This uses docker-compose. Docker-compose is an optional tool associated with Docker, that just lets us write these yaml files describing our desired containers and builds them for us so we don't have to. It's not part of Docker, and there are a number of things you can do with either the docker or docker-compose commands, so don't conflate the two.
+```
 
-* Database initialization
+Now you've built the containers. The software that makes up this project runs entirely within the containers, so you'll need to shell into the containers to do some things:
 
-* How to run the test suite
+```bash
+  docker-compose exec rails bundle exec rails console
+    # Run an interactive rails console in the container
 
-* Services (job queues, cache servers, search engines, etc.)
+  docker-compose start
+    # Start the containers
 
-* Deployment instructions
+  docker-compose restart rails
+    # Restart one (or more) specific containers
 
-* ...
+  docker-compose exec rails bash
+    # Get a Bash shell in a container
+
+  docker attach my-project-name-rails
+    # Attach to the container
+
+  docker-compose logs -f --tail=100 rails jobs webpack-dev-server
+    # Tail the logs of one or more specific containers
+```
+
+## Finalizing the new project
+Now, make the first git commit:
+```bash
+  git add .
+  git commit
+    # This should open up your text editor, prompting you to fill in a commit message.
+    # (If the text editor git opens isn't the text editor you like to use, change that in git's config. You can learn how online.)
+    # "Initialize repository from template" is a good commit message for this.
+
+  git remote add origin <put-your-git-remote-url-here>
+    # You have already created a local git repo, and now also need a remote git repo (e.g. what Gitlab, GitHub, etc. host) so this project
+    # doesn't only exist on your development machine.
+    # This will most likely be a private repo on our therubyshore account. If you're unsure what's being done here, skip this for now and ask us about it.
+  git push --set-upstream origin master
+    # Pushes the default trunk branch upto the remote repository
+```
