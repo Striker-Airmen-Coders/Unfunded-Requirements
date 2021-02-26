@@ -1,11 +1,8 @@
 Flagship Rails
 ===
 
-## Creating a Rails project based on this one
+## Turning this template Rails project into your own Rails project
 ```#!bash
-  git clone --depth 1 git@github.com:therubyshore/flagship_rails.git my_project_name
-  cd my_project_name
-  rm -rf .git && git init
   LC_ALL=C find . -type f -not -path ./node_modules -exec sed -i '' -e "s/FlagshipRails/MyProjectName/g" {} \;
   LC_ALL=C find . -type f -not -path ./node_modules -exec sed -i '' -e "s/Flagship Rails/My Project Name/g" {} \;
   LC_ALL=C find . -type f -not -path ./node_modules -exec sed -i '' -e "s/flagship_rails/my_project_name/g" {} \;
@@ -68,10 +65,6 @@ Now, make the first git commit:
     # (If the text editor git opens isn't the text editor you like to use, change that in git's config. You can learn how online.)
     # "Initialize repository from template" is a good commit message for this.
 
-  git remote add origin <put-your-git-remote-url-here>
-    # You have already created a local git repo, and now also need a remote git repo (e.g. what Gitlab, GitHub, etc. host) so this project
-    # doesn't only exist on your development machine.
-    # This will most likely be a private repo on our therubyshore account. If you're unsure what's being done here, skip this for now and ask us about it.
-  git push --set-upstream origin master
+  git push
     # Pushes the default trunk branch upto the remote repository
 ```
