@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  title: MyString
+  cost: 1.5
+  group: MyString
+  unit: MyString
+  pec: MyString
+  mop: MyString
+  poc: MyString
+
+two:
+  name: MyString
+  title: MyString
+  cost: 1.5
+  group: MyString
+  unit: MyString
+  pec: MyString
+  mop: MyString
+  poc: MyString

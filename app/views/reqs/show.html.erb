@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @req.name %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @req.title %>
+</p>
+
+<p>
+  <strong>Cost:</strong>
+  <%= @req.cost %>
+</p>
+
+<p>
+  <strong>Group:</strong>
+  <%= @req.group %>
+</p>
+
+<p>
+  <strong>Unit:</strong>
+  <%= @req.unit %>
+</p>
+
+<p>
+  <strong>Pec:</strong>
+  <%= @req.pec %>
+</p>
+
+<p>
+  <strong>Mop:</strong>
+  <%= @req.mop %>
+</p>
+
+<p>
+  <strong>Poc:</strong>
+  <%= @req.poc %>
+</p>
+
+<%= link_to 'Edit', edit_req_path(@req) %> |
+<%= link_to 'Back', reqs_path %>
