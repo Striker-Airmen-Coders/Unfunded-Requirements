@@ -6,7 +6,7 @@ require "rails/all"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module FlagshipRails
+module SacUnfundedRequirements
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.1
@@ -18,10 +18,5 @@ module FlagshipRails
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
-
-    config.active_job.queue_adapter = :sidekiq
-    if config.respond_to?(:web_console)
-      config.web_console.whitelisted_ips = '172.25.0.4/16'
-    end
   end
 end

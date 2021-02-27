@@ -1,20 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= @page_title || "Flagship Rails" %></title>
+    <title>SacUnfundedRequirements</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%# stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%# NOTE: stylesheet_pack_tag is used, instead of stylesheet_link_tag,
-    to use the CSS produced by the webpack & postcss stuff configured in app/javascript/,
-    instead of the CSS produced by sprockets and configured in /app/assets/stylesheets. %>
-    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body class="<%= body_context_classes %>">
+  <body>
     <%= yield %>
   </body>
 </html>

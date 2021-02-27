@@ -13,7 +13,3 @@
  *= require_tree .
  *= require_self
  */
-
-/* WARNING: This file is used by Sprockets generating CSS, but this project uses Webpacker instead of Sprockets.
- * Rails libraries like Trestle may use this asset pipeline, but you're probably looking for app/javascript/stylesheets/import.scss.
- */

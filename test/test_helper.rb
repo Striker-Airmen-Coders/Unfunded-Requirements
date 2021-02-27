@@ -1,21 +1,4 @@
-
-if !([ENV['RAILS_ENV'], Rails&.env] == ["test", "test"])
-  magenta="\e[35m"
-  end_color="\e[0m"
-  puts(<<~EOS)
-    #{magenta}
-    Tests are starting in the wrong Rails environment!
-    Current ENV['RAILS_ENV']:
-      #{ENV['RAILS_ENV']}
-    If you ran `rake test` instead of `rails test`, run `rails test`.
-      `rails test` should set the environment automatically.
-    If that doesn't work,
-      try running `RAILS_ENV=test rails test` or `RAILS_ENV=test rake test`
-    #{end_color}
-  EOS
-  exit 1
-end
-
+ENV['RAILS_ENV'] ||= 'test'
 require_relative "../config/environment"
 require "rails/test_help"
 
