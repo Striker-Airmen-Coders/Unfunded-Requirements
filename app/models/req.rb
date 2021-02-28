@@ -1,2 +1,0 @@
-class Req < ApplicationRecord
-end
