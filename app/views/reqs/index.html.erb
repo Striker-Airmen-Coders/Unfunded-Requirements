@@ -22,12 +22,11 @@
       <tr>
         <td><%= req.name %></td>
         <td><%= req.title %></td>
-        <td><%= req.cost %></td>
+        <td><%= req.req_total %></td>
         <td><%= req.group %></td>
         <td><%= req.unit %></td>
         <td><%= req.pec %></td>
-        <td><%= req.mop %></td>
-        <td><%= req.poc %></td>
+        <td><%= req.point_of_contact %></td>
         <td><%= link_to 'Show', req %></td>
         <td><%= link_to 'Edit', edit_req_path(req) %></td>
         <td><%= link_to 'Destroy', req, method: :delete, data: { confirm: 'Are you sure?' } %></td>

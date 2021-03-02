@@ -10,19 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_27_184433) do
+ActiveRecord::Schema.define(version: 2021_03_01_215658) do
 
   create_table "reqs", force: :cascade do |t|
+    t.date "start_time"
+    t.date "completion_time"
     t.string "name"
+    t.string "email"
     t.string "title"
-    t.float "cost"
+    t.string "office_symbol"
+    t.string "work_phone_number"
+    t.string "is_18SA_or_F6790?"
     t.string "group"
     t.string "unit"
     t.string "pec"
-    t.string "mop"
-    t.string "poc"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
+    t.string "rccc"
+    t.string "eeic"
+    t.string "method_of_purchase"
+    t.string "point_of_contact"
+    t.decimal "req_total"
+    t.decimal "funding_secured"
+    t.text "pitch"
+    t.text "problem"
+    t.text "solution"
+    t.text "solution_progress"
+    t.text "mission_impact"
+    t.text "current_working_solution"
+    t.text "investment_vs_workaround"
+    t.boolean "attempted_self_help"
   end
 
 end

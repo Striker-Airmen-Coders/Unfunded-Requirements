@@ -12,7 +12,7 @@
 
 <p>
   <strong>Cost:</strong>
-  <%= @req.cost %>
+  <%= @req.req_total %>
 </p>
 
 <p>
@@ -31,13 +31,8 @@
 </p>
 
 <p>
-  <strong>Mop:</strong>
-  <%= @req.mop %>
-</p>
-
-<p>
   <strong>Poc:</strong>
-  <%= @req.poc %>
+  <%= @req.point_of_contact %>
 </p>
 
 <%= link_to 'Edit', edit_req_path(@req) %> |
