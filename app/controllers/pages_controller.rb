@@ -1,8 +1,11 @@
 class PagesController < ApplicationController
+  before_action :authenticate_user!
+  skip_before_action :authenticate_user!, only: [:home, :type, :fma, :unit]
   def home
   end
 
-  def login
+  def type
+    
   end
 
   def fma
