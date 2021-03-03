@@ -1,3 +1,5 @@
+require 'date'
+
 class ReqsController < ApplicationController
   before_action :set_req, only: %i[ show edit update destroy ]
 
@@ -64,6 +66,31 @@ class ReqsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def req_params
-      params.require(:req).permit(:name, :title, :cost, :group, :unit, :pec, :mop, :poc)
+      params.require(:req).permit(:name, 
+                                  :title,
+                                  :email,
+                                  :office_symbol,
+                                  :work_phone_number,
+                                  :req_total,
+                                  :funding_secured,
+                                  :start_time, 
+                                  :completion_time,
+                                  :method_of_purchase,
+                                  :pitch,
+                                  :problem,
+                                  :solution,
+                                  :solution_progress,
+                                  :mission_impact,
+                                  :attempted_self_help,
+                                  :current_working_solution,
+                                  :investment_vs_workaround,
+                                  :is_18SA_or_F6790?, 
+                                  :group, 
+                                  :unit, 
+                                  :pec,
+                                  :rccc,
+                                  :eeic,
+                                  :point_of_contact 
+                                  )
     end
 end

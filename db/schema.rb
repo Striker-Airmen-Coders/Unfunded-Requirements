@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_01_215658) do
+ActiveRecord::Schema.define(version: 2021_03_03_183451) do
 
   create_table "reqs", force: :cascade do |t|
-    t.date "start_time"
-    t.date "completion_time"
+    t.datetime "start_time"
+    t.datetime "completion_time"
     t.string "name"
     t.string "email"
     t.string "title"
