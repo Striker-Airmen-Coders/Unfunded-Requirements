@@ -1,0 +1,142 @@
+<%= form_with(model: @req) do |form| %>
+  <% if req.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(req.errors.count, "error") %> prohibited this req from being saved:</h2>
+
+      <ul>
+        <% req.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email %>
+  </div>
+
+  <div class="field">
+    <%= form.label "Office Symbol" %>
+    <%= form.text_field :office_symbol %>
+  </div>
+
+  <div class="field">
+    <%= form.label "Work Phone Number" %>
+    <%= form.text_field :work_phone_number %>
+  </div>
+
+  <div class="field">
+    <%= form.label "Start Date" %>
+    <%= form.date_select :start_time %>
+  </div>
+
+  <div class="field">
+    <%= form.label "Completion Date" %>
+    <%= form.date_select :completion_time %>
+  </div>
+
+  <div class="field">
+    <%= form.label "Total Cost" %>
+    <%= form.text_field :req_total %>
+  </div>
+
+  <div class="field">
+    <%= form.label "Funding Secured So Far" %>
+    <%= form.text_field :funding_secured %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pitch %>
+    <%= form.text_field :pitch %>
+  </div>
+
+  <div class="field">
+    <%= form.label "Method of Purchase" %>
+    <%= form.text_field :method_of_purchase %>
+  </div>
+
+  <div class="field">
+    <%= form.label "What is the problem you are trying to solve?" %>
+    <%= form.text_field :problem %>
+  </div>
+
+  <div class="field">
+    <%= form.label "What is the solution to your problem?" %>
+    <%= form.text_field :solution %>
+  </div>
+
+  <div class="field">
+    <%= form.label "Where are you at on implementing your solution?" %>
+    <%= form.text_field :solution_progress %>
+  </div>
+
+  <div class="field">
+    <%= form.label "What is the mission impact of your problem?" %>
+    <%= form.text_field :mission_impact %>
+  </div>
+
+  <div class="field">
+    <%= form.label "Have your attempted to 'self-help' your problem?" %>
+    <%= form.select :attempted_self_help, [["Yes", true], ["No", false]] %>
+  </div>
+
+  <div class="field">
+    <%= form.label "How are you currently dealing with your problem? How are your resources/time being spent now?" %>
+    <%= form.text_field :current_working_solution %>
+  </div>
+
+  <div class="field">
+    <%= form.label "Why should money be invested in your project, rather than a workaround?" %>
+    <%= form.text_field :investment_vs_workaround %>
+  </div>
+
+  <div class="field">
+    <%= form.label "18SA or F6790?" %>
+    <%= form.text_field :is_18SA_or_FG790? %>
+  </div>
+
+  <div class="field">
+    <%= form.label :group %>
+    <%= form.text_field :group %>
+  </div>
+
+  <div class="field">
+    <%= form.label :unit %>
+    <%= form.text_field :unit %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pec %>
+    <%= form.text_field :pec %>
+  </div>
+
+  <div class="field">
+    <%= form.label "Point of Contact" %>
+    <%= form.text_field :point_of_contact %>
+  </div>
+
+  <div class="field">
+    <%= form.label :rccc %>
+    <%= form.text_field :rccc %>
+  </div>
+
+  <div class="field">
+    <%= form.label :eeic %>
+    <%= form.text_field :eeic %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

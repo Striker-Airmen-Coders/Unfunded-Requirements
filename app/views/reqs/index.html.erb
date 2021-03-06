@@ -1,0 +1,75 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Reqs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Title</th>
+      <th>Email</th>
+      <th>Office Symbol</th>
+      <th>Work Phone Number</th>
+      <th>Req Total</th>
+      <th>Funding Secured So Far</th>
+      <th>Start Date</th>
+      <th>Completion Date</th>
+      <th>Method of Purchase</th>
+      <th>Pitch</th>
+      <th>What is the problem you are trying to solve?</th>
+      <th>What is th solution to your problem?</th>
+      <th>Where are you at on implementing your solution</th>
+      <th>What is the mission impact of your problem</th>
+      <th>Have you attempted to "self-help" your problem?</th>
+      <th>How are you currenlty dealing with your problem? How are your resources and time being spent now?</th>
+      <th>Why should money be invested in your project, rather than using a workaround?</th>
+      <th>18SA or F6790?</th>
+      <th>Group</th>
+      <th>Unit</th>
+      <th>PEC</th>
+      <th>RCCC</th>
+      <th>EEIC</th>
+      <th>Point of Contact</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @reqs.each do |req| %>
+      <tr>
+        <td><%= req.name %></td>
+        <td><%= req.title %></td>
+        <td><%= req.email %></td>
+        <td><%= req.office_symbol %></td>
+        <td><%= req.work_phone_number %></td>
+        <td><%= req.req_total %></td>
+        <td><%= req.funding_secured %></td>
+        <td><%= req.start_time %></td>
+        <td><%= req.completion_time %></td>
+        <td><%= req.method_of_purchase %></td>
+        <td><%= req.pitch %></td>
+        <td><%= req.problem %></td>
+        <td><%= req.solution %></td>
+        <td><%= req.solution_progress %></td>
+        <td><%= req.mission_impact %></td>
+        <td><%= req.attempted_self_help %></td>
+        <td><%= req.current_working_solution %></td>
+        <td><%= req.investment_vs_workaround %></td>
+        <td><%= req.is_18SA_or_F6790? %></td>
+        <td><%= req.group %></td>
+        <td><%= req.unit %></td>
+        <td><%= req.pec %></td>
+        <td><%= req.rccc %></td>
+        <td><%= req.eeic %></td>
+        <td><%= req.point_of_contact %></td>
+        <td><%= link_to 'Show', req %></td>
+        <td><%= link_to 'Edit', edit_req_path(req) %></td>
+        <td><%= link_to 'Destroy', req, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Req', new_req_path %>

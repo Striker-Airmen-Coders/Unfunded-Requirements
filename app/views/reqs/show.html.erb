@@ -1,0 +1,130 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @req.name %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @req.title %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @req.email %>
+</p>
+
+<p>
+  <strong>Office Symbol:</strong>
+  <%= @req.office_symbol %>
+</p>
+
+<p>
+  <strong>Work Phone Number:</strong>
+  <%= @req.work_phone_number %>
+</p>
+
+<p>
+  <strong>Req Total:</strong>
+  <%= @req.req_total %>
+</p>
+
+<p>
+  <strong>Funding Secured So Far:</strong>
+  <%= @req.funding_secured %>
+</p>
+
+<p>
+  <strong>Start Date</strong>
+  <%= @req.start_time %>
+</p>
+
+<p>
+  <strong>Completion Date</strong>
+  <%= @req.completion_time %>
+</p>
+
+<p>
+  <strong>Method of Purchase:</strong>
+  <%= @req.method_of_purchase %>
+</p>
+
+<p>
+  <strong>Pitch:</strong>
+  <%= @req.pitch %>
+</p>
+
+<p>
+  <strong>What is the problem you are trying to solve?</strong>
+  <%= @req.problem %>
+</p>
+
+<p>
+  <strong>What is the solution to your problem?</strong>
+  <%= @req.solution %>
+</p>
+
+<p>
+  <strong>Where are you at on implementing your solution?</strong>
+  <%= @req.solution_progress %>
+</p>
+
+<p>
+  <strong>What is the mission impact of your problem?</strong>
+  <%= @req.mission_impact %>
+</p>
+
+<p>
+  <strong>Have you attempted to "self-help" your problem?</strong>
+  <%= @req.attempted_self_help %>
+</p>
+
+<p>
+  <strong>How are you currently dealing with your problem? How are your resources and time being spent now?</strong>
+  <%= @req.current_working_solution %>
+</p>
+
+<p>
+  <strong>Why should money be invested in your project, rather than using a workaround?</strong>
+  <%= @req.investment_vs_workaround %>
+</p>
+
+<p>
+  <strong>18SA or F6790?</strong>
+  <%= @req.is_18SA_or_F6790? %>
+</p>
+
+
+<p>
+  <strong>Group:</strong>
+  <%= @req.group %>
+</p>
+
+<p>
+  <strong>Unit:</strong>
+  <%= @req.unit %>
+</p>
+
+<p>
+  <strong>PEC:</strong>
+  <%= @req.pec %>
+</p>
+
+<p>
+  <strong>RCCC</strong>
+  <%= @req.rccc %>
+</p>
+
+<p>
+  <strong>EEIC</strong>
+  <%= @req.eeic %>
+</p>
+
+<p>
+  <strong>Point of Contact:</strong>
+  <%= @req.point_of_contact %>
+</p>
+
+<%= link_to 'Edit', edit_req_path(@req) %> |
+<%= link_to 'Back', reqs_path %>
