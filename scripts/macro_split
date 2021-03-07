@@ -1,0 +1,37 @@
+# This macro will take the csv output and transform it into the format that is expected of a seedfile. Does not add the headers.
+
+"i{Req id: \<Esc>
+j0istart_time: \<Esc>
+j0icompletion_time: \<Esc>
+j0iemail: \<Esc>
+j0iname: 0\<BS>\<Esc>
+0d$kPa\<CR>\<Esc>
+jddioffice_symbol: \<Esc>
+j0iwork_phone_number: \<Esc>
+j0d$kkO\<Esc>
+p0ititle: \<Esc>
+jjjddireq_total: \<Esc>
+j0ifunding_secured: j\<BS>\<Esc>
+j0ipitch: \<Esc>
+j0iproblem: \<Esc>
+j0isolution: \<Esc>
+j0isolution_progress: \<Esc>
+j0imission_impact: \<Esc>
+j0iattempted_self_help: \<Esc>
+j0icurrent_working_solution: \<Esc>
+j0iinvestment_vs_workaround: \<Esc>
+j0iis_18SA_or_F6790?: \<Esc>
+0j0igroup: \<Esc>
+j0iunit: \<Esc>
+j0ipec: \<Esc>
+0j0irccc: \<Esc>
+j0ieeic: \<Esc>
+j0imethod_of_purchase: \<Esc>
+j0ipoint_of_contact: \<Esc>
+7k07d$10kO\<Esc>
+pkdd17jd$11kO\<Esc>
+jo\<Esc>
+p\<Esc>
+kkdd9jddjjpkdd$i\<Del>\<Esc>
+ji},\<CR>\<Esc>
+j"

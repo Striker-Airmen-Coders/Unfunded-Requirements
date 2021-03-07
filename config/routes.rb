@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :reqs
   devise_for :users
   get 'pages/type', to: "pages#type", as: "type"
   get 'pages/fma', to: "pages#fma", as: "fma"
