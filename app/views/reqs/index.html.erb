@@ -2,7 +2,7 @@
 
 <h1 class="text-nord5"> Reqs | <%= link_to 'New Req', new_req_path%> </h1>
 
-<table class="bg-nord0">
+<table class="text-nord5 border-collapse border border-nord5">
   <thead>
     <tr>
       <th>Name</th>
@@ -62,9 +62,15 @@
         <td><%= req.rccc %></td>
         <td><%= req.eeic %></td>
         <td><%= req.point_of_contact %></td>
-        <td><%= link_to 'Show', req %></td>
-        <td><%= link_to 'Edit', edit_req_path(req) %></td>
-        <td><%= link_to 'Destroy', req, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><button class="bg-nord5 text-nord0 margin 4px">
+            <%= link_to 'Show', req %></button></td>
+        <td><button class="bg-nord5 text-nord0 margin 4px">
+            <%= link_to 'Edit', edit_req_path(req) %>
+        </button></td>
+        <td><button class="bg-nord5 text-nord0 margin 4px">
+            <%= link_to 'Destroy', req, method: :delete, data: { 
+              confirm: 'Are you sure?' } %>
+        </button></td>
       </tr>
     <% end %>
   </tbody>

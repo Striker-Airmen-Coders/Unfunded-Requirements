@@ -1,55 +1,63 @@
 <p id="notice"><%= notice %></p>
+<h1 class="flex flex-row justify-between between space-x-16 px-8 py-8 bg-nord5 text-nord0 w-full">
+  <div><%= link_to 'Back', reqs_path %></div>
+  <div><%= @req.title %> | $<%= @req.funding_secured %>/$<%= @req.req_total %></div>
+  <div><%= link_to 'Edit', edit_req_path(@req) %> </div>
+</h1>
+<div class="flex flex-row justify-between space-x-2 w-full bg-nord5 text-nord0">
+  <div class="flex flex-col">
+    <strong>Owner</strong>
+    <div><%= @req.name %></div>
+    <div><%= @req.office_symbol %></div>
+    <div><%= @req.work_phone_number %></div>
+    <div><%= @req.email %></div>
+  </div>
+  <div class="grid grid-cols-3 md:grid-cols-6 bg-nord5 text-nord0">
+    <div>Method of Purchase: <%= @req.method_of_purchase %></div>
+    <div><%= @req.is_18SA_or_F6790? %></div> 
+    <div>Group: <%= @req.group %></div> 
+    <div>Unit: <%= @req.unit %></div> 
+    <div>Line: <%= @req.pec %> <%= @req.rccc %> <%= @req.eeic %></div> 
+    <div>POC: <%= @req.point_of_contact %></div> 
+  </div>
+</div>
+  </p>
 
 <p>
-  <strong>Name:</strong>
-  <%= @req.name %>
+  <strong>18SA or F6790?</strong>
+  
 </p>
 
 <p>
-  <strong>Title:</strong>
-  <%= @req.title %>
+  <strong>Group:</strong>
+  
 </p>
 
 <p>
-  <strong>Email:</strong>
-  <%= @req.email %>
+  <strong>Unit:</strong>
+  
 </p>
 
 <p>
-  <strong>Office Symbol:</strong>
-  <%= @req.office_symbol %>
+  <strong>PEC:</strong>
+  
 </p>
 
 <p>
-  <strong>Work Phone Number:</strong>
-  <%= @req.work_phone_number %>
+  <strong>RCCC</strong>
+  
 </p>
 
 <p>
-  <strong>Req Total:</strong>
-  <%= @req.req_total %>
+  <strong>EEIC</strong>
+  
 </p>
 
 <p>
-  <strong>Funding Secured So Far:</strong>
-  <%= @req.funding_secured %>
-</p>
+  <strong>Point of Contact:</strong>
 
-<p>
-  <strong>Start Date</strong>
-  <%= @req.start_time %>
 </p>
-
-<p>
-  <strong>Completion Date</strong>
-  <%= @req.completion_time %>
-</p>
-
-<p>
-  <strong>Method of Purchase:</strong>
-  <%= @req.method_of_purchase %>
-</p>
-
+</div>
 <p>
   <strong>Pitch:</strong>
   <%= @req.pitch %>
@@ -90,41 +98,3 @@
   <%= @req.investment_vs_workaround %>
 </p>
 
-<p>
-  <strong>18SA or F6790?</strong>
-  <%= @req.is_18SA_or_F6790? %>
-</p>
-
-
-<p>
-  <strong>Group:</strong>
-  <%= @req.group %>
-</p>
-
-<p>
-  <strong>Unit:</strong>
-  <%= @req.unit %>
-</p>
-
-<p>
-  <strong>PEC:</strong>
-  <%= @req.pec %>
-</p>
-
-<p>
-  <strong>RCCC</strong>
-  <%= @req.rccc %>
-</p>
-
-<p>
-  <strong>EEIC</strong>
-  <%= @req.eeic %>
-</p>
-
-<p>
-  <strong>Point of Contact:</strong>
-  <%= @req.point_of_contact %>
-</p>
-
-<%= link_to 'Edit', edit_req_path(@req) %> |
-<%= link_to 'Back', reqs_path %>
