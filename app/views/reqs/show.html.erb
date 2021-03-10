@@ -4,7 +4,42 @@
   <div><%= @req.title %> | $<%= @req.funding_secured %>/$<%= @req.req_total %></div>
   <div><%= link_to 'Edit', edit_req_path(@req) %> </div>
 </h1>
-<div class="flex flex-row justify-between space-x-2 w-full bg-nord5 text-nord0">
+<div class="grid grid-cols-1 md:grid-cols-2 text-nord5 px-4 py-4 space-x-2 space-y-2">
+  <div>
+    <strong>Pitch:</strong>
+    <%= @req.pitch %>
+  </div>
+  <div>
+    <strong>What is the problem you are trying to solve?</strong>
+    <%= @req.problem %>
+  </div>
+  <div>
+    <strong>What is the solution to your problem?</strong>
+    <%= @req.solution %>
+  </div>
+  <div>
+    <strong>Where are you at on implementing your solution?</strong>
+    <%= @req.solution_progress %>
+  </div>
+  <div>
+    <strong>What is the mission impact of your problem?</strong>
+    <%= @req.mission_impact %>
+  </div>
+  <div>
+    <strong>Have you attempted to "self-help" your problem?</strong>
+    <%= @req.attempted_self_help %>
+  </div>
+  <div>
+    <strong>How are you currently dealing with your problem? How are your resources and time being spent now?</strong>
+    <%= @req.current_working_solution %>
+  </div>
+  <div>
+    <strong>Why should money be invested in your project, rather than using a workaround?</strong>
+    <%= @req.investment_vs_workaround %>
+  </div>
+</div>
+
+<div class="flex flex-row justify-between space-x-12 px-4 py-4 w-full bg-nord5 text-nord0">
   <div class="flex flex-col">
     <strong>Owner</strong>
     <div><%= @req.name %></div>
@@ -12,8 +47,8 @@
     <div><%= @req.work_phone_number %></div>
     <div><%= @req.email %></div>
   </div>
-  <div class="grid grid-cols-3 md:grid-cols-6 bg-nord5 text-nord0">
-    <div>Method of Purchase: <%= @req.method_of_purchase %></div>
+  <div class="grid grid-cols-3 md:grid-cols-6 justify-between space-y-4 content-between bg-nord5 text-nord0">
+    <div>MoP: <%= @req.method_of_purchase %></div>
     <div><%= @req.is_18SA_or_F6790? %></div> 
     <div>Group: <%= @req.group %></div> 
     <div>Unit: <%= @req.unit %></div> 
@@ -21,80 +56,4 @@
     <div>POC: <%= @req.point_of_contact %></div> 
   </div>
 </div>
-  </p>
-
-<p>
-  <strong>18SA or F6790?</strong>
-  
-</p>
-
-<p>
-  <strong>Group:</strong>
-  
-</p>
-
-<p>
-  <strong>Unit:</strong>
-  
-</p>
-
-<p>
-  <strong>PEC:</strong>
-  
-</p>
-
-<p>
-  <strong>RCCC</strong>
-  
-</p>
-
-<p>
-  <strong>EEIC</strong>
-  
-</p>
-
-<p>
-  <strong>Point of Contact:</strong>
-
-</p>
-</div>
-<p>
-  <strong>Pitch:</strong>
-  <%= @req.pitch %>
-</p>
-
-<p>
-  <strong>What is the problem you are trying to solve?</strong>
-  <%= @req.problem %>
-</p>
-
-<p>
-  <strong>What is the solution to your problem?</strong>
-  <%= @req.solution %>
-</p>
-
-<p>
-  <strong>Where are you at on implementing your solution?</strong>
-  <%= @req.solution_progress %>
-</p>
-
-<p>
-  <strong>What is the mission impact of your problem?</strong>
-  <%= @req.mission_impact %>
-</p>
-
-<p>
-  <strong>Have you attempted to "self-help" your problem?</strong>
-  <%= @req.attempted_self_help %>
-</p>
-
-<p>
-  <strong>How are you currently dealing with your problem? How are your resources and time being spent now?</strong>
-  <%= @req.current_working_solution %>
-</p>
-
-<p>
-  <strong>Why should money be invested in your project, rather than using a workaround?</strong>
-  <%= @req.investment_vs_workaround %>
-</p>
 
