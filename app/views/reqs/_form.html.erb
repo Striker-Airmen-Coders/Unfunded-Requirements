@@ -10,10 +10,10 @@
       </ul>
     </div>
   <% end %>
-
+<div class="bg-nord0">
   <div class="field">
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, class: "bg-nord5"%>
   </div>
 
   <div class="field">
@@ -37,16 +37,6 @@
   </div>
 
   <div class="field">
-    <%= form.label "Start Date" %>
-    <%= form.date_select :start_time %>
-  </div>
-
-  <div class="field">
-    <%= form.label "Completion Date" %>
-    <%= form.date_select :completion_time %>
-  </div>
-
-  <div class="field">
     <%= form.label "Total Cost" %>
     <%= form.text_field :req_total %>
   </div>
@@ -55,7 +45,7 @@
     <%= form.label "Funding Secured So Far" %>
     <%= form.text_field :funding_secured %>
   </div>
-
+</div>
   <div class="field">
     <%= form.label :pitch %>
     <%= form.text_field :pitch %>
