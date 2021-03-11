@@ -10,50 +10,90 @@
       </ul>
     </div>
   <% end %>
-<div class="bg-nord0">
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, class: "bg-nord5"%>
+<h1 class="flex flex-row justify-between between space-x-16 px-8 py-8 bg-nord5 text-nord0 w-full">                                                                                  
+  <div><%= link_to 'Back', reqs_path %></div>
+  <div><%= @req.title %> | $<%= @req.funding_secured %>/$<%= @req.req_total %></div>
+  <div>You are currently editing</div>
+</h1>
+<div id="fma" class="grid grid-cols-1 md:grid-cols-2 px-4 py-4 space-x-2 space-y-2 bg-color-nord5">
+  <div id="user info" class="grid grid-cols-2 bg-nord5 space-x-2 space-y-2">
+   <div class="text-nord0">Requirement Owner Information</div> 
+   <div class="field">
+      <%= form.label :name, class: "bg-nord5 text-nord0" %>
+      <%= form.text_field :name, class: "bg-nord0 text-nord5"%>
+   </div>
+    <div class="field">
+      <%= form.label :email %>
+      <%= form.text_field :email %>
+    </div>
+
+    <div class="field">
+      <%= form.label "Office Symbol" %>
+      <%= form.text_field :office_symbol %>
+    </div>
+
+    <div class="field">
+      <%= form.label "Work Phone Number" %>
+      <%= form.text_field :work_phone_number %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
-
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
-  </div>
-
-  <div class="field">
-    <%= form.label "Office Symbol" %>
-    <%= form.text_field :office_symbol %>
-  </div>
-
-  <div class="field">
-    <%= form.label "Work Phone Number" %>
-    <%= form.text_field :work_phone_number %>
-  </div>
-
-  <div class="field">
-    <%= form.label "Total Cost" %>
-    <%= form.text_field :req_total %>
-  </div>
-
-  <div class="field">
-    <%= form.label "Funding Secured So Far" %>
-    <%= form.text_field :funding_secured %>
+  <div id="about req" class="grid grid-cols-2 bg-nord5 space-x-2 space-y-2">
+    <div class="field">
+      <%= form.label :title %>
+      <%= form.text_field :title %>
+    </div>
+    <div class="field">
+      <%= form.label "Total Cost" %>
+      <%= form.text_field :req_total %>
+    </div>
+    <div class="field">
+      <%= form.label "Funding Secured So Far" %>
+      <%= form.text_field :funding_secured %>
+    </div>
+    <div class="field">
+      <%= form.label :group %>
+      <%= form.text_field :group %>
+    </div>
+    <div class="field">
+      <%= form.label :unit %>
+      <%= form.text_field :unit %>
+    </div>
+    <div class="field">
+      <%= form.label "Point of Contact" %>
+      <%= form.text_field :point_of_contact %>
+    </div>
   </div>
 </div>
+<div class="w-full">
+  <div id"Accounting" class="grid grid-cols-2 md:grid-cols-5">
+     <div class="field">
+        <%= form.label "18SA or F6790?" %>
+        <%= form.text_field :is_18SA_or_FG790? %>
+     </div>
+     <div class="field">
+        <%= form.label "Method of Purchase" %>
+        <%= form.text_field :method_of_purchase %>
+     </div>
+     <div class="field">
+        <%= form.label :pec %>
+        <%= form.text_field :pec %>
+     </div>
+     <div class="field">
+        <%= form.label :rccc %>
+        <%= form.text_field :rccc %>
+     </div>
+
+     <div class="field">
+        <%= form.label :eeic %>
+        <%= form.text_field :eeic %>
+     </div>
+  </div>
+</div>
+  Background
   <div class="field">
     <%= form.label :pitch %>
     <%= form.text_field :pitch %>
-  </div>
-
-  <div class="field">
-    <%= form.label "Method of Purchase" %>
-    <%= form.text_field :method_of_purchase %>
   </div>
 
   <div class="field">
@@ -90,42 +130,7 @@
     <%= form.label "Why should money be invested in your project, rather than a workaround?" %>
     <%= form.text_field :investment_vs_workaround %>
   </div>
-
-  <div class="field">
-    <%= form.label "18SA or F6790?" %>
-    <%= form.text_field :is_18SA_or_FG790? %>
-  </div>
-
-  <div class="field">
-    <%= form.label :group %>
-    <%= form.text_field :group %>
-  </div>
-
-  <div class="field">
-    <%= form.label :unit %>
-    <%= form.text_field :unit %>
-  </div>
-
-  <div class="field">
-    <%= form.label :pec %>
-    <%= form.text_field :pec %>
-  </div>
-
-  <div class="field">
-    <%= form.label "Point of Contact" %>
-    <%= form.text_field :point_of_contact %>
-  </div>
-
-  <div class="field">
-    <%= form.label :rccc %>
-    <%= form.text_field :rccc %>
-  </div>
-
-  <div class="field">
-    <%= form.label :eeic %>
-    <%= form.text_field :eeic %>
-  </div>
-
+  
   <div class="actions">
     <%= form.submit %>
   </div>
