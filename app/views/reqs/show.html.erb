@@ -4,42 +4,42 @@
   <div><%= @req.title %> | $<%= @req.funding_secured %>/$<%= @req.req_total %></div>
   <div><%= link_to 'Edit', edit_req_path(@req) %> </div>
 </h1>
-<div class="grid grid-cols-1 md:grid-cols-2 text-nord5 px-4 py-4 space-x-2 space-y-2">
-  <div>
+<div class="grid grid-cols-1 md:grid-cols-2 text-nord5 px-4 py-4 gap-2">
+  <div class="flex flex-col">
     <strong>Pitch:</strong>
     <%= @req.pitch %>
   </div>
-  <div>
+  <div class="flex flex-col">
     <strong>What is the problem you are trying to solve?</strong>
     <%= @req.problem %>
   </div>
-  <div>
+  <div class="flex flex-col">
     <strong>What is the solution to your problem?</strong>
     <%= @req.solution %>
   </div>
-  <div>
+  <div class="flex flex-col">
     <strong>Where are you at on implementing your solution?</strong>
     <%= @req.solution_progress %>
   </div>
-  <div>
+  <div class="flex flex-col">
     <strong>What is the mission impact of your problem?</strong>
     <%= @req.mission_impact %>
   </div>
-  <div>
+  <div class="flex flex-col">
     <strong>Have you attempted to "self-help" your problem?</strong>
     <%= @req.attempted_self_help %>
   </div>
-  <div>
+  <div class="flex flex-col">
     <strong>How are you currently dealing with your problem? How are your resources and time being spent now?</strong>
     <%= @req.current_working_solution %>
   </div>
-  <div>
+  <div class="flex flex-col">
     <strong>Why should money be invested in your project, rather than using a workaround?</strong>
     <%= @req.investment_vs_workaround %>
   </div>
 </div>
 
-<div class="flex flex-row justify-between space-x-12 px-4 py-4 w-full bg-nord5 text-nord0">
+<div class="flex flex-row justify-between gap-12 px-4 py-4 w-full bg-nord5 text-nord0">
   <div class="flex flex-col">
     <strong>Owner</strong>
     <div><%= @req.name %></div>
@@ -47,13 +47,33 @@
     <div><%= @req.work_phone_number %></div>
     <div><%= @req.email %></div>
   </div>
-  <div class="grid grid-cols-3 md:grid-cols-6 justify-between space-y-4 content-between bg-nord5 text-nord0">
-    <div>MoP: <%= @req.method_of_purchase %></div>
-    <div><%= @req.is_18SA_or_F6790? %></div> 
-    <div>Group: <%= @req.group %></div> 
-    <div>Unit: <%= @req.unit %></div> 
-    <div>Line: <%= @req.pec %> <%= @req.rccc %> <%= @req.eeic %></div> 
-    <div>POC: <%= @req.point_of_contact %></div> 
+  <div class="grid grid-cols-3 md:grid-cols-6 justify-between self-center gap-4 content-between bg-nord5 text-nord0">
+    <div class="field flex flex-col">
+      <strong>MoP:</strong>
+      <%= @req.method_of_purchase %>
+    </div>
+    <div class="field flex flex-col">
+      <strong>2BW/IMSC</strong>
+      <%= @req.is_18SA_or_F6790? %>
+    </div> 
+    <div class="field flex flex-col">
+      <strong>Group:</strong>
+      <%= @req.group %>
+    </div> 
+    <div class="field flex flex-col">
+      <strong>Unit:</strong>
+      <%= @req.unit %>
+    </div> 
+    <div class="field flex flex-col">
+      <strong>Line:</strong> 
+      <%= @req.pec %>
+      <%= @req.rccc %>
+      <%= @req.eeic %>
+    </div> 
+    <div class="field flex flex-col">
+      <strong>POC:</strong>
+      <%= @req.point_of_contact %>
+    </div> 
   </div>
 </div>
 
