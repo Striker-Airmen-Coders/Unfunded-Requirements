@@ -15,7 +15,7 @@
   <div><%= @req.title %> | $<%= @req.funding_secured %>/$<%= @req.req_total %></div>
   <div>You are currently <strong class="text-nord12">editing</strong></div>
 </h1>
-<div id="fma" class="grid grid-cols-1 md:grid-cols-2 px-4 py-4 space-x-2 bg-color-nord5">
+<div id="fma" class="grid grid-cols-1 md:grid-cols-2 px-8 py-8 bg-color-nord5">
   <div id="user info" class="grid grid-cols-2 bg-nord5 px-4 py-4 space-x-2 space-y-2">
    <div class="text-nord0">Owner Information</div> 
    <div></div>
@@ -65,8 +65,8 @@
     </div>
   </div>
 </div>
-<div class="px-4 py-4 space-y-2 space-x-2 w-full">
-  <div id"Accounting" class="grid grid-cols-2 md:grid-cols-5 space-x-2 px-4 py-4 bg-nord5 ">
+<div class="px-8 py-2  w-full">
+  <div id"Accounting" class="grid grid-cols-2 md:grid-cols-5 gap-2 px-4 py-4 bg-nord5 ">
      <div class="field flex flex-col">
         <%= form.label "18SA or F6790?", class: "bg-nord5 text-nord0" %>
         <%= form.text_field :is_18SA_or_FG790?, class: "bg-nord0 text-nord5" %>
