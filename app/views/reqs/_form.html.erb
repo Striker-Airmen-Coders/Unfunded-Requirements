@@ -66,7 +66,7 @@
   </div>
 </div>
 <div class="px-8 py-2  w-full">
-  <div id"Accounting" class="grid grid-cols-2 md:grid-cols-5 gap-2 px-4 py-4 bg-nord5 ">
+  <div id"Accounting" class="grid grid-cols-2 md:grid-cols-5 gap-2 px-4 py-4 bg-nord5">
      <div class="field flex flex-col">
         <%= form.label "18SA or F6790?", class: "bg-nord5 text-nord0" %>
         <%= form.text_field :is_18SA_or_FG790?, class: "bg-nord0 text-nord5" %>
@@ -89,48 +89,63 @@
      </div>
   </div>
 </div>
-  Background
-  <div class="field">
-    <%= form.label :pitch %>
-    <%= form.text_field :pitch %>
+<div class="px-8 py-2 w-full">
+  <div id="background" class="grid grid-cols-1 md:grid-cols-2 gap-2 px-4 py-4 bg-nord5">
+    <div class="text-nord0">Background</div>
+    <div class="field">
+      <%= form.label "Have you attempted to 'self-help' your problem?", 
+        class: "bg-nord5 text-nord0" %>
+      <%= form.select :attempted_self_help, [["Yes", true], ["No", false]] %>
+    </div>
+    <div class="field">
+      <%= form.label :pitch, class: "bg-nord5 text-nord0" %>
+      <%= form.text_area :pitch, rows: 6, style:'width:100%;', 
+        class: "bg-nord0 text-nord5" %>
+    </div>
+    <div class="field">
+      <%= form.label "What is the problem you are trying to solve?", 
+        class: "bg-nord5 text-nord0" %>
+      <%= form.text_area :problem, rows: 6, style:'width:100%;', 
+        class: "bg-nord0 text-nord5" %>
+    </div>
+    <div class="field">
+      <%= form.label "What is the solution to your problem?", 
+        class: "bg-nord5 text-nord0"  %>
+      <%= form.text_area :solution, rows: 6, style:'width:100%;', 
+        class: "bg-nord0 text-nord5" %>
+    </div>
+    <div class="field">
+      <%= form.label "Where are you at on implementing your solution?", 
+        class: "bg-nord5 text-nord0"  %>
+      <%= form.text_area :solution_progress, rows: 6, style:'width:100%;', 
+        class: "bg-nord0 text-nord5" %>
+    </div>
+    <div class="field">
+      <%= form.label "What is the mission impact of your problem?", 
+        class: "bg-nord5 text-nord0"  %>
+      <%= form.text_area :mission_impact, rows: 6, style:'width:100%;', 
+        class: "bg-nord0 text-nord5" %>
+    </div>
+    <div class="field">
+      <%= form.label "How are you currently dealing with your problem? How are your resources/time being spent now?", 
+        class: "bg-nord5 text-nord0"  %>
+      <%= form.text_area :current_working_solution, rows: 6, style:'width:100%;', 
+        class: "bg-nord0 text-nord5" %>
+    </div>
+    <div class="field">
+      <%= form.label "Why should money be invested in your project, rather than a workaround?", 
+        class: "bg-nord5 text-nord0"  %>
+      <%= form.text_area :investment_vs_workaround, rows: 6, style:'width:100%;', 
+        class: "bg-nord0 text-nord5" %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label "What is the problem you are trying to solve?" %>
-    <%= form.text_field :problem %>
-  </div>
-
-  <div class="field">
-    <%= form.label "What is the solution to your problem?" %>
-    <%= form.text_field :solution %>
-  </div>
-
-  <div class="field">
-    <%= form.label "Where are you at on implementing your solution?" %>
-    <%= form.text_field :solution_progress %>
-  </div>
-
-  <div class="field">
-    <%= form.label "What is the mission impact of your problem?" %>
-    <%= form.text_field :mission_impact %>
-  </div>
-
-  <div class="field">
-    <%= form.label "Have your attempted to 'self-help' your problem?" %>
-    <%= form.select :attempted_self_help, [["Yes", true], ["No", false]] %>
-  </div>
-
-  <div class="field">
-    <%= form.label "How are you currently dealing with your problem? How are your resources/time being spent now?" %>
-    <%= form.text_field :current_working_solution %>
-  </div>
-
-  <div class="field">
-    <%= form.label "Why should money be invested in your project, rather than a workaround?" %>
-    <%= form.text_field :investment_vs_workaround %>
-  </div>
-  
+</div>
+<div class="flex flex-row justify-around px-8 py-8 ">
+  <button class="px-4 py-4 bg-nord11" >
+    <%= link_to 'Abandon', reqs_path %>
+  </button>
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit :class => 'px-4 py-4 bg-nord14' %>
   </div>
+</div>
 <% end %>
