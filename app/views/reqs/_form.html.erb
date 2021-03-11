@@ -15,7 +15,7 @@
   <div><%= @req.title %> | $<%= @req.funding_secured %>/$<%= @req.req_total %></div>
   <div>You are currently <strong class="text-nord12">editing</strong></div>
 </h1>
-<div id="fma" class="grid grid-cols-1 md:grid-cols-2 px-4 py-4 space-y-2 space-x-2 bg-color-nord5">
+<div id="fma" class="grid grid-cols-1 md:grid-cols-2 px-4 py-4 space-x-2 bg-color-nord5">
   <div id="user info" class="grid grid-cols-2 bg-nord5 px-4 py-4 space-x-2 space-y-2">
    <div class="text-nord0">Owner Information</div> 
    <div></div>
@@ -27,18 +27,15 @@
       <%= form.label :email, class: "bg-nord5 text-nord0" %>
       <%= form.text_field :email, class: "bg-nord0 text-nord5" %>
     </div>
-
     <div class="field flex flex-col">
       <%= form.label "Office Symbol", class: "bg-nord5 text-nord0" %>
       <%= form.text_field :office_symbol, class: "bg-nord0 text-nord5" %>
     </div>
-
     <div class="field flex flex-col">
       <%= form.label "Work Phone Number", class: "bg-nord5 text-nord0" %>
       <%= form.text_field :work_phone_number, class: "bg-nord0 text-nord5" %>
     </div>
   </div>
-
   <div id="about req" class="grid grid-cols-2 bg-nord5 px-4 py-4 space-x-2 space-y-2">
     <div class="text-nord0">Requirement Information</div> 
     <div></div>
@@ -68,28 +65,27 @@
     </div>
   </div>
 </div>
-<div class="w-full">
-  <div id"Accounting" class="grid grid-cols-2 md:grid-cols-5">
-     <div class="field">
-        <%= form.label "18SA or F6790?" %>
-        <%= form.text_field :is_18SA_or_FG790? %>
+<div class="px-4 py-4 space-y-2 space-x-2 w-full">
+  <div id"Accounting" class="grid grid-cols-2 md:grid-cols-5 space-x-2 px-4 py-4 bg-nord5 ">
+     <div class="field flex flex-col">
+        <%= form.label "18SA or F6790?", class: "bg-nord5 text-nord0" %>
+        <%= form.text_field :is_18SA_or_FG790?, class: "bg-nord0 text-nord5" %>
      </div>
-     <div class="field">
-        <%= form.label "Method of Purchase" %>
-        <%= form.text_field :method_of_purchase %>
+     <div class="field flex flex-col">
+        <%= form.label "Method of Purchase", class: "bg-nord5 text-nord0" %>
+        <%= form.text_field :method_of_purchase, class: "bg-nord0 text-nord5" %>
      </div>
-     <div class="field">
-        <%= form.label :pec %>
-        <%= form.text_field :pec %>
+     <div class="field flex flex-col">
+        <%= form.label :pec, class: "bg-nord5 text-nord0" %>
+        <%= form.text_field :pec, class: "bg-nord0 text-nord5" %>
      </div>
-     <div class="field">
-        <%= form.label :rccc %>
-        <%= form.text_field :rccc %>
+     <div class="field flex flex-col">
+        <%= form.label :rccc, class: "bg-nord5 text-nord0" %>
+        <%= form.text_field :rccc, class: "bg-nord0 text-nord5" %>
      </div>
-
-     <div class="field">
-        <%= form.label :eeic %>
-        <%= form.text_field :eeic %>
+     <div class="field flex flex-col">
+        <%= form.label :eeic, class: "bg-nord5 text-nord0" %>
+        <%= form.text_field :eeic, class: "bg-nord0 text-nord5" %>
      </div>
   </div>
 </div>
