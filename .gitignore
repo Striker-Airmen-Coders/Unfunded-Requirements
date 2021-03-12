@@ -41,3 +41,8 @@ yarn-debug.log*
 
 # Ignore the db/schema
 /db/schema.rb
+
+# ignore yarn and package files
+yarn.lock
+package-lock.json
+
