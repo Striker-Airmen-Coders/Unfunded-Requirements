@@ -2,10 +2,13 @@ require 'date'
 
 class ReqsController < ApplicationController
   before_action :set_req, only: %i[ show edit update destroy ]
+  
+  # Set up helper methods
+  helper_method :sort_column, :sort_direction
 
   # GET /reqs or /reqs.json
   def index
-    @reqs = Req.all
+      @reqs = Req.order(sort_column + " " + sort_direction)
   end
 
   # GET /reqs/1 or /reqs/1.json
@@ -92,5 +95,15 @@ class ReqsController < ApplicationController
                                   :eeic,
                                   :point_of_contact 
                                   )
+    end
+
+    # Sort column helper method
+    def sort_column
+      Req.column_names.include?(params[:sort]) ? params[:sort] : "req_total"
+    end
+
+    # Sort direction helper method
+    def sort_direction
+      %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
     end
 end
