@@ -1,44 +1,34 @@
 <p id="notice"><%= notice %></p>
-
-<h1 class="text-nord5"> Reqs | <%= link_to 'New Req', new_req_path%> </h1>
-
-<table class="text-nord5 border-collapse border border-nord5">
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th><%= sortable "req_total", "Req Total" %></th>
-      <th>Funding Secured So Far</th>
-      <th>Method of Purchase</th>
-      <th>18SA or F6790?</th>
-      <th>Group</th>
-      <th>Unit</th>
-      <th>Line</th>
+<table class="bg-nord5 text-nord0 table-auto w-full">
+  <thead  >
+    <tr class="bg-nord5 text-nord0">
+      <th class="px-2 py-8">Title</th>
+      <th class="px-2 py-8"><%= sortable "req_total", "Req Total" %></th>
+      <th class="px-2 py-8">Funding Secured So Far</th>
+      <th class="px-2 py-8">Method of Purchase</th>
+      <th class="px-2 py-8">18SA or F6790?</th>
+      <th class="px-2 py-8">Group</th>
+      <th class="px-2 py-8">Unit</th>
+      <th class="px-2 py-8">Line</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
-  <tbody>
+  <tbody class="bg-nord0 text-nord5">
     <% @reqs.each do |req| %>
-      <tr>
-        <td><%= req.title %></td>
-        <td><%= req.req_total %></td>
-        <td><%= req.funding_secured %></td>
-        <td><%= req.method_of_purchase %></td>
-        <td><%= req.is_18SA_or_F6790? %></td>
-        <td><%= req.group %></td>
-        <td><%= req.unit %></td>
-        <td><%= req.pec %>
+      <tr class="gap-2 ">
+        <td class="border border-nord5 py-4 px-4"><%= req.title %></td>
+        <td class="border border-nord5 py-4 px-4"><%= req.req_total %></td>
+        <td class="border border-nord5 py-4 px-4"><%= req.funding_secured %></td>
+        <td class="border border-nord5 py-4 px-4"><%= req.method_of_purchase %></td>
+        <td class="border border-nord5 py-4 px-4"><%= req.is_18SA_or_F6790? %></td>
+        <td class="border border-nord5 py-4 px-4"><%= req.group %></td>
+        <td class="border border-nord5 py-4 px-4"><%= req.unit %></td>
+        <td class="border border-nord5 py-4 px-4"><%= req.pec %>
             <%= req.rccc %>     
             <%= req.eeic %></td>
-        <td><button class="bg-nord5 text-nord0 margin 4px">
+        <td class="border border-nord0 px-2 bg-nord5"><button class="text-nord0">
             <%= link_to 'Show', req %></button></td>
-        <td><button class="bg-nord5 text-nord0 margin 4px">
-            <%= link_to 'Edit', edit_req_path(req) %>
-        </button></td>
-        <td><button class="bg-nord5 text-nord0 margin 4px">
-            <%= link_to 'Destroy', req, method: :delete, data: { 
-              confirm: 'Are you sure?' } %>
-        </button></td>
       </tr>
     <% end %>
   </tbody>

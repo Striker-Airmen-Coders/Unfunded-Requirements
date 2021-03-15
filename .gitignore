@@ -46,3 +46,7 @@ yarn-debug.log*
 yarn.lock
 package-lock.json
 
+# ignore other garbage that ganks my install
+config/webpacker.yml
+package.json
+
