@@ -42,11 +42,4 @@ yarn-debug.log*
 # Ignore the db/schema
 /db/schema.rb
 
-# ignore yarn and package files
-yarn.lock
-package-lock.json
-
-# ignore other garbage that ganks my install
-config/webpacker.yml
-package.json
 
