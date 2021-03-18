@@ -2,6 +2,8 @@ require 'date'
 
 class ReqsController < ApplicationController
   before_action :set_req, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!
+  skip_before_action :authenticate_user!, only: [ :index ]
   
   # Set up helper methods
   helper_method :sort_column, :sort_direction
@@ -30,7 +32,7 @@ class ReqsController < ApplicationController
 
     respond_to do |format|
       if @req.save
-        format.html { redirect_to @req, notice: "Req was successfully created." }
+        format.html { redirect_to @req, notice: "Your requirement has been saved" }
         format.json { render :show, status: :created, location: @req }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -43,7 +45,7 @@ class ReqsController < ApplicationController
   def update
     respond_to do |format|
       if @req.update(req_params)
-        format.html { redirect_to @req, notice: "Req was successfully updated." }
+        format.html { redirect_to @req, notice: "Your requirement has been saved" }
         format.json { render :show, status: :ok, location: @req }
       else
         format.html { render :edit, status: :unprocessable_entity }
