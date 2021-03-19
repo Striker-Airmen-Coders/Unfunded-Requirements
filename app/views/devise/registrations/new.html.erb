@@ -27,7 +27,8 @@
       </div>
     </div>
     <div class="actions m-auto w-full ">
-      <%= f.submit "Sign up", :class => 'bg-nord14 w-full p-2' %>
+      <%= f.submit "Sign up", data: { disable_with: false }, 
+        :class => 'bg-nord14 w-full p-2' %>
     </div>
   <% end %>
   <div class="text-nord5 flex flex-row justify-between p-1">
