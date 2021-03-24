@@ -17,7 +17,7 @@
     </div>
 
     <div class="actions m-auto w-full">
-      <%= f.submit "Send me reset instructions", 
+      <%= f.submit "Send me reset instructions", data: { disable_with: false }, 
         :class => 'bg-nord13 text-nord0 w-full p-2' %>
     </div>
   </div>

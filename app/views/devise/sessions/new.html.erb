@@ -22,8 +22,9 @@
           </div>
         <% end %>
         </div>
-          <div class="actions m-auto w-full ">
-            <%= f.submit "Log in", :class => 'bg-nord14 w-full p-2' %>
+          <div class="actions m-auto w-full">
+            <%= f.submit "Log in", data: { disable_with: "please reload" }, 
+              :class => 'bg-nord14 w-full p-2' %>
           </div>
     <% end %>
     <div class="text-nord5 flex flex-row justify-between p-1">

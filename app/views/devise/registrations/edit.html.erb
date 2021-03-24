@@ -45,6 +45,7 @@
   </div>
     </div>
   <div class="actions m-auto w-full">
-    <%= f.submit "Update", :class => 'bg-nord12 text-nord0 w-full p-2' %>
+    <%= f.submit "Update", data: {disable_with: false }, 
+      :class => 'bg-nord12 text-nord0 w-full p-2' %>
   </div>
 <% end %>
