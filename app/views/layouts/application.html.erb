@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>SacUnfundedRequirements</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <h2 class="notice bg-nord0 text-nord5"><%= notice %></h2>
-    <h2 class="alert bg-nord0 text-nord5"><%= alert %></h2>
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_pack_tag  'application',  media: 'all',  'data-turbolinks-track': 'reload' %>
+    <%= render "shared/head" %>    
   </head>
 
-  <body class="bg-nord0">
-    <%= yield %>
+  <body>
+    <div class="min-h-screen bg-gray-100">
+      <div class="pb-32 bg-nord0">
+        <%= render "shared/navbar" %>
+      </div>
+
+      <main class="-mt-32">
+        <div class="px-4 px-8 pb-12 mx-auto max-w-7xl">
+          <%= yield %>
+        </div>
+      </main>
+    </div>
   </body>
 </html>
+

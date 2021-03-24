@@ -1,39 +1,48 @@
 <p id="notice"><%= notice %></p>
-<table class="bg-nord5 text-nord0 table-auto w-full">
-  <thead  >
-    <tr class="bg-nord5 text-nord0">
-      <th class="px-2 py-8">Title</th>
-      <th class="px-2 py-8"><%= sortable "req_total", "Req Total" %></th>
-      <th class="px-2 py-8">Funding Secured So Far</th>
-      <th class="px-2 py-8">Method of Purchase</th>
-      <th class="px-2 py-8">18SA or F6790?</th>
-      <th class="px-2 py-8">Group</th>
-      <th class="px-2 py-8">Unit</th>
-      <th class="px-2 py-8">Line</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody class="bg-nord0 text-nord5">
-    <% @reqs.each do |req| %>
-      <tr class="gap-2 ">
-        <td class="border border-nord5 py-4 px-4"><%= req.title %></td>
-        <td class="border border-nord5 py-4 px-4"><%= req.req_total %></td>
-        <td class="border border-nord5 py-4 px-4"><%= req.funding_secured %></td>
-        <td class="border border-nord5 py-4 px-4"><%= req.method_of_purchase %></td>
-        <td class="border border-nord5 py-4 px-4"><%= req.is_18SA_or_F6790? %></td>
-        <td class="border border-nord5 py-4 px-4"><%= req.group %></td>
-        <td class="border border-nord5 py-4 px-4"><%= req.unit %></td>
-        <td class="border border-nord5 py-4 px-4"><%= req.pec %>
-            <%= req.rccc %>     
-            <%= req.eeic %></td>
-        <td class="border border-nord0 px-2 bg-nord5"><button class="text-nord0">
-            <%= link_to 'Show', req %></button></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-
+<div class="flex flex-col">
+  <div class="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+    <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+      <div class="overflow-hidden border-b border-gray-200 shadow sm:rounded-lg">
+        <table class="min-w-full divide-y divide-gray-200">
+          <thead class="bg-gray-50">
+            <tr>
+              <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Title</th>
+              <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase"><%= sortable "req_total", "Req Total" %></th>
+              <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Funding Secured So Far</th>
+              <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Method of Purchase</th>
+              <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">18SA or F6790?</th>
+              <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Group</th>
+              <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Unit</th>
+              <th scope="col" class="px-6 py-3 text-xs font-medium tracking-wider text-left text-gray-500 uppercase">Line</th>
+              <th scope="col" class="relative px-6 py-3">
+                <span class="sr-only">Show</span>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @reqs.each_with_index do |req, idx| %>
+              <tr class="<%= idx % 1 == 0 ? 'bg-white' : 'bg-gray-50' %>">
+                <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap"><%= req.title %></td>
+                <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap"><%= req.req_total %></td>
+                <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap"><%= req.funding_secured %></td>
+                <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap"><%= req.method_of_purchase %></td>
+                <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap"><%= req.is_18SA_or_F6790? %></td>
+                <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap"><%= req.group %></td>
+                <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap"><%= req.unit %></td>
+                <td class="px-6 py-4 text-sm text-gray-500 whitespace-nowrap">
+                    <%= req.pec %>
+                    <%= req.rccc %>     
+                    <%= req.eeic %>
+                </td>
+                <td class="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
+                  <%= link_to 'Show', req, class_name: "text-indigo-600 hover:text-indigo-900" %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
