@@ -1,0 +1,41 @@
+<li>
+  <%= link_to req, class_name: "block hover:bg-gray-50" do %>
+    <div class="flex items-center px-4 py-4 sm:px-6">
+      <div class="min-w-0 flex-1 flex items-center">
+        <div class="flex-shrink-0">
+          <div class="flex w-14 h-14 justify-center items-center p-4 border-2 border-indigo-500 rounded-full">
+            <span class="text-gray-700"><%= req.method_of_purchase.upcase.truncate(3, omission: "") %></span>
+          </div>
+        </div>
+        <div class="min-w-0 flex-1 px-4 md:grid md:grid-cols-3 md:gap-4">
+          <div>
+            <p class="text-sm font-medium text-indigo-600 truncate"><%= req.title %></p>
+            <p class="mt-2 flex items-center text-sm text-gray-500">
+              <span class="fas fa-dollar-sign flex-shrink-0 mr-1.5 text-gray-400"></span>
+              <span class="truncate"><%= number_to_currency req.funding_secured, unit: "" %> / <%= number_to_currency req.req_total, unit: "" %></span>
+            </p>
+          </div>
+          <div class="hidden md:block">
+            <p class="text-sm text-gray-900"><%= req.group %></p>
+            <p class="mt-2 text-sm text-gray-900"><%= req.unit %></p>
+          </div>
+          <div class="hidden md:block">
+            <div>
+              <p class="text-sm text-gray-900">
+                Requested on
+                <time><%= req.start_time.to_formatted_s(:date) %></time>
+              </p>
+              <p class="mt-2 flex items-center text-sm text-gray-500">
+                <span class="fas mr-1.5 <%= req.is_18SA_or_F6790? ? 'fa-check-circle text-green-400' : 'fa-check-times text-red-400' %>"></span>
+                18SA or F6790
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <span class="fas fa-chevron-right text-gray-400"></span>
+      </div>
+    </div>
+  <% end %>
+</li>

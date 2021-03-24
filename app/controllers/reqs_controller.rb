@@ -32,7 +32,8 @@ class ReqsController < ApplicationController
 
     respond_to do |format|
       if @req.save
-        format.html { redirect_to @req, notice: "Your requirement has been saved" }
+        flash[:notice] = "Your requirement has been saved"
+        format.html { redirect_to @req }
         format.json { render :show, status: :created, location: @req }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -45,7 +46,8 @@ class ReqsController < ApplicationController
   def update
     respond_to do |format|
       if @req.update(req_params)
-        format.html { redirect_to @req, notice: "Your requirement has been saved" }
+        flash[:notice] = "Your requirement has been saved"
+        format.html { redirect_to @req }
         format.json { render :show, status: :ok, location: @req }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -58,7 +60,8 @@ class ReqsController < ApplicationController
   def destroy
     @req.destroy
     respond_to do |format|
-      format.html { redirect_to reqs_url, notice: "Req was successfully destroyed." }
+      flash[:notice] = "Req was successfully destroyed."
+      format.html { redirect_to reqs_url }
       format.json { head :no_content }
     end
   end
