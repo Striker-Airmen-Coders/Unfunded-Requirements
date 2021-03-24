@@ -11,7 +11,10 @@ class ReqsController < ApplicationController
 
   # GET /reqs or /reqs.json
   def index
-      @reqs = Req.order(sort_column + " " + sort_direction)
+      @reqs = Req.all
+      #@reqs = Req.search(params[:search]).order(sort_column + " " + sort_direction)
+      @search = Req.ransack(params[:q])
+      @reqs = @search.result
   end
 
   # GET /reqs/1 or /reqs/1.json
