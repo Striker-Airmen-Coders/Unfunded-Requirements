@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get 'pages/fma', to: "pages#fma", as: "fma"
   get 'pages/unit', to: "pages#unit", as: "unit"
   get 'pages/info', to: "pages#info", as: "info"
-  root to: 'reqs#index'
+  root to: 'pages#info'
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
