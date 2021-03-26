@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   before_action :authenticate_user!
-  skip_before_action :authenticate_user!, only: [:home, :type, :fma, :unit]
+  skip_before_action :authenticate_user!, only: [:info ]
   def home
   end
 
@@ -14,6 +14,6 @@ class PagesController < ApplicationController
   def unit
   end
 
-  def edit
+  def info
   end
 end
