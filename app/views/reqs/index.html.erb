@@ -10,8 +10,6 @@
   </div>
 </header>
 
-<div class="bg-white shadow overflow-hidden sm:rounded-md">
-  <ul class="divide-y divide-gray-200">
-    <%= render @reqs %>
-  </ul>
-</div>
+<ul class="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-3">
+  <%= render @reqs %>
+</ul>

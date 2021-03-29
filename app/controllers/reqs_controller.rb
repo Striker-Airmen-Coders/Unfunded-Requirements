@@ -4,7 +4,7 @@ class ReqsController < ApplicationController
   #load_and_authorize_resource
   before_action :set_req, only: %i[ show edit update destroy ]
   before_action :authenticate_user!
-  skip_before_action :authenticate_user!, only: [ :index ]
+  #skip_before_action :authenticate_user!, only: [ :index ]
 
   # Set up helper methods
   helper_method :sort_column, :sort_direction
