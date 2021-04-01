@@ -17,7 +17,7 @@
       </div>
       <div class="text-xl">
          <div class="pl-4 text-right"><%= req.req_total %></div>
-         <div class="pl-4 text-right border-b-2 border-nord0">- <%= req.funding_secured %></div>
+         <div class="pl-4 text-right border-b border-nord0">- <%= req.funding_secured %></div>
          <div class="pl-4 text-right">$<%= req.req_total - req.funding_secured %></div>
        </div>
     </div>
@@ -27,7 +27,7 @@
       <div class="border border-nord5 border-2 p-1"><%= req.eeic %></div>
       <div class="border border-nord0 border-2 p-1"><%= req.method_of_purchase %></div>
     </div>
-    <p class="line-clamp-5 pt-4 px-1">
+    <p class="line-clamp-5 mt-3 pt-1 px-1 border-t-2 border-nord0">
       <%= req.pitch %>
     </p>
   </div>
