@@ -1,0 +1,16 @@
+<nav class="flex flex-row items-center justify-between bg-nord5 text-nord0 mb-4">
+  <a href=/reqs >
+    <pre class="text-xs font-black text-nord0 px-2 pt-2">
+  / _ \
+\_\(_)/_/
+ _//"\\_  
+  /   \
+    </pre>
+  </a>
+  <h1><%= @title %></h1>
+  <div>
+  <% if user_signed_in? %>
+    <div><%= current_user.email %><strong class="text-9xl"> | </strong><%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></div>   
+  <% end %>
+  </div>
+</nav>
