@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_06_184725) do
+ActiveRecord::Schema.define(version: 2021_04_06_191750) do
 
   create_table "reqs", force: :cascade do |t|
     t.datetime "start_time"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 2021_04_06_184725) do
     t.text "current_working_solution"
     t.text "investment_vs_workaround"
     t.boolean "attempted_self_help"
+    t.string "installation", default: "Barksdale"
   end
 
   create_table "users", force: :cascade do |t|
