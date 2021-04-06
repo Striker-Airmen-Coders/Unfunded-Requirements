@@ -1,8 +1,8 @@
 <% @title=@req.title %>
 <%= render "shared/navbar" %>
-<div class="grid grid-cols-1 md:grid-cols-3 text-nord5 px-4 py-4 gap-2">
+<div class="grid grid-cols-1 md:grid-cols-2 text-nord5 px-4 py-4 gap-2">
   <div class="flex flex-col ">
-    <%= render @req %>
+    <%= @req.pitch %>
   </div>
   <div class="flex flex-col">
     <strong>What is the problem you are trying to solve?</strong>
