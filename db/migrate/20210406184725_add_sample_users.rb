@@ -12,7 +12,7 @@ class AddSampleUsers < ActiveRecord::Migration[6.1]
     User.create! do |u|
       u.email = 'sfs@sac.com'
       u.password = 'passwordpassword'
-      u.installation = 'Barkasdale'
+      u.installation = 'Barksdale'
       u.wing = '2nd Bomb Wing'
       u.group = 'MSG'
       u.unit = '2 SFS'
@@ -20,14 +20,14 @@ class AddSampleUsers < ActiveRecord::Migration[6.1]
     User.create! do |u|
       u.email = 'msg_ra@sac.com'
       u.password = 'passwordpassword'
-      u.installation = 'Barkasdale'
+      u.installation = 'Barksdale'
       u.wing = '2nd Bomb Wing'
       u.group = 'MSG'
     end
     User.create! do |u|
       u.email = 'fma@sac.com'
       u.password = 'passwordpassword'
-      u.installation = 'Barkasdale'
+      u.installation = 'Barksdale'
       u.wing = '2nd Bomb Wing'
       u.fma_role = true
     end
