@@ -1,0 +1,9 @@
+installations has many users
+users has many reqs
+
+look at the :through association section at 2.4
+
+conceptually the bleongs to association makes more sense for the instalation -> user relationship
+
+:wq
+
