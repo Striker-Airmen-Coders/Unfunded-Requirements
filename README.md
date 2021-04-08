@@ -22,3 +22,10 @@ hq_role will make this user an administrator and is a bool; leaving this off wil
 Help, it hangs on webpacker stuff:
 
 bundle exec rails webpacker:install
+
+current users; passwords are all 'passwordpassword'
+-admin@sac.com
+-user@sac.com
+-sfs@sac.com
+-msg_ra@sac.com
+-fma@sac.con
