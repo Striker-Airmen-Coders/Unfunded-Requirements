@@ -1,6 +1,7 @@
 <% @title="All Requirements" %> 
 <%= render "shared/navbar" %>
+<%= Req.sum(:req_total) %>
 <div class="flex flex-row flex-wrap justify-around gap-6 m-8">
-  <%= render @reqs %>
+  <%= render Req.where(unit: current_user.unit) %>
 </div>
 
