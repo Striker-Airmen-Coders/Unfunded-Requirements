@@ -24,8 +24,8 @@ Help, it hangs on webpacker stuff:
 bundle exec rails webpacker:install
 
 current users; passwords are all 'passwordpassword'
--admin@sac.com
--user@sac.com
--sfs@sac.com
--msg_ra@sac.com
--fma@sac.con
+*admin@sac.com
+*user@sac.com
+*sfs@sac.com
+*msg_ra@sac.com
+*fma@sac.con
