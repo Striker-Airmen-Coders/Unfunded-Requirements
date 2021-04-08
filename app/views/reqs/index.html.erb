@@ -1,7 +1,19 @@
-<% @title="All Requirements" %> 
+<% @title="All Requirements for #{lineage(current_user)}" %> 
 <%= render "shared/navbar" %>
-<%= Req.sum(:req_total) %>
+<h1 class="text-nord5"> 
+  2BW UFR Totals: $<%= number_with_delimiter(Req.sum(:req_total), :delimiter => ',') %>
+</h1>
+<h1 class="text-nord5"> current user def criterion = <%= lineage(current_user) %> </h1>
 <div class="flex flex-row flex-wrap justify-around gap-6 m-8">
-  <%= render Req.where(unit: current_user.unit) %>
+  <% if current_user.unit != nil %>
+    <%= render Req.where(unit: current_user.unit) %>
+  <% elsif current_user.group != nil %>
+    <%= render Req.where(group: current_user.group) %>
+  <% elsif current_user.wing != nil %>
+    <%= render @reqs %>
+  <% else %>
+    <%= render @reqs %>
+  <% end %>
+  
 </div>
 
