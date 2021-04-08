@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   }
   get 'pages/type', to: "pages#type", as: "type"
   get 'pages/fma', to: "pages#fma", as: "fma"
-  get 'pages/unit', to: "pages#unit", as: "unit"
+  get 'pages/create', to: "pages#create", as: "create"
   get 'pages/info', to: "pages#info", as: "info"
   get 'pages/shipyard', to: "pages#shipyard", as: "shipyard"
   root to: 'pages#info'
