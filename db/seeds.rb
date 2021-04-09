@@ -1,1 +1,3 @@
-Dir.glob(Rails.root + '.db/seeds/*.rb).sort.each { |f| require f }
+require './db/seeds/office_seed.rb'
+require './db/seeds/user_seed.rb'
+require './db/seeds/req_seed.rb'

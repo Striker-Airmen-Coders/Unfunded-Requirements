@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_09_164813) do
+ActiveRecord::Schema.define(version: 2021_04_09_170949) do
 
   create_table "offices", force: :cascade do |t|
     t.string "name"
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 2021_04_09_164813) do
     t.boolean "attempted_self_help"
     t.string "installation", default: "Barksdale"
     t.integer "office_id"
+    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|

@@ -2,6 +2,7 @@ require 'date'
 
 class Req < ApplicationRecord
   belongs_to :office
+  belongs_to :user
 
   validates :office, presence: true
   validates :user, presence: true
