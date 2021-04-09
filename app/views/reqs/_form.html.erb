@@ -14,27 +14,7 @@
 <%= render "shared/navbar" %>
 <input type="file" accept=".csv" />
 <div id="fma" class="grid grid-cols-1 md:grid-cols-2 px-8 py-8 bg-color-nord5">
-  <div id="user info" class="grid grid-cols-2 bg-nord5 px-4 py-4 space-x-2 space-y-2">
-   <div class="text-nord0">Owner Information</div> 
-   <div></div>
-   <div class="field flex flex-col">
-      <%= form.label :name, class: "bg-nord5 text-nord0" %>
-      <%= form.text_field :name, class: "bg-nord0 text-nord5"%>
-   </div>
-    <div class="field flex flex-col">
-      <%= form.label :email, class: "bg-nord5 text-nord0" %>
-      <%= form.text_field :email, class: "bg-nord0 text-nord5" %>
-    </div>
-    <div class="field flex flex-col">
-      <%= form.label "Office Symbol", class: "bg-nord5 text-nord0" %>
-      <%= form.text_field :office_symbol, class: "bg-nord0 text-nord5" %>
-    </div>
-    <div class="field flex flex-col">
-      <%= form.label "Work Phone Number", class: "bg-nord5 text-nord0" %>
-      <%= form.text_field :work_phone_number, class: "bg-nord0 text-nord5" %>
-    </div>
-  </div>
-  <div id="about req" class="grid grid-cols-2 bg-nord5 px-4 py-4 space-x-2 space-y-2">
+    <div id="about req" class="grid grid-cols-2 bg-nord5 px-4 py-4 space-x-2 space-y-2">
     <div class="text-nord0">Requirement Information</div> 
     <div></div>
     <div class="field flex flex-col">

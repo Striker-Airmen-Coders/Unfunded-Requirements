@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_06_191750) do
+ActiveRecord::Schema.define(version: 2021_04_09_164813) do
+
+  create_table "offices", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "reqs", force: :cascade do |t|
     t.datetime "start_time"
@@ -39,6 +45,7 @@ ActiveRecord::Schema.define(version: 2021_04_06_191750) do
     t.text "investment_vs_workaround"
     t.boolean "attempted_self_help"
     t.string "installation", default: "Barksdale"
+    t.integer "office_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -56,6 +63,10 @@ ActiveRecord::Schema.define(version: 2021_04_06_191750) do
     t.boolean "hq_role", default: false
     t.boolean "fma_role", default: false
     t.boolean "user_role", default: true
+    t.integer "office_id"
+    t.string "name"
+    t.string "office_symbol"
+    t.string "work_phone_number"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
