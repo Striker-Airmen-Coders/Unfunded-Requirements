@@ -11,8 +11,7 @@ class ReqsController < ApplicationController
 
   # GET /reqs or /reqs.json
   def index
-      @reqs = Req.all
-      #@reqs = Req.search(params[:search]).order(sort_column + " " + sort_direction)
+      @reqs = Req.mine(current_user)
       @search = Req.ransack(params[:q])
       @reqs = @search.result
   end
