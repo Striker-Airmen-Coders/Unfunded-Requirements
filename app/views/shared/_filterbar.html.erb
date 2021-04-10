@@ -1,8 +1,16 @@
-<ul class="text-nord5 flex space-x-4 justify-end mx-4">
+<ul class="text-nord5 flex flex-wrap space-x-4 justify-end mx-4">
+  <h2 class="text-nord5"> Filter by: </h2>
   <li class="inline-block">total</li>
   <li class="inline-block">pec</li>
   <li class="inline-block">rccc</li>
   <li class="inline-block">eeic</li>
   <li class="inline-block">method of purchase</li>
+  <% if current_user.fma_role == true %>
+    <li class="inline-block">req total</li>
+    <li class="inline-block">funding secured</li>
+    <li class="inline-block">18SA/F6790</li>
+    <li class="inline-block">group</li>
+    <li class="inline-block">unit</li>
+  <% end %>
 </ul>
 
