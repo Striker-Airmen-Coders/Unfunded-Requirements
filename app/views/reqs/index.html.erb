@@ -4,13 +4,7 @@
   2BW UFR Totals: $<%= number_with_delimiter(@reqs.sum(:req_total), :delimiter => ',') %>
 </h1>
 <h1 class="text-nord5"> current user def criterion = <%= lineage(current_user) %> </h1>
-<ul class="text-nord5 flex space-x-4 justify-end mx-4">
-  <li class="inline-block">total</li>
-  <li class="inline-block">pec</li>
-  <li class="inline-block">rccc</li>
-  <li class="inline-block">eeic</li>
-  <li class="inline-block">method of purchase</li>
-</ul>
+<%= render "shared/filterbar" %>
 <div class="flex flex-row flex-wrap justify-around gap-6 m-8">
 
   <%= render @reqs %>  
