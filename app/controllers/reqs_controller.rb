@@ -23,7 +23,7 @@ class ReqsController < ApplicationController
   # GET /reqs/new
   def new
     @req = Req.new
-    @req.questions(:current_office).each do |q|
+    @req.questions(current_user.office).each do |q|
       @req.answers.build(question_id: q.id)
     end
   end
@@ -43,7 +43,7 @@ class ReqsController < ApplicationController
         flash[:notice] = "Your requirement has been saved"
         format.html { redirect_to @req }
         format.json { render :show, status: :created, location: @req }
-      else
+      etext-nord0lse
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @req.errors, status: :unprocessable_entity }
       end
