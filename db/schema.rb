@@ -44,6 +44,8 @@ ActiveRecord::Schema.define(version: 2021_04_09_170949) do
     t.text "current_working_solution"
     t.text "investment_vs_workaround"
     t.boolean "attempted_self_help"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.string "installation", default: "Barksdale"
     t.integer "office_id"
     t.integer "user_id"

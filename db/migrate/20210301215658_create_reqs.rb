@@ -1,10 +1,6 @@
-require_relative "20210227184433_create_reqs"
-
-class AddRemainingFieldsToTReqs < ActiveRecord::Migration[6.1]
+class CreateReqs < ActiveRecord::Migration[6.1]
   def change
-    revert CreateReqs
-
-    create_table(:reqs) do |t|
+    create_table :reqs do |t|
       t.date :start_time
       t.date :completion_time
       t.string :name
@@ -30,6 +26,8 @@ class AddRemainingFieldsToTReqs < ActiveRecord::Migration[6.1]
       t.text :current_working_solution
       t.text :investment_vs_workaround
       t.boolean :attempted_self_help
+
+      t.timestamps
     end
   end
 end
