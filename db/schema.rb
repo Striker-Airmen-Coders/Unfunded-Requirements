@@ -10,12 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_09_170949) do
+ActiveRecord::Schema.define(version: 2021_04_12_154705) do
+
+  create_table "answers", force: :cascade do |t|
+    t.integer "question_id"
+    t.integer "req_id"
+    t.text "answer"
+  end
 
   create_table "offices", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.text "question"
+    t.integer "office_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.string "type", default: "text"
   end
 
   create_table "reqs", force: :cascade do |t|

@@ -23,6 +23,9 @@ class ReqsController < ApplicationController
   # GET /reqs/new
   def new
     @req = Req.new
+    @req.questions(:current_office).each do |q|
+      @req.answers.build(question_id: q.id)
+    end
   end
 
   # GET /reqs/1/edit
@@ -33,6 +36,7 @@ class ReqsController < ApplicationController
   def create
     @req = Req.new(req_params)
     @req.office = current_user.office
+    @req.user = current_user
 
     respond_to do |format|
       if @req.save
@@ -96,13 +100,17 @@ class ReqsController < ApplicationController
                                   :attempted_self_help,
                                   :current_working_solution,
                                   :investment_vs_workaround,
-                                  :is_18SA_or_F6790?, 
+                                  :is_18SA_or_F6790, 
                                   :group, 
                                   :unit, 
                                   :pec,
                                   :rccc,
                                   :eeic,
-                                  :point_of_contact 
+                                  :point_of_contact, 
+                                  answers_attributes: [
+                                    :question_id,
+                                    :answer
+                                  ]
                                   )
     end
 

@@ -3,6 +3,9 @@ require 'date'
 class Req < ApplicationRecord
   belongs_to :office
   belongs_to :user
+  has_many :answers
+
+  accepts_nested_attributes_for :answers
 
   validates :office, presence: true
   validates :user, presence: true
@@ -15,6 +18,10 @@ class Req < ApplicationRecord
     return where(group: user.group, office: user.office) if user.group
     where(office: user.office)
   }
+
+  def questions(office)
+    Question.where office_id: [nil, office.try(:id)]
+  end
 
 
 end

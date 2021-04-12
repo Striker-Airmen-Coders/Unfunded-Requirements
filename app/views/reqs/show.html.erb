@@ -1,6 +1,12 @@
 <% @title=@req.title %>
 <%= render "shared/navbar" %>
 <div class="grid grid-cols-1 md:grid-cols-2 text-nord5 px-4 py-4 gap-2">
+  <% @req.answers.each do |a|  %>
+    <div class="flex flex-col ">
+      <strong><%= a.question.question %></strong>
+      <%= a.answer %>
+    </div>
+  <% end  %> 
   <div class="flex flex-col ">
     <strong>Pitch:</strong>
     <%= @req.pitch %>

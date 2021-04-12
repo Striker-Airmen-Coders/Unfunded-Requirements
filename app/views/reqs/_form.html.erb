@@ -47,7 +47,7 @@
   <div id="Accounting" class="grid grid-cols-2 md:grid-cols-5 gap-2 px-4 py-4 bg-nord5">
      <div class="field flex flex-col">
         <%= form.label "18SA or F6790?", class: "bg-nord5 text-nord0" %>
-        <%= form.text_field :is_18SA_or_FG790, class: "bg-nord0 text-nord5" %>
+        <%= form.text_field :is_18SA_or_F6790, class: "bg-nord0 text-nord5" %>
      </div>
      <div class="field flex flex-col">
         <%= form.label "Method of Purchase", class: "bg-nord5 text-nord0" %>
@@ -70,12 +70,22 @@
 <div class="px-8 py-2 w-full">
   <div id="background" class="grid grid-cols-1 md:grid-cols-2 gap-2 px-4 py-4 bg-nord5">
     <div class="text-nord0">Background</div>
-    <div class="field">
-      <%= form.label "Have you attempted to 'self-help' your problem?", 
-        class: "bg-nord5 text-nord0" %>
-      <%= form.select :attempted_self_help, [["Yes", true], ["No", false]] %>
+    <%= form.fields_for :answers do |answer_form| %>
+      <div class="field">
+        <%= answer_form.label answer_form.object.question.question, 
+          class: "bg-nord5 text-nord0" %>
+        <%= answer_form.hidden_field :question_id, value: answer_form.object.question_id%> 
+        <% if answer_form.object.question.question.instance_of? String %> 
+          <%= answer_form.text_area :answer %> 
+        <% elsif answer_form.object.question.question.instance_of Number %> 
+          <% answer_form.number_field :answer %> 
+        <% else %>
+          <% answer_form.date_field :answer  %>
+        <% end %>
     </div>
-    <div class="field">
+
+    <% end %> 
+       <div class="field">
       <%= form.label :pitch, class: "bg-nord5 text-nord0" %>
       <%= form.text_area :pitch, rows: 6, style:'width:100%;', 
         class: "bg-nord0 text-nord5" %>
