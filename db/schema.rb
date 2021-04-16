@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 2021_04_12_142658) do
     t.boolean "boolean"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["question_id"], name: "index_answers_on_question_id"
+    t.index ["req_id"], name: "index_answers_on_req_id"
   end
 
   create_table "offices", force: :cascade do |t|
@@ -36,6 +38,7 @@ ActiveRecord::Schema.define(version: 2021_04_12_142658) do
     t.text "text"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["office_id"], name: "index_questions_on_office_id"
   end
 
   create_table "reqs", force: :cascade do |t|
@@ -69,6 +72,8 @@ ActiveRecord::Schema.define(version: 2021_04_12_142658) do
     t.string "installation", default: "Barksdale"
     t.integer "office_id"
     t.integer "user_id"
+    t.index ["office_id"], name: "index_reqs_on_office_id"
+    t.index ["user_id"], name: "index_reqs_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -91,6 +96,7 @@ ActiveRecord::Schema.define(version: 2021_04_12_142658) do
     t.string "office_symbol"
     t.string "work_phone_number"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["office_id"], name: "index_users_on_office_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 

@@ -1,5 +1,5 @@
 reqs = Question.create([
-  { text: "Pitch", type: :text },
+  { text: "Pitch", type: :text, key: :pitch },
   { text: "What is the problem you are trying to solve?", type: :text },
   { text: "What is the solution to your problem?", type: :text },
   { text: "Where are you at on implementing your solution?", type: :text },
