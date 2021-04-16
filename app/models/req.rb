@@ -23,5 +23,7 @@ class Req < ApplicationRecord
     Question.where office_id: [nil, office.try(:id)]
   end
 
-
+  def answer_for(key)
+    answers.joins(:question).find_by(question: { key: key }).try(:value)
+  end
 end

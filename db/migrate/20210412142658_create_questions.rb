@@ -1,17 +1,22 @@
 class CreateQuestions < ActiveRecord::Migration[6.1]
   def change
     create_table :questions do |t|
-
-      t.text :question
-      t.integer :office_id
+      t.belongs_to :office
+      t.string :key
+      t.string :type, default: :text
+      t.text :text
 
       t.timestamps
     end
     create_table :answers do |t|
-      
-      t.integer :question_id
-      t.integer :req_id 
-      t.text :answer
+      t.belongs_to :question
+      t.belongs_to :req
+      t.string :text
+      t.integer :number
+      t.date :date
+      t.boolean :boolean
+
+      t.timestamps
     end
 
   end

@@ -5,10 +5,10 @@ class CreateOffices < ActiveRecord::Migration[6.1]
       t.timestamps
     end
     change_table :users do |t|
-      t.integer :office_id
+      t.belongs_to :office
     end
     change_table :reqs do |t|
-      t.integer :office_id
+      t.belongs_to :office
     end
   end
 end

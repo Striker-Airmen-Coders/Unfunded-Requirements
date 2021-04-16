@@ -10,12 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_12_154705) do
+ActiveRecord::Schema.define(version: 2021_04_12_142658) do
 
   create_table "answers", force: :cascade do |t|
     t.integer "question_id"
     t.integer "req_id"
-    t.text "answer"
+    t.string "text"
+    t.integer "number"
+    t.date "date"
+    t.boolean "boolean"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "offices", force: :cascade do |t|
@@ -25,11 +30,12 @@ ActiveRecord::Schema.define(version: 2021_04_12_154705) do
   end
 
   create_table "questions", force: :cascade do |t|
-    t.text "question"
     t.integer "office_id"
+    t.string "key"
+    t.string "type", default: "text"
+    t.text "text"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "type", default: "text"
   end
 
   create_table "reqs", force: :cascade do |t|
