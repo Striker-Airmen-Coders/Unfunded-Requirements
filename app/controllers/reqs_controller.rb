@@ -73,6 +73,23 @@ class ReqsController < ApplicationController
       format.json { head :no_content }
     end
   end
+    
+    def import
+      CSV.foreach(params['upload'].to_path, headers: true, encoding: 'ISO-8859-1') do |row| 
+        req = Req.new
+        req.title = row["Title"]
+        req.pec = row["PEC"]
+        req.is_18SA_or_F6790 = row["Operating Entity"]
+        req.group = row["Group"]
+        req.unit = row["Unit/ Directorate"]
+        ## req.pitch = row["Justification"]
+        req.eeic = row["EEIC"]
+        req.rccc = row["Cost Center"]
+        req.method_of_purchase = row["Method of Purchase"]
+        req. = row[""]
+        req.save
+      end 
+    end 
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -106,7 +123,8 @@ class ReqsController < ApplicationController
                                   :pec,
                                   :rccc,
                                   :eeic,
-                                  :point_of_contact, 
+                                  :point_of_contact,
+                                  :upload, 
                                   answers_attributes: [
                                     :question_id,
                                     :answer
