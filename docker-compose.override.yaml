@@ -1,0 +1,48 @@
+---
+version: "3"
+
+services:
+
+  postgres:
+    environment:
+      POSTGRES_PASSWORD: 5PqhkXL3JlXny3Tuoi9iXZnsLzuzw0J3xPacVd7fGfPVogVFdyeyt8+i5uo6u8yGFpt6vUhB51TS1oBek9qj+A==
+
+  rails:
+    environment:
+      POSTGRES_PASSWORD: 5PqhkXL3JlXny3Tuoi9iXZnsLzuzw0J3xPacVd7fGfPVogVFdyeyt8+i5uo6u8yGFpt6vUhB51TS1oBek9qj+A==
+      RAILS_ENV: development
+      DEVISE_JWT_SECRET_KEY: 0cPZOFBDqQjedv9ZuNS6cKY7Rv87+CnkMHQHlEAWu6d45FlM9GEe9fPujITol5OPDv0Pm5tFYBJ5besiskGSTw==
+    tty: true
+    stdin_open: true
+      # Above: These 2 lines let us work with the REPL we get from binding.pry.
+      # It is useful in development and unnecessary in production.
+      # Attach to the container using `docker attach`,
+      # and it will be like `rails server` is running on your machine outside a container.
+
+  jobs:
+    environment:
+      POSTGRES_PASSWORD: 5PqhkXL3JlXny3Tuoi9iXZnsLzuzw0J3xPacVd7fGfPVogVFdyeyt8+i5uo6u8yGFpt6vUhB51TS1oBek9qj+A==
+      RAILS_ENV: development
+      DEVISE_JWT_SECRET_KEY: 0cPZOFBDqQjedv9ZuNS6cKY7Rv87+CnkMHQHlEAWu6d45FlM9GEe9fPujITol5OPDv0Pm5tFYBJ5besiskGSTw==
+    tty: true
+    stdin_open: true
+      # Above: These 2 lines let us work with the REPL we get from binding.pry.
+      # It is useful in development and unnecessary in production.
+      # Attach to the container using `docker attach`,
+      # and it will be like `rails server` is running on your machine outside a container.
+
+  webpack-dev-server:
+    container_name: unfunded-requirements-webpack-dev-server
+    build:
+      context: .
+      dockerfile: docker/rails/Dockerfile
+    restart: unless-stopped
+    volumes:
+      - .:/app
+    ports:
+      - "3035:3035"
+    environment:
+      NODE_PATH: "/app/node_modules:/usr/lib/nodejs"
+    tty: true
+    stdin_open: true
+    command: "dumb-init -- /app/bin/webpack-dev-server"
