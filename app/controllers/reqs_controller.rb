@@ -86,7 +86,6 @@ class ReqsController < ApplicationController
         req.eeic = row["EEIC"]
         req.rccc = row["Cost Center"]
         req.method_of_purchase = row["Method of Purchase"]
-        req. = row[""]
         req.save
       end 
     end 
