@@ -74,6 +74,53 @@ class ReqsController < ApplicationController
     end
   end
 
+  def import
+    CSV.foreach(params['upload'].to_path, headers: true, encoding: 'ISO-8859-1') do |row| 
+      req = Req.new
+      req.requirement_number = row[0]
+      req.status = row[1]
+      req.operating_entity = row[2]
+      req.group = row[3]
+      req.unit = row[4]
+      req.owner_ranking = row[5]
+      req.title = row[6]
+      req.justification = row[7]
+      req.impact_if_not_funded = row[8]
+      req.priority_level = row[9]
+      req.pec = row[10]
+      req.ba = row[11]
+      req.sag = row[12]
+      req.panel = row[13]
+      req.eeic = row[14]
+      req.object_class = row[15]
+      req.esp = row[16]
+      req.cost_center = row[17]
+      req.aai = row[18]
+      req.requirement_total = row[19]
+      req.wing_funded_total = row[20]
+      req.unfunded_total_by_wing = row[21]
+      req.pem_remarks = row[22]
+      req.hq_fma_remarks = row[23]
+      req.ep_funded_amount = row[24]       
+      req.unfunded_amount_by_ep = row[25]
+      req.need_by_date = row[26]
+      req.method_of_purchase = row[27]
+      req.is_recurring = row[28]
+      req.final_fy = row[29]
+      req.is_civ_pay = row[30]
+      req.contract_number = row[31]
+      req.pop_start_date = row[32]
+      req.pop_end_date = row[33]
+      req.created_by_org = row[34]
+      req.reviewed_by = row[35]
+      
+      # uncomment if the user uploading is fma_role = true
+      #req.office = current_user.office
+
+      req.save
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_req
