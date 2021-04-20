@@ -1,4 +1,8 @@
+<div>
 <%= link_to req do %>
+  <div class="text-nord5">
+    <%= req.priority %>
+  </div>
   <div class="bg-nord5 px-1 text-nord0 h-96 w-72">
     <div class="w-full flex flex-wrap justify-center content-center align-middle text-2xl text-nord0 h-20 border-b-2 border-nord0 mb-2">
       <div class="text-center line-clamp-2"><%= req.title %></div>
@@ -32,3 +36,4 @@
     </p>
   </div>
 <% end %>
+</div>

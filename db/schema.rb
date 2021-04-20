@@ -62,6 +62,7 @@ ActiveRecord::Schema.define(version: 2021_04_12_142658) do
     t.decimal "funding_secured"
     t.string "installation", default: "Barksdale"
     t.string "office", default: "Barksdale"
+    t.integer "priority", default: 999
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "office_id"
