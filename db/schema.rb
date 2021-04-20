@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 2021_04_12_142658) do
     t.string "title"
     t.string "office_symbol"
     t.string "work_phone_number"
-    t.string "is_18SA_or_F6790"
+    t.string "operating_entity"
     t.string "group"
     t.string "unit"
     t.string "pec"
