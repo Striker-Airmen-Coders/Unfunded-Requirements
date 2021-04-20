@@ -80,29 +80,29 @@ class ReqsController < ApplicationController
 
       req.start_time = row[1]
       req.completion_time = row[2]
-      req.name = row[3]
-      req.email = row[4]
-      req.title = row[5]
-      req.office_symbol = row[6]
-      req.work_phone_number = row[7]
-      req.is_18SA_or_F6790 = row[8]
-      req.group = row[9]
-      req.unit = row[10]
-      req.pec = row[11]
-      req.rccc = row[12]
-      req.eeic = row[13]
-      req.method_of_purchase = row[14]
-      req.point_of_contact = row[15]
-      req.req_total = row[16]
-      req.funding_secured = row[17]
-      req.pitch = row[18]
-      req.problem = row[19]
-      req.solution = row[20]
-      req.solution_progress = row[21]
-      req.mission_impact = row[22]
-      req.current_working_solution = row[23]
-      req.investment_vs_workaround = row[24]
-      req.attempted_self_help = row[25]
+      req.name = row[4]
+      req.email = row[3]
+      req.title = row[7]
+      req.office_symbol = row[5]
+      req.work_phone_number = row[6]
+      req.operating_entity = row[18]
+      req.group = row[19]
+      req.unit = row[20]
+      req.pec = row[21]
+      req.rccc = row[22]
+      req.eeic = row[23]
+      req.method_of_purchase = row[24]
+      req.point_of_contact = row[25]
+      req.req_total = row[8]
+      req.funding_secured = row[9]
+      req.pitch = row[10]
+      req.problem = row[11]
+      req.solution = row[12]
+      req.solution_progress = row[13]
+      req.mission_impact = row[14]
+      req.current_working_solution = row[16]
+      req.investment_vs_workaround = row[17]
+      req.attempted_self_help = row[15]
 
       # uncomment if the user uploading is fma_role = true
       req.office = current_user.office
@@ -137,7 +137,7 @@ class ReqsController < ApplicationController
                                   :attempted_self_help,
                                   :current_working_solution,
                                   :investment_vs_workaround,
-                                  :is_18SA_or_F6790, 
+                                  :operating_entity, 
                                   :group, 
                                   :unit, 
                                   :pec,

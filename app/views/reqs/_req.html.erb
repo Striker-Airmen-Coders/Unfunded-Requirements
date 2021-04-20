@@ -6,7 +6,7 @@
     <div class="flex px-2 justify-between pt-2">
       <div class="text-xl">
         <div class="text-nord0 text-opacity-25">
-          <% if req.is_18SA_or_F6790 == "F6790" then %>
+          <% if req.operating_entity == "F6790" then %>
             <strong class="text-nord0">F6790</strong> / 18SA
           <% else %>
             F6790 / <strong class="text-nord0">18SA</strong>
@@ -28,7 +28,7 @@
       <div class="border border-nord0 border-2 p-1"><%= req.method_of_purchase %></div>
     </div>
     <p class="line-clamp-5 mt-3 pt-1 px-1 border-t-2 border-nord0">
-      <%= req.answer_for(:pitch) %>
+      <%= pit %>
     </p>
   </div>
 <% end %>
