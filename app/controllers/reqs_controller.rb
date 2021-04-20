@@ -107,7 +107,7 @@ class ReqsController < ApplicationController
 
       # uncomment if the user uploading is fma_role = true
       req.office = current_user.office
-
+      req.user = current_user
       req.save
     end
   end
