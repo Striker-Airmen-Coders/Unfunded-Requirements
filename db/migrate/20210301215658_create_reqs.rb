@@ -22,7 +22,11 @@ class CreateReqs < ActiveRecord::Migration[6.1]
       t.string :aai
       t.decimal :requirement_total
       t.decimal :wing_funded_total
-      t.decimal :unfunded_total
+      t.decimal :unfunded_total_by_wing
+      t.text :pem_remarks
+      t.text :hq_fma_remarks
+      t.decimal :ep_funded_amount
+      t.decimal :unfunded_amount_by_ep
       t.date :need_by_date
       t.string :method_of_purchase
       t.boolean :is_recurring
