@@ -1,31 +1,38 @@
 class CreateReqs < ActiveRecord::Migration[6.1]
   def change
     create_table :reqs do |t|
-      t.date :start_time
-      t.date :completion_time
-      t.string :name
-      t.string :email
-      t.string :title
-      t.string :office_symbol
-      t.string :work_phone_number
-      t.string :is_18SA_or_F6790?
+      t.string :requirement_number
+      t.string :status
+      t.string :operating_entity
       t.string :group
       t.string :unit
+      t.integer :owner_ranking
+      t.string :title
+      t.text :justification
+      t.text :impact_if_not_funded
+      t.string :priority_level
       t.string :pec
-      t.string :rccc
+      t.string :ba
+      t.string :sag
+      t.string :panel 
       t.string :eeic
+      t.string :object_class
+      t.string :esp
+      t.string :cost_center
+      t.string :aai
+      t.decimal :requirement_total
+      t.decimal :wing_funded_total
+      t.decimal :unfunded_total
+      t.date :need_by_date
       t.string :method_of_purchase
-      t.string :point_of_contact
-      t.decimal :req_total
-      t.decimal :funding_secured
-      t.text :pitch
-      t.text :problem
-      t.text :solution
-      t.text :solution_progress
-      t.text :mission_impact
-      t.text :current_working_solution
-      t.text :investment_vs_workaround
-      t.boolean :attempted_self_help
+      t.boolean :is_recurring
+      t.string :final_fy
+      t.boolean :is_civ_pay
+      t.string :contract_number
+      t.date :pop_start_date
+      t.date :pop_end_date
+      t.string :created_by_org
+      t.string :reviewed_by 
 
       t.timestamps
     end
