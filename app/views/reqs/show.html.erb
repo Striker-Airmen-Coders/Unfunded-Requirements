@@ -1,17 +1,21 @@
 <% @title=(@req.title + " Details") %>
 <div class="flex flex-col justify-center p-6 mr-2 sm:float-right">
-  <%= render @req %>
-  <div class="border border-nord5 mt-4 w-72">
-    <div class="flex flex-col text-nord5 text-center mt-2">
-      <strong class="mb-2">Owner</strong>
-      <div><%= @req.user_name %></div>
-      <div><%= @req.user_office_symbol %></div>
-      <div><%= @req.user_work_phone_number %></div>
-      <div><%= @req.user_email %></div>
-    </div>
-    <div class="flex flex-col text-nord5 text-center m-4">
-     <strong class="mb-2">POC:</strong>
-     <%= @req.point_of_contact %>
+  <div class="flex justify-center">
+    <%= render @req %>
+  </div>
+  <div class="flex justify-center">
+    <div class="border border-nord5 mt-4 w-72">
+      <div class="flex flex-col text-nord5 text-center mt-2">
+        <strong class="mb-2">Owner</strong>
+        <div><%= @req.user_name %></div>
+        <div><%= @req.user_office_symbol %></div>
+        <div><%= @req.user_work_phone_number %></div>
+        <div><%= @req.user_email %></div>
+      </div>
+      <div class="flex flex-col text-nord5 text-center m-4">
+       <strong class="mb-2">POC:</strong>
+       <%= @req.point_of_contact %>
+      </div>
     </div>
   </div>
 </div>
