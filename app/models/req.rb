@@ -2,13 +2,13 @@ require 'date'
 
 class Req < ApplicationRecord
   belongs_to :office
-  belongs_to :user
+  belongs_to :user, optional: true
   has_many :answers
 
   accepts_nested_attributes_for :answers
 
   validates :office, presence: true
-  validates :user, presence: true
+  #validates :user, presence: true
 
   delegate :email, :name, :office_symbol, :work_phone_number,
     to: :user, prefix: true
