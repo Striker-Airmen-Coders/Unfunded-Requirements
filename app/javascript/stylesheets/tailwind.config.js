@@ -19,10 +19,7 @@ module.exports = {
     }
   },
   variants: {
-    extend: {
-        backgroundColor: ['group-focus'],
-        textColor: ['group-focus']
-    },
+    extend: {},
   },
   plugins: [
       require("tailwind-nord"),

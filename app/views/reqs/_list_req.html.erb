@@ -1,0 +1,17 @@
+<%= form_with(model: @req) do |form| %>                                                        
+  <% if req.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(req.errors.count, "error") %> prohibited this req from being saved:</h2>
+      <ul>
+        <% req.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title, class: "bg-nord5 text-nord0" %>
+    <%= form.text_field :title, class: "bg-nord0 text-nord5 pl-2" %>
+  </div>
+
