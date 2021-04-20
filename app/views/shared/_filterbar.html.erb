@@ -5,7 +5,7 @@
   <li class="inline-block">rccc</li>
   <li class="inline-block">eeic</li>
   <li class="inline-block">method of purchase</li>
-  <% if current_user.fma_role == true %>
+  <% if current_user.fma_role == true || current_user.hq_role == true %>
     <li class="inline-block">req total</li>
     <li class="inline-block">funding secured</li>
     <li class="inline-block">operating entity</li>

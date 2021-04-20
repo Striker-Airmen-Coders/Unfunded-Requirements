@@ -1,12 +1,17 @@
-<div class="flex flex-cols justify-between">
+<div class="flex flex-cols justify-between pl-4">
   <div class="flex flex-col text-nord5 font-2xl">
-    <h2>Total cost of Reqs</h2>
-    <%= number_with_delimiter(@reqs.sum(:req_total), :delimiter => ',') %>
+    <h2>Total Cost</h2>
+    $<%= number_with_delimiter(@reqs.sum(:req_total), :delimiter => ',') %>
   </div>
   <div class="text-nord5 font-2xl">
     <h2>Amount Funded</h2>
-    <%= number_with_delimiter(@reqs.sum(:funding_secured), :delimiter => ',') %>
+    $<%= number_with_delimiter(@reqs.sum(:funding_secured), :delimiter => ',') %>
   </div>
+  <div class="text-nord5 font-2xl">
+    <h2>Remaining Cost</h2>
+    $<%= number_with_delimiter((@reqs.sum(:req_total) - @reqs.sum(:funding_secured)), :delimiter => ',') %>
+  </div>
+
   <div class="text-nord5 font-2xl">
     <h2>User Def Criteria </h2>
     <%= lineage(current_user) %>

@@ -16,27 +16,27 @@
       <div></div>
       <div class="field flex flex-col">
         <%= form.label :title, class: "bg-nord5 text-nord0" %>
-        <%= form.text_field :title, class: "bg-nord0 text-nord5" %>
+        <%= form.text_field :title, class: "bg-nord0 text-nord5 pl-2" %>
       </div>
       <div class="field flex flex-col">
         <%= form.label "Total Cost", class: "bg-nord5 text-nord0" %>
-        <%= form.text_field :req_total, class: "bg-nord0 text-nord5" %>
+        <%= form.text_field :req_total, class: "bg-nord0 text-nord5 pl-2" %>
       </div>
       <div class="field flex flex-col">
         <%= form.label "Funding Secured So Far", class: "bg-nord5 text-nord0" %>
-        <%= form.text_field :funding_secured, class: "bg-nord0 text-nord5" %>
+        <%= form.text_field :funding_secured, class: "bg-nord0 text-nord5 pl-2" %>
       </div>
       <div class="field flex flex-col">
         <%= form.label :group, class: "bg-nord5 text-nord0" %>
-        <%= form.text_field :group, class: "bg-nord0 text-nord5" %>
+        <%= form.text_field :group, class: "bg-nord0 text-nord5 pl-2" %>
       </div>
       <div class="field flex flex-col">
         <%= form.label :unit, class: "bg-nord5 text-nord0" %>
-        <%= form.text_field :unit, class: "bg-nord0 text-nord5" %>
+        <%= form.text_field :unit, class: "bg-nord0 text-nord5 pl-2" %>
       </div>
       <div class="field flex flex-col">
         <%= form.label "Point of Contact", class: "bg-nord5 text-nord0" %>
-        <%= form.text_field :point_of_contact, class: "bg-nord0 text-nord5" %>
+        <%= form.text_field :point_of_contact, class: "bg-nord0 text-nord5 pl-2" %>
       </div>
     </div>
   </div>
@@ -45,23 +45,23 @@
     <div id="Accounting" class="grid grid-cols-2 md:grid-cols-5 gap-2 px-4 py-4 bg-nord5">
       <div class="field flex flex-col">
           <%= form.label "Operating Entity", class: "bg-nord5 text-nord0" %>
-          <%= form.text_field :operating_entity, class: "bg-nord0 text-nord5" %>
+          <%= form.text_field :operating_entity, class: "bg-nord0 text-nord5 pl-2" %>
       </div>
       <div class="field flex flex-col">
           <%= form.label "Method of Purchase", class: "bg-nord5 text-nord0" %>
-          <%= form.text_field :method_of_purchase, class: "bg-nord0 text-nord5" %>
+          <%= form.text_field :method_of_purchase, class: "bg-nord0 text-nord5 pl-2" %>
       </div>
       <div class="field flex flex-col">
           <%= form.label :pec, class: "bg-nord5 text-nord0" %>
-          <%= form.text_field :pec, class: "bg-nord0 text-nord5" %>
+          <%= form.text_field :pec, class: "bg-nord0 text-nord5 pl-2" %>
       </div>
       <div class="field flex flex-col">
           <%= form.label :rccc, class: "bg-nord5 text-nord0" %>
-          <%= form.text_field :rccc, class: "bg-nord0 text-nord5" %>
+          <%= form.text_field :rccc, class: "bg-nord0 text-nord5 pl-2" %>
       </div>
       <div class="field flex flex-col">
           <%= form.label :eeic, class: "bg-nord5 text-nord0" %>
-          <%= form.text_field :eeic, class: "bg-nord0 text-nord5" %>
+          <%= form.text_field :eeic, class: "bg-nord0 text-nord5 pl-2" %>
       </div>
     </div>
   </div>
@@ -76,15 +76,15 @@
           <%= af.label af.object.question.text, class: "bg-nord5 text-nord0" %>
 
           <% if af.object.type?(:text) %>
-            <%= af.text_area :text, rows: 6, style:'width:100%;', class: "bg-nord0 text-nord5" %>
+            <%= af.text_area :text, rows: 6, style:'width:100%;', class: "bg-nord0 text-nord5 pl-2" %>
           <% end %>
 
           <% if af.object.type?(:number) %>
-            <%= af.number_field :number, style:'width:100%;', class: "bg-nord0 text-nord5" %>
+            <%= af.number_field :number, style:'width:100%;', class: "bg-nord0 text-nord5 pl-2" %>
           <% end %>
 
           <% if af.object.type?(:date) %>
-            <%= af.date_field :date, style:'width:100%;', class: "bg-nord0 text-nord5" %>
+            <%= af.date_field :date, style:'width:100%;', class: "bg-nord0 text-nord5 pl-2" %>
           <% end %>
 
           <% if af.object.type?(:boolean) %>

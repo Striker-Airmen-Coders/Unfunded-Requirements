@@ -10,8 +10,8 @@
   <h1><%= @title %></h1>
   <div>
   <% if user_signed_in? %>
-    <div><%= current_user.email %>
-    <% if current_user.fma_role == true %> 
+    <div><%= current_user.name %>
+    <% if current_user.fma_role == true || current_user.hq_role == true %> 
       <strong class="text-9xl"> | </strong>
       <%= link_to 'Admin Panel', rails_admin_path %> 
     <% end %> 

@@ -11,7 +11,11 @@ class ReqsController < ApplicationController
 
   # GET /reqs or /reqs.json
   def index
+    if current_user.hq_role == true
+      @reqs = Req.all
+    else
       @reqs = Req.mine(current_user)
+    end
       #@search = Req.ransack(params[:q])
       #@reqs = @search.result
   end
