@@ -1,34 +1,31 @@
 <%= link_to req do %>
   <div class="bg-nord5 px-1 text-nord0 h-96 w-72">
+    <div class="w-full absolute"> Badge </div>
     <div class="w-full flex flex-wrap justify-center content-center align-middle text-2xl text-nord0 h-20 border-b-2 border-nord0 mb-2">
       <div class="text-center line-clamp-2"><%= req.title %></div>
     </div>
     <div class="flex px-2 justify-between pt-2">
       <div class="text-xl">
         <div class="text-nord0 text-opacity-25">
-          <% if req.is_18SA_or_F6790 == "F6790" then %>
-            <strong class="text-nord0">F6790</strong> / 18SA
-          <% else %>
-            F6790 / <strong class="text-nord0">18SA</strong>
-          <% end %>
+          <%= req.operating_entity %> 
         </div>
         <div class="flex justify-between"><div>Group:</div> <%= req.group %></div>
         <div class="flex justify-between"><div>Unit:</div> <%= req.unit %></div>
       </div>
       <div class="text-xl">
-         <div class="pl-4 text-right"><%= req.req_total %></div>
-         <div class="pl-4 text-right border-b border-nord0">- <%= req.funding_secured %></div>
-         <div class="pl-4 text-right">$<%= req.req_total - req.funding_secured %></div>
+         <div class="pl-4 text-right"><%= req.requirement_total %></div>
+         <div class="pl-4 text-right border-b border-nord0">- <%= req.wing_funded_total %></div>
+         <div class="pl-4 text-right">$<%= req.unfunded_total_by_wing %></div>
        </div>
     </div>
     <div class="flex flex-row justify-around pt-4">
       <div class="border border-nord5 border-2 p-1"><%= req.pec %></div>
-      <div class="border border-nord5 border-2 p-1"><%= req.rccc %></div>
+      <div class="border border-nord5 border-2 p-1"><%= req.cost_center %></div>
       <div class="border border-nord5 border-2 p-1"><%= req.eeic %></div>
       <div class="border border-nord0 border-2 p-1"><%= req.method_of_purchase %></div>
     </div>
     <p class="line-clamp-5 mt-3 pt-1 px-1 border-t-2 border-nord0">
-      <%= req.answer_for(:pitch) %>
+      <%= req.justification %>
     </p>
   </div>
 <% end %>

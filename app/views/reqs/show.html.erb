@@ -11,10 +11,10 @@
 <div class="flex flex-row justify-between gap-12 px-4 py-4 w-full bg-nord5 text-nord0">
   <div class="flex flex-col">
     <strong>Owner</strong>
-    <div><%= @req.user_name %></div>
-    <div><%= @req.user_office_symbol %></div>
-    <div><%= @req.user_work_phone_number %></div>
-    <div><%= @req.user_email %></div>
+    <div> @req.user_name </div>
+    <div> @req.user_office_symbol </div>
+    <div> @req.user_work_phone_number </div>
+    <div> @req.user_email </div>
   </div>
   <div class="grid grid-cols-3 md:grid-cols-6 justify-between self-center gap-4 content-between bg-nord5 text-nord0">
     <div class="field flex flex-col">
@@ -22,8 +22,8 @@
       <%= @req.method_of_purchase %>
     </div>
     <div class="field flex flex-col">
-      <strong>CC</strong>
-      <%= @req.is_18SA_or_F6790 %>
+      <strong>Op Ent</strong>
+      <%= @req.operating_entity %>
     </div> 
     <div class="field flex flex-col">
       <strong>Group:</strong>
@@ -36,12 +36,12 @@
     <div class="field flex flex-col">
       <strong>Line:</strong> 
       <%= @req.pec %>
-      <%= @req.rccc %>
+      <%= @req.cost_center %>
       <%= @req.eeic %>
     </div> 
     <div class="field flex flex-col">
-      <strong>POC:</strong>
-      <%= @req.point_of_contact %>
+      <strong>Priority:</strong>
+      <%= @req.priority_level %>
     </div> 
   </div>
 </div>
