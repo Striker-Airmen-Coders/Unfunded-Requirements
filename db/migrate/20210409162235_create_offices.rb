@@ -9,6 +9,7 @@ class CreateOffices < ActiveRecord::Migration[6.1]
     end
     change_table :reqs do |t|
       t.belongs_to :office
+      t.belongs_to :user
     end
   end
 end
