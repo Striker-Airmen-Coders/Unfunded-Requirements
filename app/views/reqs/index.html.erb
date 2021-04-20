@@ -1,7 +1,7 @@
 <% if current_user.hq_role == true %>
   <% @title = "All Requirements" %>
 <% else %>
-  <% @title="All Requirements for #{lineage(current_user)}" %>
+  <% @title="All Reqs for #{lineage(current_user)}" %>
 <% end %>
 
 <%= render "shared/infopanel" %>
