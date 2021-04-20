@@ -1,48 +1,28 @@
-<% @title=@req.title %>
-<div class="grid grid-cols-1 md:grid-cols-2 text-nord5 px-4 py-4 gap-2">
+<% @title=(@req.title + " Details") %>
+<div class="p-6 mr-2 float-left">
+  <%= render @req %>
+  <div class="border border-nord5 mt-4">
+    <div class="flex flex-col text-nord5 text-center mt-2">
+      <strong class="mb-2">Owner</strong>
+      <div><%= @req.user_name %></div>
+      <div><%= @req.user_office_symbol %></div>
+      <div><%= @req.user_work_phone_number %></div>
+      <div><%= @req.user_email %></div>
+    </div>
+    <div class="flex flex-col text-nord5 text-center m-4">
+     <strong class="mb-2">POC:</strong>
+     <%= @req.point_of_contact %>
+    </div>
+  </div>
+</div>
+<div class="text-nord5 px-4 py-4">
   <% @req.answers.each do |a|  %>
-    <div class="flex flex-col ">
-      <strong><%= a.question.text %></strong>
-      <%= a.value %>
+    <div class="flex flex-col pb-2 ">
+      <strong class="m-2 mb-0 text-lg"><%= a.question.text %></strong>
+      <p class="border-l border-nord5 m-2 pl-4 text-lg">
+        <%= a.value %>
+      </p>
     </div>
   <% end %>
-</div>
-
-<div class="flex flex-row justify-between gap-12 px-4 py-4 w-full bg-nord5 text-nord0">
-  <div class="flex flex-col">
-    <strong>Owner</strong>
-    <div><%= @req.user_name %></div>
-    <div><%= @req.user_office_symbol %></div>
-    <div><%= @req.user_work_phone_number %></div>
-    <div><%= @req.user_email %></div>
-  </div>
-  <div class="grid grid-cols-3 md:grid-cols-6 justify-between self-center gap-4 content-between bg-nord5 text-nord0">
-    <div class="field flex flex-col">
-      <strong>MoP:</strong>
-      <%= @req.method_of_purchase %>
-    </div>
-    <div class="field flex flex-col">
-      <strong>CC</strong>
-      <%= @req.operating_entity %>
-    </div> 
-    <div class="field flex flex-col">
-      <strong>Group:</strong>
-      <%= @req.group %>
-    </div> 
-    <div class="field flex flex-col">
-      <strong>Unit:</strong>
-      <%= @req.unit %>
-    </div> 
-    <div class="field flex flex-col">
-      <strong>Line:</strong> 
-      <%= @req.pec %>
-      <%= @req.rccc %>
-      <%= @req.eeic %>
-    </div> 
-    <div class="field flex flex-col">
-      <strong>POC:</strong>
-      <%= @req.point_of_contact %>
-    </div> 
-  </div>
 </div>
 
