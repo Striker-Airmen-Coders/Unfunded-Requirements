@@ -86,7 +86,7 @@ class ReqsController < ApplicationController
         req.title = row["Title"]
         req.justification = row["Justification"]
         req.impact_if_not_funded = row["Impact if not Funded"]
-        req.priority_level = row[""Priority Level (0 1 2 A E)""]
+        req.priority_level = row["Priority Level (0 1 2 A E)"]
         req.pec = row["PEC"]
         req.ba = row["BA"]
         req.sag = row["SAG"]
