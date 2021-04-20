@@ -95,14 +95,15 @@ class ReqsController < ApplicationController
       req.point_of_contact = row[25]
       req.req_total = row[8]
       req.funding_secured = row[9]
-      req.pitch = row[10]
-      req.problem = row[11]
-      req.solution = row[12]
-      req.solution_progress = row[13]
-      req.mission_impact = row[14]
-      req.current_working_solution = row[16]
-      req.investment_vs_workaround = row[17]
-      req.attempted_self_help = row[15]
+      # :mad:
+      req.answer.question[0] = row[10]
+      req.answers.problem = row[11]
+      req.answers.solution = row[12]
+      req.answers.solution_progress = row[13]
+      req.answers.mission_impact = row[14]
+      req.answers.current_working_solution = row[16]
+      req.answers.investment_vs_workaround = row[17]
+      req.answers.attempted_self_help = row[15]
 
       # uncomment if the user uploading is fma_role = true
       req.office = current_user.office
