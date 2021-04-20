@@ -105,7 +105,7 @@ class ReqsController < ApplicationController
       req.attempted_self_help = row[25]
 
       # uncomment if the user uploading is fma_role = true
-      #req.office = current_user.office
+      req.office = current_user.office
 
       req.save
     end

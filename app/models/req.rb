@@ -2,13 +2,15 @@ require 'date'
 
 class Req < ApplicationRecord
   belongs_to :office
-  belongs_to :user
+    #this one shouldn't be optional IRL, add userid field to exported dbr or have user-claiming pathway
+  belongs_to :user, optional: true
   has_many :answers
 
   accepts_nested_attributes_for :answers
 
   validates :office, presence: true
-  validates :user, presence: true
+    #same as above, bulk uploads from csv don't have users associated
+  #validates :user
 
   delegate :email, :name, :office_symbol, :work_phone_number,
     to: :user, prefix: true
