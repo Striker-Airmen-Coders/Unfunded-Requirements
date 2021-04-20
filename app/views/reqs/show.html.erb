@@ -1,7 +1,7 @@
 <% @title=(@req.title + " Details") %>
-<div class="p-6 mr-2 float-left">
+<div class="flex flex-col justify-center p-6 mr-2 sm:float-right">
   <%= render @req %>
-  <div class="border border-nord5 mt-4">
+  <div class="border border-nord5 mt-4 w-72">
     <div class="flex flex-col text-nord5 text-center mt-2">
       <strong class="mb-2">Owner</strong>
       <div><%= @req.user_name %></div>
@@ -17,12 +17,10 @@
 </div>
 <div class="text-nord5 px-4 py-4">
   <% @req.answers.each do |a|  %>
-    <div class="flex flex-col pb-2 ">
       <strong class="m-2 mb-0 text-lg"><%= a.question.text %></strong>
       <p class="border-l border-nord5 m-2 pl-4 text-lg">
         <%= a.value %>
       </p>
-    </div>
   <% end %>
 </div>
 

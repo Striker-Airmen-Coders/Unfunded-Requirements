@@ -12,8 +12,8 @@
   <% if user_signed_in? %>
     <div class="pr-2">
     <% if current_user.fma_role == true || current_user.hq_role == true %> 
-      <%= link_to 'Admin Panel', rails_admin_path %> 
-      <strong class="text-9xl"> | </strong>
+      <%= link_to 'Admin Panel', rails_admin_path, class: 'hidden md:inline' %> 
+      <strong class="hidden md:inline"> | </strong>
     <% end %> 
     <%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></div>   
   <% else %>
