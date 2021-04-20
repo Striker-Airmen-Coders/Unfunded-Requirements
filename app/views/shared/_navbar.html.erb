@@ -10,11 +10,11 @@
   <h1><%= @title %></h1>
   <div>
   <% if user_signed_in? %>
-    <div>
+    <div class="pr-2">
     <% if current_user.fma_role == true || current_user.hq_role == true %> 
       <%= link_to 'Admin Panel', rails_admin_path %> 
+      <strong class="text-9xl"> | </strong>
     <% end %> 
-    <strong class="text-9xl"> | </strong>
     <%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></div>   
   <% else %>
     <%= link_to 'Sign In', new_user_session_path %> </div>
