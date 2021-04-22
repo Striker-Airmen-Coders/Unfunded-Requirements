@@ -21,9 +21,9 @@ services:
 
   jobs:
     environment:
-      POSTGRES_PASSWORD: # <- A long, multi-word passphrase is best.
+      POSTGRES_PASSWORD: 01cf0f0da10e # <- A long, multi-word passphrase is best.
       RAILS_ENV: development
-      DEVISE_JWT_SECRET_KEY: # <- Generate one with `bundle exec rake secret`. Change this string to invalidate JWTs.
+      DEVISE_JWT_SECRET_KEY: c667eb56cd05 # <- Generate one with `bundle exec rake secret`. Change this string to invalidate JWTs.
     tty: true
     stdin_open: true
       # Above: These 2 lines let us work with the REPL we get from binding.pry.

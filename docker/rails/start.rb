@@ -12,6 +12,7 @@ system "wait-for-it redis:6379"
 
 system "bundle exec rake db:create"
 system "bundle exec rake db:migrate"
+system "bundle exec rake db:seed"
 
 system "rm tmp/pids/server.pid > /dev/null 2>&1"
 

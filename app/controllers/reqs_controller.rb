@@ -12,8 +12,8 @@ class ReqsController < ApplicationController
   # GET /reqs or /reqs.json
   def index
       @reqs = Req.mine(current_user)
-      #@search = Req.ransack(params[:q])
-      #@reqs = @search.result
+      @search = Req.ransack(params[:q])
+      @reqs = @search.result
   end
 
   # GET /reqs/1 or /reqs/1.json
