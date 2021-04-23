@@ -16,7 +16,6 @@ class Ability
       can :manage, :all #replace with 'User' or other tables
       can :access, :rails_admin
       can :manage, :dashboard  
-
     end
   end
 end
