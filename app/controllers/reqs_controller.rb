@@ -76,7 +76,7 @@ class ReqsController < ApplicationController
 
   def import
     CSV.foreach(params['upload'].to_path, headers: true, encoding: 'ISO-8859-1') do |row| 
-      req = Req.find_or_initilaize_by(dbr_id: row["ID"])
+      req = Req.find_or_initialize_by(dbr_id: row["ID"])
 
       req.start_time = row["Start time"]
       req.completion_time = row["Completion time"]
@@ -97,13 +97,13 @@ class ReqsController < ApplicationController
       req.point_of_contact = row["Who is the point of contact in your unit to whom questions about this project could be answered?"]
 
       req.add_answer(:pitch, row["Pitch"])
-      req.add_answer(:problem, row["What is the problem you trying to solve?"]
-      req.add_answer(:solution, row["What is the solution to your problem?"]
-      req.add_answer(:solution_progress, row["Where are you at on implementing your solution?"]
-      req.add_answer(:mission_impact, row["What is the mission impact of your problem?"]
-      req.add_answer(:current_working_solution, row["Have you attempted to 'self-help' your problem?"]
-      req.add_answer(:investment_vs_workaround, row["How are you currently dealing with your problem? How are your resources/time being spent now?"]
-      req.add_answer(:attempted_self_help, row["Why should money be invested in your project"]
+      req.add_answer(:problem, row["What is the problem you trying to solve?"])
+      req.add_answer(:solution, row["What is the solution to your problem?"])
+      req.add_answer(:solution_progress, row["Where are you at on implementing your solution?"])
+      req.add_answer(:mission_impact, row["What is the mission impact of your problem?"])
+      req.add_answer(:attempted_self_help, row["Have you attempted to 'self-help' your problem?"])
+      req.add_answer(:current_working_solution, row["How are you currently dealing with your problem? How are your resources/time being spent now?"])
+      req.add_answer(:investment_vs_workaround, row["Why should money be invested in your project, rather than a workaround?"])
 
       # uncomment if the user uploading is fma_role = true
       req.office = current_user.office

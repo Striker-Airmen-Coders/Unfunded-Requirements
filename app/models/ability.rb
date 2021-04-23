@@ -13,7 +13,10 @@ class Ability
       can :manage, :dashboard  
     end
     if user.fma_role?
-      can :manage, User
+      can :manage, :all #replace with 'User' or other tables
+      can :access, :rails_admin
+      can :manage, :dashboard  
+
     end
   end
 end

@@ -1,6 +1,7 @@
 class CreateReqs < ActiveRecord::Migration[6.1]
   def change
     create_table :reqs do |t|
+      t.integer :dbr_id
       t.datetime :start_time
       t.datetime :completion_time
       t.string :name

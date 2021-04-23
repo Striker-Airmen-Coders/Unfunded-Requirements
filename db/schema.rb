@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 2021_04_12_142658) do
   end
 
   create_table "reqs", force: :cascade do |t|
+    t.integer "dbr_id"
     t.datetime "start_time"
     t.datetime "completion_time"
     t.string "name"
