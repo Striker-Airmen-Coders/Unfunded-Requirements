@@ -1,7 +1,18 @@
-Total cost of Reqs<%= number_with_delimiter(@reqs.sum(:req_total), :delimiter => ',') %>
-<h2 class="text-nord5 font-2xl">
-Amount Funded <%= number_with_delimiter(@reqs.sum(:funding_secured), :delimiter => ',') %>
-
-User Def Criteria <%= lineage(current_user) %>
-Total Reqs <%= @reqs.count %>
-</h2>
+<div class="flex flex-cols justify-between">
+  <div class="flex flex-col text-nord5 font-2xl">
+    <h2>Total cost of Reqs</h2>
+    <%= number_with_delimiter(@reqs.sum(:req_total), :delimiter => ',') %>
+  </div>
+  <div class="text-nord5 font-2xl">
+    <h2>Amount Funded</h2>
+    <%= number_with_delimiter(@reqs.sum(:funding_secured), :delimiter => ',') %>
+  </div>
+  <div class="text-nord5 font-2xl">
+    <h2>User Def Criteria </h2>
+    <%= lineage(current_user) %>
+  </div>
+  <div class="text-nord5 font-2xl">
+    <h2>Total Reqs </h2>
+    <%= @reqs.count %>
+  </div>
+</div>
