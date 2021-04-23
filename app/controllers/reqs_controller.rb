@@ -76,39 +76,40 @@ class ReqsController < ApplicationController
 
   def import
     CSV.foreach(params['upload'].to_path, headers: true, encoding: 'ISO-8859-1') do |row| 
-      req = Req.new
+      req = Req.find_or_initilaize_by(dbr_id: row["ID"])
 
-      req.start_time = row[1]
-      req.completion_time = row[2]
-      req.name = row[4]
-      req.email = row[3]
-      req.title = row[7]
-      req.office_symbol = row[5]
-      req.work_phone_number = row[6]
-      req.operating_entity = row[18]
-      req.group = row[19]
-      req.unit = row[20]
-      req.pec = row[21]
-      req.rccc = row[22]
-      req.eeic = row[23]
-      req.method_of_purchase = row[24]
-      req.point_of_contact = row[25]
-      req.req_total = row[8]
-      req.funding_secured = row[9]
-      # :mad:
-      req.pitch = row[10]
-      req.problem = row[11]
-      req.solution = row[12]
-      req.solution_progress = row[13]
-      req.mission_impact = row[14]
-      req.current_working_solution = row[16]
-      req.investment_vs_workaround = row[17]
-      req.attempted_self_help = row[15]
+      req.start_time = row["Start time"]
+      req.completion_time = row["Completion time"]
+      req.email = row["Email"]
+      req.name = row["Name"]
+      req.office_symbol = row["Your Office Symbol"]
+      req.work_phone_number = row["Your Work Phone Number"]
+      req.title = row["Title"]
+      req.req_total = row["Dollar amount of requirement (total)"]
+      req.funding_secured = row["How much funding has been secured so far?"]
+      req.operating_entity = row["18SA or F6790?"]
+      req.group = row["Group"]
+      req.unit = row["Unit"]
+      req.pec = row["PEC"]
+      req.rccc = row["RCCC"]
+      req.eeic = row["EEIC"]
+      req.method_of_purchase = row["Method of Purchase"]
+      req.point_of_contact = row["Who is the point of contact in your unit to whom questions about this project could be answered?"]
+
+      req.add_answer(:pitch, row["Pitch"])
+      req.add_answer(:problem, row["What is the problem you trying to solve?"]
+      req.add_answer(:solution, row["What is the solution to your problem?"]
+      req.add_answer(:solution_progress, row["Where are you at on implementing your solution?"]
+      req.add_answer(:mission_impact, row["What is the mission impact of your problem?"]
+      req.add_answer(:current_working_solution, row["Have you attempted to 'self-help' your problem?"]
+      req.add_answer(:investment_vs_workaround, row["How are you currently dealing with your problem? How are your resources/time being spent now?"]
+      req.add_answer(:attempted_self_help, row["Why should money be invested in your project"]
 
       # uncomment if the user uploading is fma_role = true
       req.office = current_user.office
       req.user = current_user
       req.save
+
     end
   end
 
