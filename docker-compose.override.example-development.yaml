@@ -18,6 +18,8 @@ services:
       # It is useful in development and unnecessary in production.
       # Attach to the container using `docker attach`,
       # and it will be like `rails server` is running on your machine outside a container.
+    ports:
+      - "3035:3035" # For webpack-dev-server, which is using this container as its network-mode and must have these ports forwarded.
 
   jobs:
     environment:
@@ -39,10 +41,9 @@ services:
     restart: unless-stopped
     volumes:
       - .:/app
-    ports:
-      - "3035:3035"
     environment:
       NODE_PATH: "/app/node_modules:/usr/lib/nodejs"
     tty: true
     stdin_open: true
     command: "dumb-init -- /app/bin/webpack-dev-server"
+    network_mode: service:rails

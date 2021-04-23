@@ -39,17 +39,17 @@ services:
       REDIS_URL: redis://redis:6379
       NODE_PATH: "/app/node_modules:/usr/lib/nodejs"
 
-  jobs:
-    container_name: unfunded-requirements-jobs
-    build:
-      context: .
-      dockerfile: docker/jobs/Dockerfile
-    restart: unless-stopped
-    depends_on:
-      - postgres
-      - redis
-    volumes:
-      - .:/app
-    environment:
-      REDIS_URL: redis://redis:6379
-      NODE_PATH: "/app/node_modules:/usr/lib/nodejs"
+  #jobs:
+  #  container_name: unfunded-requirements-jobs
+  #  build:
+  #    context: .
+  #    dockerfile: docker/jobs/Dockerfile
+  #  restart: unless-stopped
+  #  depends_on:
+  #    - postgres
+  #    - redis
+  #  volumes:
+  #    - .:/app
+  #  environment:
+  #    REDIS_URL: redis://redis:6379
+  #    NODE_PATH: "/app/node_modules:/usr/lib/nodejs"
