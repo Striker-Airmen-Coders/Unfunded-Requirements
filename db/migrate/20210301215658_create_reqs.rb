@@ -20,7 +20,7 @@ class CreateReqs < ActiveRecord::Migration[6.1]
       t.decimal :req_total
       t.decimal :funding_secured
       t.string :installation, default: 'Barksdale'   
-
+      t.string :office, default: 'Barksdale'
       t.timestamps
 
       #these fields are here as an example of what DBR would need
