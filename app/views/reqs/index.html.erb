@@ -1,12 +1,5 @@
 <% @title="All Requirements for #{lineage(current_user)}" %>
-<% if current_user.fma_role == true %>
-  <div class="w-full text-right">
-    <%= form_tag('/reqs/import', multipart: true) do %>
-      <%= file_field_tag 'upload' %>
-      <%= submit_tag('upload') %>
-    <% end %>
-  </div>
-<% end %>
+
 
 <%= render "shared/infopanel" %>
 <%= render "shared/filterbar" %>

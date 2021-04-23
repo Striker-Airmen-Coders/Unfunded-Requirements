@@ -1,2 +1,11 @@
 <% @title="Create Requirement" %>
+<% if current_user.fma_role == true %>
+  <div class="w-full text-right p-4 text-nord5">
+    <%= form_tag('/reqs/import', multipart: true) do %>
+      <label for='upload'>You can bulk upload reqs here from a csv</label>
+      <%= file_field_tag 'upload' %>
+      <%= submit_tag('upload') %>
+    <% end %>
+  </div>
+<% end %>              
 <%= render 'form', req: @req %>
