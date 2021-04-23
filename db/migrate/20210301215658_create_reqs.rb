@@ -19,14 +19,6 @@ class CreateReqs < ActiveRecord::Migration[6.1]
       t.string :point_of_contact
       t.decimal :req_total
       t.decimal :funding_secured
-      t.text :pitch
-      t.text :problem
-      t.text :solution
-      t.text :solution_progress
-      t.text :mission_impact
-      t.text :current_working_solution
-      t.text :investment_vs_workaround
-      t.boolean :attempted_self_help
       t.string :installation, default: 'Barksdale'   
 
       t.timestamps
