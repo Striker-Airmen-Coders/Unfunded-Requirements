@@ -10,13 +10,14 @@ class ReqsController < ApplicationController
   helper_method :sort_column, :sort_direction
 
   # GET /reqs or /reqs.json
-Focus me  def index
+  def index
     if current_user.hq_role == true
       @reqs = Req.all
     else
       @reqs = Req.mine(current_user)
       @search = Req.ransack(params[:q])
       @reqs = @search.result
+    end
   end
 
   # GET /reqs/1 or /reqs/1.json

@@ -46,7 +46,7 @@
 
       <li class="inline-block"><%= f.label '18SA/F6790: ' %></li>
       <li class="inline-block text-black">
-        <%= f.select :is_18SA_or_F6790_eq, options_from_collection_for_select(Req.select(:is_18SA_or_F6790).order(is_18SA_or_F6790: :asc).distinct, :is_18SA_or_F6790, :is_18SA_or_F6790), include_blank: true %>
+        <%= f.select :operating_entity_eq, options_from_collection_for_select(Req.select(:operating_entity).order(operating_entity: :asc).distinct, :operating_entity, :operating_entity), include_blank: true %>
       </li>
 
       <li class="inline-block"><%= f.label 'Group: ' %></li>
