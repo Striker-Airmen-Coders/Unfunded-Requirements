@@ -94,11 +94,11 @@
         <div class="field">
           <%= af.hidden_field :question_id, value: af.object.question_id%> 
           <%= af.label af.object.question.text,
- 						class: "m-2 mb-0 text-nord5 text-lg" %>
+ 						class: "text-nord5 text-lg" %>
 
           <% if af.object.type?(:text) %>
             <%= af.text_area :text, rows: 6, style:'width:100%;', 
-              class: "bg-nord1 mx-2 text-nord5 border-l border-nord5 pl-2" %>
+              class: "bg-nord1 px-2 text-nord5 border-l border-nord5 pl-2" %>
           <% end %>
 
           <% if af.object.type?(:number) %>
