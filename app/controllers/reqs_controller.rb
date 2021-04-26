@@ -74,6 +74,44 @@ class ReqsController < ApplicationController
     end
   end
 
+  def import
+    CSV.foreach(params['upload'].to_path, headers: true, encoding: 'ISO-8859-1') do |row| 
+      req = Req.new
+
+      req.start_time = row[1]
+      req.completion_time = row[2]
+      req.name = row[4]
+      req.email = row[3]
+      req.title = row[7]
+      req.office_symbol = row[5]
+      req.work_phone_number = row[6]
+      req.operating_entity = row[18]
+      req.group = row[19]
+      req.unit = row[20]
+      req.pec = row[21]
+      req.rccc = row[22]
+      req.eeic = row[23]
+      req.method_of_purchase = row[24]
+      req.point_of_contact = row[25]
+      req.req_total = row[8]
+      req.funding_secured = row[9]
+      # :mad:
+      req.pitch = row[10]
+      req.problem = row[11]
+      req.solution = row[12]
+      req.solution_progress = row[13]
+      req.mission_impact = row[14]
+      req.current_working_solution = row[16]
+      req.investment_vs_workaround = row[17]
+      req.attempted_self_help = row[15]
+
+      # uncomment if the user uploading is fma_role = true
+      req.office = current_user.office
+      req.user = current_user
+      req.save
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_req
@@ -100,7 +138,7 @@ class ReqsController < ApplicationController
                                   :attempted_self_help,
                                   :current_working_solution,
                                   :investment_vs_workaround,
-                                  :is_18SA_or_F6790, 
+                                  :operating_entity, 
                                   :group, 
                                   :unit, 
                                   :pec,
