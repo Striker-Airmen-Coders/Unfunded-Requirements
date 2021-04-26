@@ -10,7 +10,7 @@ class CreateReqs < ActiveRecord::Migration[6.1]
       t.string :office_symbol
       t.string :work_phone_number
       t.string :operating_entity
-      t.string :group
+      t.string :grp
       t.string :unit
       t.string :pec
       t.string :rccc

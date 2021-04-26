@@ -51,7 +51,7 @@ ActiveRecord::Schema.define(version: 2021_04_12_142658) do
     t.string "office_symbol"
     t.string "work_phone_number"
     t.string "operating_entity"
-    t.string "group"
+    t.string "grp"
     t.string "unit"
     t.string "pec"
     t.string "rccc"
@@ -81,7 +81,7 @@ ActiveRecord::Schema.define(version: 2021_04_12_142658) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "installation"
     t.string "wing"
-    t.string "group"
+    t.string "grp"
     t.string "unit"
     t.boolean "hq_role", default: false
     t.boolean "fma_role", default: false

@@ -51,7 +51,7 @@
 
       <li class="inline-block"><%= f.label 'Group: ' %></li>
       <li class="inline-block text-black">
-        <%= f.select :group_eq, options_from_collection_for_select(Req.select(:group).order(group: :asc).distinct, :group, :group), include_blank: true %>
+        <%= f.select :grp_eq, options_from_collection_for_select(Req.select(:grp).order(grp: :asc).distinct, :grp, :grp), include_blank: true %>
       </li>
 
       <li class="inline-block"><%= f.label 'Unit: ' %></li>

@@ -15,7 +15,7 @@ class Req < ApplicationRecord
 
   scope :mine, ->(user) { 
     return where(unit: user.unit, office: user.office) if user.unit
-    return where(group: user.group, office: user.office) if user.group
+    return where(grp: user.grp, office: user.office) if user.grp
     where(office: user.office)
   }
 

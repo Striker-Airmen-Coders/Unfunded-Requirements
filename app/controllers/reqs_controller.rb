@@ -93,7 +93,7 @@ class ReqsController < ApplicationController
       req.req_total = row["Dollar amount of requirement (total)"]
       req.funding_secured = row["How much funding has been secured so far?"]
       req.operating_entity = row["18SA or F6790?"]
-      req.group = row["Group"]
+      req.grp = row["Group"]
       req.unit = row["Unit"]
       req.pec = row["PEC"]
       req.rccc = row["RCCC"]
@@ -145,7 +145,7 @@ class ReqsController < ApplicationController
                                   :current_working_solution,
                                   :investment_vs_workaround,
                                   :operating_entity, 
-                                  :group, 
+                                  :grp, 
                                   :unit, 
                                   :pec,
                                   :rccc,
