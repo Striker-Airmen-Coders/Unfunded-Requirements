@@ -7,15 +7,15 @@
   /   \
     </pre>
   </a>
-  <h1><%= @title %></h1>
+  <h1 class="line-clamp-1"><%= @title %></h1>
   <div>
   <% if user_signed_in? %>
-    <div class="pr-2">
+    <div class="md:pr-2">
     <% if current_user.fma_role == true || current_user.hq_role == true %> 
-      <%= link_to 'Admin Panel', rails_admin_path, class: 'hidden md:inline' %> 
-      <strong class="hidden md:inline"> | </strong>
+      <%= link_to 'Admin Panel', rails_admin_path, class: 'hidden sm:inline' %> 
+      <strong class="hidden sm:inline"> | </strong>
     <% end %> 
-    <%= link_to 'Sign out', destroy_user_session_path, :method => :delete %></div>   
+    <%= link_to 'Logout', destroy_user_session_path, :method => :delete %></div>   
   <% else %>
     <%= link_to 'Sign In', new_user_session_path %> </div>
   <% end %>

@@ -82,6 +82,7 @@ class ReqsController < ApplicationController
     CSV.foreach(params['upload'].to_path, headers: true, encoding: 'ISO-8859-1') do |row| 
       req = Req.find_or_initialize_by(dbr_id: row["ID"])
 
+      req.priority = row["Priority"]
       req.start_time = row["Start time"]
       req.completion_time = row["Completion time"]
       req.email = row["Email"]
@@ -150,6 +151,8 @@ class ReqsController < ApplicationController
                                   :rccc,
                                   :eeic,
                                   :point_of_contact, 
+                                  :priority,
+                                  :dbr_id,
                                   answers_attributes: [
                                     :question_id,
                                     :answer

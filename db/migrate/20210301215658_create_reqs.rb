@@ -21,7 +21,7 @@ class CreateReqs < ActiveRecord::Migration[6.1]
       t.decimal :funding_secured
       t.string :installation, default: 'Barksdale'   
       t.string :office, default: 'Barksdale'
-      t.integer :priority, default: 999
+      t.integer :priority
       t.timestamps
 
       #these fields are here as an example of what DBR would need
