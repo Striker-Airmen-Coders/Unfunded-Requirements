@@ -1,66 +1,93 @@
-<ul class="text-nord5 flex flex-wrap space-x-4 justify-end mx-4">
-  <%# <h2 class="text-nord5"> Filter by: </h2> %>
-  
-  <%= search_form_for @search do |f| %>
-    <li class="inline-block"><%= f.label 'Min Total: ' %></li>
-    <li class="inline-block text-black"><%= f.search_field :req_total_gteq%></li>
+<%= search_form_for @search do |f| %>
+  <div class="text-nord5 flex flex-wrap content-center space-x-4 justify-center mx-4">
+    <div class="flex-initial p-1">
+      <div class="inline-block"><%= f.label 'Min Total: ' %></div>
+      <div class="inline-block text-black"><%= f.search_field :req_total_gteq, :onfocus => "this.value=''" %></div>
+    </div>
 
-    <li class="inline-block"><%= f.label 'Max Total: ' %></li>
-    <li class="inline-block text-black"><%= f.search_field :req_total_lteq%></li>
-    
-    <li class="inline-block"><%= f.label 'PEC: ' %></li>
-    <li class="inline-block text-black">
-      <%= f.select :pec_eq, options_from_collection_for_select(Req.select(:pec).order(pec: :asc).distinct, :pec, :pec), include_blank: true %>
-    </li>
+    <div class="flex-initial p-1">
+      <div class="inline-block"><%= f.label 'Max Total: ' %></div>
+      <div class="inline-block text-black"><%= f.search_field :req_total_lteq, :onfocus => "this.value=''" %></div>
+    </div>
 
-    <li class="inline-block"><%= f.label 'RCCC: ' %></li>
-    <li class="inline-block text-black">
-      <%= f.select :rccc_eq, options_from_collection_for_select(Req.select(:rccc).order(rccc: :asc).distinct, :rccc, :rccc), include_blank: true %>
-    </li>
+    <div class="flex-initial p-1">
+      <div class="inline-block"><%= f.label 'PEC: ' %></div>
+      <div class="inline-block text-black">
+        <%= f.select :pec_eq, options_from_collection_for_select(Req.select(:pec).order(pec: :asc).distinct, :pec, :pec), include_blank: true %>
+      </div>
+    </div>
 
-    <li class="inline-block"><%= f.label 'EEIC: ' %></li>
-    <li class="inline-block text-black">
-      <%= f.select :eeic_eq, options_from_collection_for_select(Req.select(:eeic).order(eeic: :asc).distinct, :eeic, :eeic), include_blank: true %>
-    </li>
+    <div class="flex-initial p-1">
+      <div class="inline-block"><%= f.label 'RCCC: ' %></div>
+      <div class="inline-block text-black">
+        <%= f.select :rccc_eq, options_from_collection_for_select(Req.select(:rccc).order(rccc: :asc).distinct, :rccc, :rccc), include_blank: true %>
+      </div>
+    </div>
 
-    <li class="inline-block"><%= f.label 'Method of Purchase: ' %></li>
-    <li class="inline-block text-black">
-      <%= f.select :method_of_purchase_eq, options_from_collection_for_select(Req.select(:method_of_purchase).order(method_of_purchase: :asc).distinct, :method_of_purchase, :method_of_purchase), include_blank: true %>
-    </li>
+    <div class="flex-initial p-1">
+      <div class="inline-block"><%= f.label 'EEIC: ' %></div>
+      <div class="inline-block text-black">
+        <%= f.select :eeic_eq, options_from_collection_for_select(Req.select(:eeic).order(eeic: :asc).distinct, :eeic, :eeic), include_blank: true %>
+      </div>
+    </div>
 
-    <li class="inline-block text-black"><%= f.submit "Filter" %></li>
-  <% end %>
+    <div class="flex-initial p-1">
+      <div class="inline-block"><%= f.label 'Method of Purchase: ' %></div>
+      <div class="inline-block text-black">
+        <%= f.select :method_of_purchase_eq, options_from_collection_for_select(Req.select(:method_of_purchase).order(method_of_purchase: :asc).distinct, :method_of_purchase, :method_of_purchase), include_blank: true %>
+      </div>
+    </div>
+
 
     <% if current_user.fma_role == true %>
-      <%= search_form_for @search do |f| %>
-      <li class="inline-block"><%= f.label 'Min Total: ' %></li>
-      <li class="inline-block text-black"><%= f.search_field :req_total_gteq%></li>
 
-      <li class="inline-block"><%= f.label 'Max Total: ' %></li>
-      <li class="inline-block text-black"><%= f.search_field :req_total_lteq%></li>
-      
-      <li class="inline-block"><%= f.label 'Funding Secured: ' %></li>
-      <li class="inline-block text-black">
-        <%= f.select :funding_secured_eq, options_from_collection_for_select(Req.select(:funding_secured).order(funding_secured: :asc).distinct, :funding_secured, :funding_secured), include_blank: true %>
-      </li>
+      <div class="flex-initial p-1">
+        <div class="inline-block"><%= f.label 'Higher Priority: ' %></div>
+        <div class="inline-block text-black"><%= f.search_field :priority_gteq, :onfocus => "this.value=''" %></div>
+      </div>
 
-      <li class="inline-block"><%= f.label '18SA/F6790: ' %></li>
-      <li class="inline-block text-black">
-        <%= f.select :operating_entity_eq, options_from_collection_for_select(Req.select(:operating_entity).order(operating_entity: :asc).distinct, :operating_entity, :operating_entity), include_blank: true %>
-      </li>
+      <div class="flex-initial p-1">
+        <div class="inline-block"><%= f.label 'Lower Priority: ' %></div>
+        <div class="inline-block text-black"><%= f.search_field :priority_lteq, :onfocus => "this.value=''" %></div>
+      </div>
 
-      <li class="inline-block"><%= f.label 'Group: ' %></li>
-      <li class="inline-block text-black">
-        <%= f.select :group_eq, options_from_collection_for_select(Req.select(:group).order(group: :asc).distinct, :group, :group), include_blank: true %>
-      </li>
+      <div class="flex-initial p-1">
+        <div class="inline-block"><%= f.label 'Min Funding Secured: ' %></div>
+        <div class="inline-block text-black"><%= f.search_field :funding_secured_gteq, :onfocus => "this.value=''" %></div>
+      </div>
 
-      <li class="inline-block"><%= f.label 'Unit: ' %></li>
-      <li class="inline-block text-black">
-        <%= f.select :unit_eq, options_from_collection_for_select(Req.select(:unit).order(unit: :asc).distinct, :unit, :unit), include_blank: true %>
-      </li>
+      <div class="flex-initial p-1">
+        <div class="inline-block"><%= f.label 'Max Funding Secured: ' %></div>
+        <div class="inline-block text-black"><%= f.search_field :funding_secured_lteq, :onfocus => "this.value=''" %></div>
+      </div>
 
-      <li class="inline-block text-black"><%= f.submit "Filter" %></li>
+      <div class="flex-initial p-1">
+        <div class="inline-block"><%= f.label '18SA/F6790: ' %></div>
+        <div class="inline-block text-black">
+          <%= f.select :operating_entity_eq, options_from_collection_for_select(Req.select(:operating_entity).order(operating_entity: :asc).distinct, :operating_entity, :operating_entity), include_blank: true %>
+        </div>
+      </div>
+
+      <div class="flex-initial p-1">
+        <div class="inline-block"><%= f.label 'Group: ' %></div>
+        <div class="inline-block text-black">
+          <%= f.select :group_eq, options_from_collection_for_select(Req.select(:group).order(group: :asc).distinct, :group, :group), include_blank: true %>
+        </div>
+      </div>
+
+      <div class="flex-initial p-1">
+        <div class="inline-block"><%= f.label 'Unit: ' %></div>
+        <div class="inline-block text-black">
+          <%= f.select :unit_eq, options_from_collection_for_select(Req.select(:unit).order(unit: :asc).distinct, :unit, :unit), include_blank: true %>
+        </div>
+      </div>
     <% end %>
-  <% end %>
-</ul>
+        
+    <div class="flex flex-initial content-center text-black p-1"><%= f.submit "Filter", :class => 'p-1' %></div> 
+
+  </div>
+
+<% end %>
+
+
 
