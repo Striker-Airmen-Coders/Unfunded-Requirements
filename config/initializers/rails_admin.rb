@@ -2,10 +2,11 @@ RailsAdmin.config do |config|
   config.model 'Req' do
     list do
       field :priority
-      field :group
+      field :grp
       field :unit
       field :title
       field :req_total
+      field :installation
     end
   end
 

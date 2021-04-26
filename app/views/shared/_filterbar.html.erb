@@ -69,9 +69,9 @@
       </div>
 
       <div class="flex-initial p-1">
-        <div class="inline-block"><%= f.label 'Group: ' %></div>
+        <div class="inline-block"><%= f.label 'grp: ' %></div>
         <div class="inline-block text-black">
-          <%= f.select :group_eq, options_from_collection_for_select(Req.select(:group).order(group: :asc).distinct, :group, :group), include_blank: true %>
+          <%= f.select :grp_eq, options_from_collection_for_select(Req.select(:grp).order(grp: :asc).distinct, :grp, :grp), include_blank: true %>
         </div>
       </div>
 

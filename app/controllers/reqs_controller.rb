@@ -11,10 +11,12 @@ class ReqsController < ApplicationController
   def index
     if current_user.hq_role == true
       @reqs = Req.all
-    else
-      @reqs = Req.mine(current_user)
       @search = Req.ransack(params[:q])
       @reqs = @search.result
+    else
+      @search = Req.ransack(params[:q])
+      @reqs = @search.result
+      @reqs = @reqs.mine(current_user)
     end
   end
 
@@ -25,13 +27,17 @@ class ReqsController < ApplicationController
   # GET /reqs/new
   def new
     @req = Req.new
-    @req.questions(current_user.office).each do |q|
+    @req.office = current_user.office
+    @req.questions.each do |q|
       @req.answers.build(question_id: q.id)
     end
   end
 
   # GET /reqs/1/edit
   def edit
+    @req.questions.each do |q|
+      q.answer_for(@req) || @req.answers.build(question_id: q.id)
+    end
   end
 
   # POST /reqs or /reqs.json
@@ -91,7 +97,7 @@ class ReqsController < ApplicationController
       req.req_total = row["Dollar amount of requirement (total)"]
       req.funding_secured = row["How much funding has been secured so far?"]
       req.operating_entity = row["18SA or F6790?"]
-      req.group = row["Group"]
+      req.grp = row["Group"]
       req.unit = row["Unit"]
       req.pec = row["PEC"]
       req.rccc = row["RCCC"]
@@ -143,7 +149,7 @@ class ReqsController < ApplicationController
                                   :current_working_solution,
                                   :investment_vs_workaround,
                                   :operating_entity, 
-                                  :group, 
+                                  :grp, 
                                   :unit, 
                                   :pec,
                                   :rccc,
@@ -153,6 +159,9 @@ class ReqsController < ApplicationController
                                   :dbr_id,
                                   answers_attributes: [
                                     :question_id,
+                                    :id,
+                                    :text,
+                                    :boolean,
                                     :answer
                                   ]
                                   )
