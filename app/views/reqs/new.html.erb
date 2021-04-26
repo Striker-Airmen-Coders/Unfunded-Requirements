@@ -1,12 +1,15 @@
 <% @title="Create Requirement" %>
 <% if current_user.fma_role == true || current_user.hq_role == true %>
-  <div class="flex flex-nowrap p-4 text-nord5">
-    <%= form_tag('/reqs/import', multipart: true) do %>
-      <label for='upload'>Bulk upload csv (see help page for format)</label>
-      <%= file_field_tag 'upload', accept: 'csv', class: 'bg-nord14', value: "balel"%>
+  <div class="text-nord5">
+    <%= form_tag('/reqs/import', multipart: true, class: "flex justify-end space-x-8 m-4") do %>
+      <label for='upload' class="border border-nord5 text-nord5 hover:bg-nord5 hover:text-nord0 hover:border-nord0 text-center align-middle p-2">Bulk Upload via csv
+        <span class='invisible absolute'>
+          <%= file_field_tag 'upload', accept: 'csv', class: 'invisible' %>
+        </span>
+      </label>
       <div class="text-nord0">
-        <%= submit_tag 'upload', class: "bg-nord0 border border-nord5 text-nord5 p-1",
-        data: { confirm: "If the CSV column headers are not what the site is expecting, it will create blank reqs. Please double check if you haven't already; this is a standard warning message.", disable_with: "After a few moments, return to the home page to see your requirements" } %>
+        <%= submit_tag 'Submit', class: "bg-nord0 border border-nord5 text-nord5 p-2",
+        data: { confirm: "If the CSV column headers are not what the site is expecting, it will create blank reqs. Please double check if you haven't already; this is a standard warning message.", disable_with: "Submitted!" } %>
       </div>
     <% end %>
   </div>
