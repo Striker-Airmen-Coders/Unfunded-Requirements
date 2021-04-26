@@ -42,7 +42,6 @@ ActiveRecord::Schema.define(version: 2021_04_12_142658) do
   end
 
   create_table "reqs", force: :cascade do |t|
-    t.integer "dbr_id"
     t.datetime "start_time"
     t.datetime "completion_time"
     t.string "name"
@@ -50,7 +49,7 @@ ActiveRecord::Schema.define(version: 2021_04_12_142658) do
     t.string "title"
     t.string "office_symbol"
     t.string "work_phone_number"
-    t.string "operating_entity"
+    t.string "is_18SA_or_F6790"
     t.string "group"
     t.string "unit"
     t.string "pec"
@@ -65,6 +64,7 @@ ActiveRecord::Schema.define(version: 2021_04_12_142658) do
     t.integer "priority"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "installation", default: "Barksdale"
     t.integer "office_id"
     t.integer "user_id"
     t.index ["office_id"], name: "index_reqs_on_office_id"
@@ -86,10 +86,10 @@ ActiveRecord::Schema.define(version: 2021_04_12_142658) do
     t.boolean "hq_role", default: false
     t.boolean "fma_role", default: false
     t.boolean "user_role", default: true
+    t.integer "office_id"
     t.string "name"
     t.string "office_symbol"
     t.string "work_phone_number"
-    t.integer "office_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["office_id"], name: "index_users_on_office_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
