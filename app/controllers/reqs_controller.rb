@@ -11,6 +11,8 @@ class ReqsController < ApplicationController
   def index
     if current_user.hq_role == true
       @reqs = Req.all
+      @search = Req.ransack(params[:q])
+      @reqs = @search.result
     else
       @reqs = Req.mine(current_user)
       @search = Req.ransack(params[:q])
