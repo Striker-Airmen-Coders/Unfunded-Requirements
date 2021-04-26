@@ -36,7 +36,7 @@ class ReqsController < ApplicationController
   # GET /reqs/1/edit
   def edit
     @req.questions.each do |q|
-      q.answer_for(@req)# || @req.answers.build(question_id: q.id)
+      q.answer_for(@req) || @req.answers.build(question_id: q.id)
     end
   end
 
