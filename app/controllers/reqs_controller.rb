@@ -1,10 +1,8 @@
 require 'date'
 
 class ReqsController < ApplicationController
-  #load_and_authorize_resource
   before_action :set_req, only: %i[ show edit update destroy ]
   before_action :authenticate_user!
-  #skip_before_action :authenticate_user!, only: [ :index ]
 
   # Set up helper methods
   helper_method :sort_column, :sort_direction
@@ -15,9 +13,9 @@ class ReqsController < ApplicationController
       @reqs = Req.all
     else
       @reqs = Req.mine(current_user)
+      @search = Req.ransack(params[:q])
+      @reqs = @search.result
     end
-      #@search = Req.ransack(params[:q])
-      #@reqs = @search.result
   end
 
   # GET /reqs/1 or /reqs/1.json

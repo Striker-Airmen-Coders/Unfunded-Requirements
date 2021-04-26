@@ -1,0 +1,31 @@
+---
+version: "3"
+
+services:
+
+  postgres:
+    restart: unless-stopped
+    environment:
+      POSTGRES_PASSWORD: # <- A long, multi-word passphrase is best.
+
+  redis:
+    restart: unless-stopped
+
+  rails:
+    restart: unless-stopped
+    environment:
+      POSTGRES_PASSWORD: # <- A long, multi-word passphrase is best.
+      RAILS_ENV: production
+      NODE_ENV: production
+      RAILS_SERVE_STATIC_FILES: yes
+      RAILS_MASTER_KEY: # <- Must either set master key here or as config/master.key
+      DEVISE_JWT_SECRET_KEY: # <- Generate one with `bundle exec rake secret`. Change this string to invalidate JWTs.
+
+  jobs:
+    restart: unless-stopped
+    environment:
+      POSTGRES_PASSWORD: # <- A long, multi-word passphrase is best.
+      RAILS_ENV: production
+      NODE_ENV: production
+      RAILS_MASTER_KEY: # <- Must either set master key here or as config/master.key
+      DEVISE_JWT_SECRET_KEY: # <- Generate one with `bundle exec rake secret`. Change this string to invalidate JWTs.
