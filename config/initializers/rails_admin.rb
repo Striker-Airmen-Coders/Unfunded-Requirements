@@ -6,6 +6,7 @@ RailsAdmin.config do |config|
       field :unit
       field :title
       field :req_total
+      field :installation
     end
   end
 

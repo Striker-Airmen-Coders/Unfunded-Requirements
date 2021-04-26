@@ -19,8 +19,8 @@ class Req < ApplicationRecord
     where(office: user.office)
   }
 
-  def questions(office)
-    Question.where office_id: [nil, office.try(:id)]
+  def questions
+    Question.where office_id: [nil, office_id]
   end
 
   def add_answer(key, value)

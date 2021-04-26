@@ -20,10 +20,10 @@
   </div>
 </div>
 <div class="text-nord5 px-4 py-4">
-  <% @req.answers.each do |a|  %>
-      <strong class="m-2 mb-0 text-lg"><%= a.question.text %></strong>
+  <% @req.questions.each do |q|  %>
+      <strong class="m-2 mb-0 text-lg"><%= q.text %></strong>
       <p class="border-l border-nord5 m-2 pl-4 text-lg">
-        <%= a.value %>
+      <%= q.answer_for(@req).try(:value)  %> 
       </p>
   <% end %>
 </div>

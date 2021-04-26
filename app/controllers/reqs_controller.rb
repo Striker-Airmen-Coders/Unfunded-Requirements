@@ -14,9 +14,9 @@ class ReqsController < ApplicationController
       @search = Req.ransack(params[:q])
       @reqs = @search.result
     else
-      @reqs = Req.mine(current_user)
       @search = Req.ransack(params[:q])
       @reqs = @search.result
+      @reqs = @reqs.mine(current_user)
     end
   end
 
@@ -27,13 +27,17 @@ class ReqsController < ApplicationController
   # GET /reqs/new
   def new
     @req = Req.new
-    @req.questions(current_user.office).each do |q|
+    @req.office = current_user.office
+    @req.questions.each do |q|
       @req.answers.build(question_id: q.id)
     end
   end
 
   # GET /reqs/1/edit
   def edit
+    @req.questions.each do |q|
+      q.answer_for(@req) || @req.answers.build(question_id: q.id)
+    end
   end
 
   # POST /reqs or /reqs.json

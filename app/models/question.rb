@@ -12,4 +12,10 @@ class Question < ApplicationRecord
   validates :key,
     uniqueness: true,
     unless: -> { key.blank? }
+  
+  def answer_for(req)
+    answers.where(req: req).first
+  end
+
+
 end
