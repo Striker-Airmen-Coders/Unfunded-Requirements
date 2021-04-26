@@ -93,6 +93,7 @@
       <%= form.fields_for :answers do |af| %>
         <div class="field">
           <%= af.hidden_field :question_id, value: af.object.question_id%> 
+
           <%= af.label af.object.question.text,
  						class: "text-nord5 text-lg" %>
 
