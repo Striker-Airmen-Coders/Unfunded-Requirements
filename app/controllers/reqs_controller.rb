@@ -10,7 +10,10 @@ class ReqsController < ApplicationController
   helper_method :sort_column, :sort_direction
 
   # GET /reqs or /reqs.json
-  def index
+Focus me  def index
+    if current_user.hq_role == true
+      @reqs = Req.all
+    else
       @reqs = Req.mine(current_user)
       @search = Req.ransack(params[:q])
       @reqs = @search.result
@@ -74,6 +77,46 @@ class ReqsController < ApplicationController
     end
   end
 
+  def import
+    CSV.foreach(params['upload'].to_path, headers: true, encoding: 'ISO-8859-1') do |row| 
+      req = Req.find_or_initialize_by(dbr_id: row["ID"])
+
+      req.priority = row["Priority"]
+      req.start_time = row["Start time"]
+      req.completion_time = row["Completion time"]
+      req.email = row["Email"]
+      req.name = row["Name"]
+      req.office_symbol = row["Your Office Symbol"]
+      req.work_phone_number = row["Your Work Phone Number"]
+      req.title = row["Title"]
+      req.req_total = row["Dollar amount of requirement (total)"]
+      req.funding_secured = row["How much funding has been secured so far?"]
+      req.operating_entity = row["18SA or F6790?"]
+      req.group = row["Group"]
+      req.unit = row["Unit"]
+      req.pec = row["PEC"]
+      req.rccc = row["RCCC"]
+      req.eeic = row["EEIC"]
+      req.method_of_purchase = row["Method of Purchase"]
+      req.point_of_contact = row["Who is the point of contact in your unit to whom questions about this project could be answered?"]
+
+      req.add_answer(:pitch, row["Pitch"])
+      req.add_answer(:problem, row["What is the problem you trying to solve?"])
+      req.add_answer(:solution, row["What is the solution to your problem?"])
+      req.add_answer(:solution_progress, row["Where are you at on implementing your solution?"])
+      req.add_answer(:mission_impact, row["What is the mission impact of your problem?"])
+      req.add_answer(:attempted_self_help, row["Have you attempted to 'self-help' your problem?"])
+      req.add_answer(:current_working_solution, row["How are you currently dealing with your problem? How are your resources/time being spent now?"])
+      req.add_answer(:investment_vs_workaround, row["Why should money be invested in your project, rather than a workaround?"])
+
+      # uncomment if the user uploading is fma_role = true
+      req.office = current_user.office
+      req.user = current_user
+      req.save
+
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_req
@@ -100,13 +143,15 @@ class ReqsController < ApplicationController
                                   :attempted_self_help,
                                   :current_working_solution,
                                   :investment_vs_workaround,
-                                  :is_18SA_or_F6790, 
+                                  :operating_entity, 
                                   :group, 
                                   :unit, 
                                   :pec,
                                   :rccc,
                                   :eeic,
                                   :point_of_contact, 
+                                  :priority,
+                                  :dbr_id,
                                   answers_attributes: [
                                     :question_id,
                                     :answer

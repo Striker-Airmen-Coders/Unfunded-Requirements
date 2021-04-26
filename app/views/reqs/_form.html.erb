@@ -9,98 +9,94 @@
       </ul>
     </div>
   <% end %>
-
-  <div id="fma" class="grid grid-cols-1 md:grid-cols-2 px-8 py-8 bg-color-nord5">
-    <div id="about req" class="grid grid-cols-2 bg-nord5 px-4 py-4 space-x-2 space-y-2">
-      <div class="text-nord0">Requirement Information</div> 
-      <div></div>
-      <div class="field flex flex-col">
-        <%= form.label :title, class: "bg-nord5 text-nord0" %>
-        <%= form.text_field :title, class: "bg-nord0 text-nord5" %>
-      </div>
-      <div class="field flex flex-col">
-        <%= form.label "Total Cost", class: "bg-nord5 text-nord0" %>
-        <%= form.text_field :req_total, class: "bg-nord0 text-nord5" %>
-      </div>
-      <div class="field flex flex-col">
-        <%= form.label "Funding Secured So Far", class: "bg-nord5 text-nord0" %>
-        <%= form.text_field :funding_secured, class: "bg-nord0 text-nord5" %>
-      </div>
-      <div class="field flex flex-col">
-        <%= form.label :group, class: "bg-nord5 text-nord0" %>
-        <%= form.text_field :group, class: "bg-nord0 text-nord5" %>
-      </div>
-      <div class="field flex flex-col">
-        <%= form.label :unit, class: "bg-nord5 text-nord0" %>
-        <%= form.text_field :unit, class: "bg-nord0 text-nord5" %>
-      </div>
-      <div class="field flex flex-col">
-        <%= form.label "Point of Contact", class: "bg-nord5 text-nord0" %>
-        <%= form.text_field :point_of_contact, class: "bg-nord0 text-nord5" %>
-      </div>
+  <div id="about req" class="m-8">
+    <div class="text-nord0">Requirement Information</div> 
+    <div class="field flex flex-col">
+      <%= form.label :title, class: "m-2 mb-0 text-lg text-nord5" %>
+      <%= form.text_field :title, class: "bg-nord1 text-nord5 border-l border-nord5 pl-2 " %>
+    </div>
+    <div class="field flex flex-col">
+      <%= form.label "Total Cost", class: "m-2 mb-0 text-lg text-nord5" %>
+      <%= form.text_field :req_total, class: "bg-nord1 text-nord5 border-l border-nord5 pl-2" %>
+    </div>
+    <div class="field flex flex-col">
+      <%= form.label "Funding Secured So Far", class: "m-2 mb-0 text-lg text-nord5" %>
+      <%= form.text_field :funding_secured, class: "bg-nord1 text-nord5 border-l border-nord5 pl-2" %>
+    </div>
+    <div class="field flex flex-col">
+      <%= form.label :group, class: "m-2 mb-0 text-lg text-nord5" %>
+      <%= form.text_field :group, class: "bg-nord1 text-nord5 border-l border-nord5 pl-2" %>
+    </div>
+    <div class="field flex flex-col">
+      <%= form.label :unit, class: "m-2 mb-0 text-lg text-nord5" %>
+      <%= form.text_field :unit, class: "bg-nord1 text-nord5 border-l border-nord5 pl-2" %>
+    </div>
+    <div class="field flex flex-col">
+      <%= form.label "Point of Contact", class: "m-2 mb-0 text-lg text-nord5" %>
+      <%= form.text_field :point_of_contact, class: "bg-nord1 text-nord5 border-l border-nord5 pl-2" %>
     </div>
   </div>
-
-  <div class="px-8 py-2  w-full">
-    <div id="Accounting" class="grid grid-cols-2 md:grid-cols-5 gap-2 px-4 py-4 bg-nord5">
-      <div class="field flex flex-col">
-          <%= form.label "18SA or F6790?", class: "bg-nord5 text-nord0" %>
-          <%= form.text_field :is_18SA_or_F6790, class: "bg-nord0 text-nord5" %>
-      </div>
-      <div class="field flex flex-col">
-          <%= form.label "Method of Purchase", class: "bg-nord5 text-nord0" %>
-          <%= form.text_field :method_of_purchase, class: "bg-nord0 text-nord5" %>
-      </div>
-      <div class="field flex flex-col">
-          <%= form.label :pec, class: "bg-nord5 text-nord0" %>
-          <%= form.text_field :pec, class: "bg-nord0 text-nord5" %>
-      </div>
-      <div class="field flex flex-col">
-          <%= form.label :rccc, class: "bg-nord5 text-nord0" %>
-          <%= form.text_field :rccc, class: "bg-nord0 text-nord5" %>
-      </div>
-      <div class="field flex flex-col">
-          <%= form.label :eeic, class: "bg-nord5 text-nord0" %>
-          <%= form.text_field :eeic, class: "bg-nord0 text-nord5" %>
-      </div>
+  <div id="Accounting" class="m-8">
+    <div class="field flex flex-col">
+        <%= form.label "Operating Entity", class: "m-2 mb-0 text-lg text-nord5" %>
+        <%= form.text_field :operating_entity, class: "bg-nord1 text-nord5 border-l border-nord5 pl-2" %>
+    </div>
+    <div class="field flex flex-col">
+        <%= form.label "Method of Purchase", class: "m-2 mb-0 text-lg text-nord5" %>
+        <%= form.text_field :method_of_purchase, class: "bg-nord1 text-nord5 border-l border-nord5 pl-2" %>
+    </div>
+    <div class="field flex flex-col">
+        <%= form.label :pec, class: "m-2 mb-0 text-lg text-nord5" %>
+        <%= form.text_field :pec, class: "bg-nord1 text-nord5 border-l border-nord5 pl-2" %>
+    </div>
+    <div class="field flex flex-col">
+        <%= form.label :rccc, class: "m-2 mb-0 text-lg text-nord5" %>
+        <%= form.text_field :rccc, class: "bg-nord1 text-nord5 border-l border-nord5 pl-2" %>
+    </div>
+    <div class="field flex flex-col">
+        <%= form.label :eeic, class: "m-2 mb-0 text-lg text-nord5" %>
+        <%= form.text_field :eeic, class: "bg-nord1 text-nord5 border-l border-nord5 pl-2" %>
     </div>
   </div>
-
-  <div class="px-8 py-2 w-full">
+  <div class="px-8 py-8 w-full">
     <div id="background" class="grid grid-cols-1 md:grid-cols-2 gap-2 px-4 py-4 bg-nord5">
       <div class="text-nord0">Background</div>
-      <div></div>
       <%= form.fields_for :answers do |af| %>
         <div class="field">
           <%= af.hidden_field :question_id, value: af.object.question_id%> 
           <%= af.label af.object.question.text, class: "bg-nord5 text-nord0" %>
 
           <% if af.object.type?(:text) %>
-            <%= af.text_area :text, rows: 6, style:'width:100%;', class: "bg-nord0 text-nord5" %>
+            <%= af.text_area :text, rows: 6, style:'width:100%;', 
+              class: "bg-nord1 text-nord5 border-l border-nord5 pl-2" %>
           <% end %>
 
           <% if af.object.type?(:number) %>
-            <%= af.number_field :number, style:'width:100%;', class: "bg-nord0 text-nord5" %>
+            <%= af.number_field :number, style:'width:100%;', 
+              class: "bg-nord1 text-nord5 border-l border-nord5 pl-2" %>
           <% end %>
 
           <% if af.object.type?(:date) %>
-            <%= af.date_field :date, style:'width:100%;', class: "bg-nord0 text-nord5" %>
+            <%= af.date_field :date, style:'width:100%;', 
+              class: "bg-nord1 text-nord5 border-l border-nord5 pl-2" %>
           <% end %>
 
           <% if af.object.type?(:boolean) %>
-            <%= af.check_box :boolean, class: "h-6 w-6 border-gray-300 rounded" %>
+            <%= af.check_box :boolean, 
+              class: "h-6 w-6 border-gray-300 rounded" %>
           <% end %>
         </div>
       <% end %>
     </div>
   </div>
-
-  <div class="flex flex-row justify-around px-8 py-8 ">
-    <button class="px-4 py-4 bg-nord11" >
+  <div class="flex flex-row justify-around px-8 py-8 mb-4">
+    <button class="px-4 py-4 bg-nord0 border border:nord11 text-nord5 hover:bg-nord11 hover:border-nord11" >
       <%= link_to 'Abandon', reqs_path %>
     </button>
     <div class="actions">
-      <%= form.submit :class => 'px-4 py-4 bg-nord14' %>
+      <%= form.submit :class => 'px-4 py-4 text-nord5 hover:text-nord0 bg-nord0 border border-nord5 hover:border-nord14 hover:bg-nord14' %>
     </div>
   </div>
+
+
 <% end %>

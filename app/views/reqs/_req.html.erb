@@ -1,3 +1,9 @@
+<div>
+  <div class="text-nord5 flex justify-between ">
+    <div class="text-2xl"><%= req.priority %></div>
+    <div class="self-end border border-nord0 hover:border-nord5 px-1 m-1 text-nord0 hover:text-nord5"><%= link_to 'Edit', edit_req_path(req)%></div>
+  </div>
+
 <%= link_to req do %>
   <div class="bg-nord5 px-1 text-nord0 h-96 w-72">
     <div class="w-full flex flex-wrap justify-center content-center align-middle text-2xl text-nord0 h-20 border-b-2 border-nord0 mb-2">
@@ -6,7 +12,7 @@
     <div class="flex px-2 justify-between pt-2">
       <div class="text-xl">
         <div class="text-nord0 text-opacity-25">
-          <% if req.is_18SA_or_F6790 == "F6790" then %>
+          <% if req.operating_entity == "F6790" then %>
             <strong class="text-nord0">F6790</strong> / 18SA
           <% else %>
             F6790 / <strong class="text-nord0">18SA</strong>
@@ -18,7 +24,7 @@
       <div class="text-xl">
          <div class="pl-4 text-right"><%= req.req_total %></div>
          <div class="pl-4 text-right border-b border-nord0">- <%= req.funding_secured %></div>
-         <div class="pl-4 text-right">$<%= req.req_total - req.funding_secured %></div>
+         <div class="pl-4 text-right">$<%= number_with_delimiter(req.req_total - req.funding_secured, :delimiter => ',') %></div>
        </div>
     </div>
     <div class="flex flex-row justify-around pt-4">
@@ -32,3 +38,4 @@
     </p>
   </div>
 <% end %>
+</div>
