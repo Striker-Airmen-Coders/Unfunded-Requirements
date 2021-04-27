@@ -1,6 +1,7 @@
 class CreateReqs < ActiveRecord::Migration[6.1]
   def change
     create_table :reqs do |t|
+      t.integer :dbr_id
       t.datetime :start_time
       t.datetime :completion_time
       t.string :name
@@ -9,7 +10,7 @@ class CreateReqs < ActiveRecord::Migration[6.1]
       t.string :office_symbol
       t.string :work_phone_number
       t.string :operating_entity
-      t.string :group
+      t.string :grp
       t.string :unit
       t.string :pec
       t.string :rccc
@@ -18,16 +19,9 @@ class CreateReqs < ActiveRecord::Migration[6.1]
       t.string :point_of_contact
       t.decimal :req_total
       t.decimal :funding_secured
-      t.text :pitch
-      t.text :problem
-      t.text :solution
-      t.text :solution_progress
-      t.text :mission_impact
-      t.text :current_working_solution
-      t.text :investment_vs_workaround
-      t.boolean :attempted_self_help
       t.string :installation, default: 'Barksdale'   
-
+      t.string :office, default: 'Barksdale'
+      t.integer :priority
       t.timestamps
 
       #these fields are here as an example of what DBR would need

@@ -1,2 +1,17 @@
 <% @title="Create Requirement" %>
+<% if current_user.fma_role == true || current_user.hq_role == true %>
+  <div class="text-nord5">
+    <%= form_tag('/reqs/import', multipart: true, class: "flex justify-end space-x-8 m-4") do %>
+      <label for='upload' class="border border-nord5 text-nord5 hover:bg-nord5 hover:text-nord0 hover:border-nord0 text-center align-middle p-2">Bulk Upload via csv
+        <span class='invisible absolute'>
+          <%= file_field_tag 'upload', accept: 'csv', class: 'invisible' %>
+        </span>
+      </label>
+      <div class="text-nord0">
+        <%= submit_tag 'Submit', class: "bg-nord0 border border-nord5 hover:bg-nord5 hover:text-nord0 text-nord5 p-2",
+        data: { confirm: "If the CSV column headers are not what the site is expecting, it will create blank reqs. Please double check if you haven't already; this is a standard warning message.", disable_with: "Submitted!" } %>
+      </div>
+    <% end %>
+  </div>
+<% end %>              
 <%= render 'form', req: @req %>

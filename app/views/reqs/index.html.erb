@@ -1,18 +1,15 @@
-<% @title="All Requirements for #{lineage(current_user)}" %>
-
-<%= form_tag('/reqs/import', multipart: true) do %>
-  <%= file_field_tag 'upload' %>
-  <%= submit_tag('upload') %>
+<% if current_user.hq_role == true %>
+  <% @title = "All Requirements" %>
+<% else %>
+  <% @title="All Reqs for #{lineage(current_user)}" %>
 <% end %>
 
-<h1 class="text-nord5"> 
-  2BW UFR Totals: $<%= number_with_delimiter(@reqs.sum(:req_total), :delimiter => ',') %>
-</h1>
+<%= render "shared/infopanel" %>
+<div class="pt-4"
+  <%= render "shared/filterbar" %>
+</div>
 
-<h1 class="text-nord5"> current user def criterion = <%= lineage(current_user) %> </h1>
 
-<%= render "shared/filterbar" %>
-
-<div class="flex flex-row flex-wrap justify-around gap-6 m-8">
+<div class="flex flex-row flex-wrap justify-around gap-6 mt-2 m-8">
   <%= render @reqs %>  
 </div>

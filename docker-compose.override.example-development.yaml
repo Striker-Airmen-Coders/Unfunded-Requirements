@@ -21,17 +21,17 @@ services:
     ports:
       - "3035:3035" # For webpack-dev-server, which is using this container as its network-mode and must have these ports forwarded.
 
-  #jobs:
-  #  environment:
-  #    POSTGRES_PASSWORD: # <- A long, multi-word passphrase is best.
-  #    RAILS_ENV: development
-  #    DEVISE_JWT_SECRET_KEY: # <- Generate one with `bundle exec rake secret`. Change this string to invalidate JWTs.
-  #  tty: true
-  #  stdin_open: true
-  #    # Above: These 2 lines let us work with the REPL we get from binding.pry.
-  #    # It is useful in development and unnecessary in production.
-  #    # Attach to the container using `docker attach`,
-  #    # and it will be like `rails server` is running on your machine outside a container.
+  jobs:
+    environment:
+      POSTGRES_PASSWORD: 01cf0f0da10e # <- A long, multi-word passphrase is best.
+      RAILS_ENV: development
+      DEVISE_JWT_SECRET_KEY: c667eb56cd05 # <- Generate one with `bundle exec rake secret`. Change this string to invalidate JWTs.
+    tty: true
+    stdin_open: true
+      # Above: These 2 lines let us work with the REPL we get from binding.pry.
+      # It is useful in development and unnecessary in production.
+      # Attach to the container using `docker attach`,
+      # and it will be like `rails server` is running on your machine outside a container.
 
   webpack-dev-server:
     container_name: unfunded-requirements-webpack-dev-server

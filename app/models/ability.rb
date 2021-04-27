@@ -13,7 +13,12 @@ class Ability
       can :manage, :dashboard  
     end
     if user.fma_role?
-      can :manage, User
+      can :manage, User, office: user.office
+      can :access, :rails_admin
+      can :manage, :dashboard  
+      can :manage, Req, office: { name: user.office.name } 
+      can :manage, Question, office: { name: user.office.name } 
+      can :manage, Office, id: user.office_id  
     end
   end
 end

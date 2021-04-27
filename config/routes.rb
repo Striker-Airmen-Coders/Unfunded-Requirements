@@ -9,11 +9,7 @@ Rails.application.routes.draw do
     passwords: 'users/passwords',
     registrations: 'users/registrations'
   }
-  get 'pages/type', to: "pages#type", as: "type"
-  get 'pages/fma', to: "pages#fma", as: "fma"
-  get 'pages/create', to: "pages#create", as: "create"
   get 'pages/info', to: "pages#info", as: "info"
-  get 'pages/shipyard', to: "pages#shipyard", as: "shipyard"
   root to: 'pages#info'
   
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

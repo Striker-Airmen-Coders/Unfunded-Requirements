@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 2021_04_12_142658) do
   end
 
   create_table "reqs", force: :cascade do |t|
+    t.integer "dbr_id"
     t.datetime "start_time"
     t.datetime "completion_time"
     t.string "name"
@@ -50,7 +51,7 @@ ActiveRecord::Schema.define(version: 2021_04_12_142658) do
     t.string "office_symbol"
     t.string "work_phone_number"
     t.string "operating_entity"
-    t.string "group"
+    t.string "grp"
     t.string "unit"
     t.string "pec"
     t.string "rccc"
@@ -59,15 +60,9 @@ ActiveRecord::Schema.define(version: 2021_04_12_142658) do
     t.string "point_of_contact"
     t.decimal "req_total"
     t.decimal "funding_secured"
-    t.text "pitch"
-    t.text "problem"
-    t.text "solution"
-    t.text "solution_progress"
-    t.text "mission_impact"
-    t.text "current_working_solution"
-    t.text "investment_vs_workaround"
-    t.boolean "attempted_self_help"
     t.string "installation", default: "Barksdale"
+    t.string "office", default: "Barksdale"
+    t.integer "priority"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "office_id"
@@ -86,7 +81,7 @@ ActiveRecord::Schema.define(version: 2021_04_12_142658) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "installation"
     t.string "wing"
-    t.string "group"
+    t.string "grp"
     t.string "unit"
     t.boolean "hq_role", default: false
     t.boolean "fma_role", default: false

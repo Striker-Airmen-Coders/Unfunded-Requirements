@@ -1,8 +1,8 @@
 <div class="flex h-screen">
   <div class="m-auto flex flex-col ">
     <h2 class="m-auto text-nord5 text-2xl p-2 ">Please sign in</h2>
-    <div class="bg-nord5 p-4">
-      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="bg-nord5 p-4">
         <div class="field py-1">
           <%= f.label :email, :class => 'text-nord0 text-lg'%><br />
           <%= f.email_field :email, autofocus: true, autocomplete: "email", 
@@ -20,14 +20,13 @@
             <%= f.check_box :remember_me, :class => 'color-nord5' %>
             <%= f.label :remember_me, :class => 'text-nord0' %>
           </div>
-        <% end %>
-        
-        <div class="actions m-auto w-full">
-          <%= f.submit "Log in", data: { disable_with: "loading" }, 
-            :class => 'bg-nord14 w-full p-2' %>
-        </div>
-      <% end %>
-    </div>
+        <% end %>   
+      </div>
+      <div class="actions m-auto w-full">
+        <%= f.submit "Log in", data: { disable_with: "loading" }, 
+          :class => 'bg-nord14 w-full p-2' %>
+      </div>
+    <% end %>
     <div class="text-nord5 flex flex-row justify-between p-1">
       <%= render "devise/shared/links" %>
     </div>

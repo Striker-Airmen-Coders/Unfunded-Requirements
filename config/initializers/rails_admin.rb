@@ -1,4 +1,15 @@
 RailsAdmin.config do |config|
+  config.model 'Req' do
+    list do
+      field :priority
+      field :grp
+      field :unit
+      field :title
+      field :req_total
+      field :installation
+    end
+  end
+
 
   ### Popular gems integration
 

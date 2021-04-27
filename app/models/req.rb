@@ -15,12 +15,18 @@ class Req < ApplicationRecord
 
   scope :mine, ->(user) { 
     return where(unit: user.unit, office: user.office) if user.unit
-    return where(group: user.group, office: user.office) if user.group
+    return where(grp: user.grp, office: user.office) if user.grp
     where(office: user.office)
   }
 
-  def questions(office)
-    Question.where office_id: [nil, office.try(:id)]
+  def questions
+    Question.where office_id: [nil, office_id]
+  end
+
+  def add_answer(key, value)
+    question = Question.find_by(key: key)
+    answers << Answer.create(question: question, text: value)
+
   end
 
   def answer_for(key)
