@@ -1,106 +1,136 @@
 <%= search_form_for @search do |f| %>
-  <div class="text-nord5 flex flex-wrap content-center space-x-4 justify-center mx-4">
-    <div class="flex-initial p-1">
-      <div class="inline-block"><%= f.label 'Minimum Total: ' %></div>
-      <div class="inline-block">
-        <%= f.search_field :req_total_gteq, :onfocus => "this.value=''", class: "bg-nord0 w-32 pl-2 border border-nord5 text-nord5"%>
-      </div>
+
+<div class="text-nord5 flex flex-wrap justify-evenly m-4">
+  <div class="flex-initial w-36">
+    <div class="inline-block">
+      <%= f.label 'Minimum Total: ' %>
     </div>
-
-    <div class="flex-initial p-1">
-      <div class="inline-block"><%= f.label 'Maximum Total: ' %></div>
-      <div class="inline-block">
-        <%= f.search_field :req_total_lteq, :onfocus => "this.value=''", class: "w-32 pl-2  bg-nord0 border border-nord5 text-nord5" %>
-      </div>
+    <div class="inline-block">
+      <%= f.search_field :req_total_gteq, :onfocus => "this.value=''", 
+        class: "bg-nord0 w-36 pl-2 border border-nord5 text-nord5"%>
     </div>
-
-    <div class="flex-initial p-1">
-      <div class="inline-block"><%= f.label 'PEC: ' %></div>
-      <div class="inline-block  text-nord0 w-32">
-        <%= f.select :pec_eq, 
-          options_from_collection_for_select(
-            Req.select(:pec).order(pec: :asc).distinct, :pec, :pec), 
-            include_blank: true %>
-      </div>
-    </div>
-
-    <div class="flex-initial p-1">
-      <div class="inline-block"><%= f.label 'RCCC: ' %></div>
-      <div class="inline-block  text-nord0 w-32">
-        <%= f.select :rccc_eq, options_from_collection_for_select(
-          Req.select(:rccc).order(rccc: :asc).distinct, :rccc, :rccc), 
-          include_blank: true %>
-      </div>
-    </div>
-
-    <div class="flex-initial p-1">
-      <div class="inline-block"><%= f.label 'EEIC: ' %></div>
-      <div class="inline-block  text-nord0 w-32">
-        <%= f.select :eeic_eq, options_from_collection_for_select(
-          Req.select(:eeic).order(eeic: :asc).distinct, :eeic, :eeic), 
-          include_blank: true %>
-      </div>
-    </div>
-
-    <div class="flex-initial p-1">
-      <div class="inline-block"><%= f.label 'Method of Purchase: ' %></div>
-      <div class="inline-block  text-nord0 w-32">
-        <%= f.select :method_of_purchase_eq, options_from_collection_for_select(
-          Req.select(:method_of_purchase).order(method_of_purchase: :asc).distinct,
-          :method_of_purchase, :method_of_purchase), 
-          include_blank: true %>
-      </div>
-    </div>
- <% if current_user.fma_role == true %>
-      <div class="flex-initial p-1">
-        <div class="inline-block"><%= f.label 'Higher Priority: ' %></div>
-        <div class="inline-block text-black">
-          <%= f.search_field :priority_gteq, :onfocus => "this.value=''", class: "w-32 pl-2  bg-nord0 border border-nord5 text-nord5"  %>
-        </div>
-      </div>
-
-      <div class="flex-initial p-1">
-        <div class="inline-block"><%= f.label 'Lower Priority: ' %></div>
-        <div class="inline-block text-black">
-          <%= f.search_field :priority_lteq, :onfocus => "this.value=''", class: "w-32 pl-2  bg-nord0 border border-nord5 text-nord5"  %>
-        </div>
-      </div>
-
-      <div class="flex-initial p-1">
-        <div class="inline-block"><%= f.label '18SA/F6790: ' %></div>
-        <div class="inline-block  text-nord0 w-32">
-          <%= f.select :operating_entity_eq, 
-            options_from_collection_for_select(
-              Req.select(:operating_entity).order(operating_entity: :asc)
-              .distinct, :operating_entity, :operating_entity), 
-              include_blank: true %>
-        </div>
-      </div>
-
-      <div class="flex-initial p-1">
-        <div class="inline-block"><%= f.label 'grp: ' %></div>
-        <div class="inline-block text-nord0 w-32">
-          <%= f.select :grp_eq, 
-            options_from_collection_for_select(
-              Req.select(:grp).order(grp: :asc).distinct, :grp, :grp),
-              include_blank: true %>
-        </div>
-      </div>
-
-      <div class="flex-initial p-1">
-        <div class="inline-block"><%= f.label 'Unit: ' %></div>
-        <div class="inline-block  text-nord0 w-32">
-          <%= f.select :unit_eq, 
-            options_from_collection_for_select(
-              Req.select(:unit).order(unit: :asc).distinct, :unit, :unit), 
-              include_blank: true %>
-        </div>
-      </div>
-    <% end %> 
-    <div class="flex flex-initial content-center text-black p-1">
-      <%= f.submit "Filter", :class => 'p-1' %>
-    </div> 
   </div>
+
+  <div class="flex-initial  w-36">
+    <div class="inline-block">
+      <%= f.label 'Maximum Total: ' %>
+    </div>
+    <div class="inline-block">
+      <%= f.search_field :req_total_lteq, :onfocus => "this.value=''", 
+        class: "w-36 pl-2  bg-nord0 border border-nord5 text-nord5" %>
+    </div>
+  </div>
+
+  <div class="flex-initial  w-36">
+    <div class="inline-block">
+      <%= f.label 'Priority Above: ' %>
+    </div>
+    <div class="inline-block text-black">
+      <%= f.search_field :priority_gteq, :onfocus => "this.value=''", 
+        class: "w-36 pl-2  bg-nord0 border border-nord5 text-nord5"  %>
+    </div>
+  </div>
+
+  <div class="flex-initial  w-36">
+    <div class="inline-block">
+      <%= f.label 'Priority Below: ' %>
+    </div>
+    <div class="inline-block text-black">
+      <%= f.search_field :priority_lteq, :onfocus => "this.value=''", 
+        class: "w-36 pl-2  bg-nord0 border border-nord5 text-nord5"  %>
+    </div>
+  </div>
+</div>
+<div class="text-nord5 flex flex-wrap justify-evenly m-4">
+  <div class="flex-initial  w-36">
+    <div class="inline-block">
+      <%= f.label 'EEIC: ' %>
+    </div>
+    <div class="inline-block  text-nord0 w-36">
+      <%= f.select :eeic_eq, options_from_collection_for_select(
+        Req.select(:eeic).order(eeic: :asc).distinct, :eeic, :eeic), 
+        include_blank: true %>
+    </div>
+  </div>
+
+  <div class="flex-initial  w-36">
+    <div class="inline-block">
+      <%= f.label 'MoP: ' %>
+    </div>
+    <div class="inline-block  text-nord0 w-36">
+      <%= f.select :method_of_purchase_eq, options_from_collection_for_select(
+        Req.select(:method_of_purchase).order(method_of_purchase: :asc).distinct,
+        :method_of_purchase, :method_of_purchase), 
+        include_blank: true %>
+    </div>
+  </div>
+  <div class="flex-initial  w-36">
+    <div class="inline-block">
+      <%= f.label 'PEC: ' %>
+    </div>
+    <div class="inline-block  text-nord0 w-36">
+      <%= f.select :pec_eq, 
+        options_from_collection_for_select(
+          Req.select(:pec).order(pec: :asc).distinct, :pec, :pec), 
+          include_blank: true %>
+    </div>
+  </div>
+
+  <div class="flex-initial  w-36">
+    <div class="inline-block">
+      <%= f.label 'RCCC: ' %>
+    </div>
+    <div class="inline-block  text-nord0 w-36">
+      <%= f.select :rccc_eq, options_from_collection_for_select(
+        Req.select(:rccc).order(rccc: :asc).distinct, :rccc, :rccc), 
+        include_blank: true %>
+    </div>
+  </div>
+
+  <div class="flex-initial  w-36">
+    <div class="inline-block">
+      <%= f.label 'Operating Entity: ' %>
+    </div>
+    <div class="inline-block  text-nord0 w-36">
+      <%= f.select :operating_entity_eq, 
+        options_from_collection_for_select(
+          Req.select(:operating_entity).order(operating_entity: :asc)
+          .distinct, :operating_entity, :operating_entity), 
+          include_blank: true %>
+    </div>
+  </div>
+
+  <div class="flex-initial  w-36">
+    <div class="inline-block">
+      <%= f.label 'grp: ' %>
+    </div>
+    <div class="inline-block text-nord0 w-36">
+      <%= f.select :grp_eq, 
+        options_from_collection_for_select(
+          Req.select(:grp).order(grp: :asc).distinct, :grp, :grp),
+          include_blank: true %>
+    </div>
+  </div>
+
+  <div class="flex-initial  w-36">
+    <div class="inline-block">
+      <%= f.label 'Unit: ' %>
+    </div>
+    <div class="inline-block text-nord0 w-36">
+      <%= f.select :unit_eq, 
+        options_from_collection_for_select(
+          Req.select(:unit).order(unit: :asc).distinct, :unit, :unit), 
+          include_blank: true %>
+    </div>
+  </div>
+
+</div>
+
+<div class="w-full flex justify-end px-8 p-4">
+  <%= f.submit "Filter", 
+    :class => 'bg-nord0 border border-nord5 text-nord5 hover:bg-nord5 hover:text-nord0 p-2' %>
+</div> 
+
 <% end %>
 
 
