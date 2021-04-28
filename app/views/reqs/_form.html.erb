@@ -96,7 +96,8 @@
 
           <%= af.label af.object.question.text,
  						class: "text-nord5 text-lg" %>
-
+                      <!-- If it is crashing hecause it's trying to humanize nil, you have a question 
+                        entity without text; delete it from the admin panel to fix this. -->
           <% if af.object.type?(:text) %>
             <%= af.text_area :text, rows: 6, style:'width:100%;', 
               class: "bg-nord1 px-2 text-nord5 border-l border-nord5 pl-2" %>
