@@ -1,4 +1,6 @@
 RailsAdmin.config do |config|
+#  config.browser_validations = false
+
   config.model 'Req' do
     list do
       field :priority
