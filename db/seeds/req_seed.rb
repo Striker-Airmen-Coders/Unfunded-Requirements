@@ -1,3 +1,4 @@
+# exercise caution; this file is technically deprecated so some of these fields may no longer be active
 reqs = Req.create([
 {
 start_time: "2020/09/17 08:48:41",
