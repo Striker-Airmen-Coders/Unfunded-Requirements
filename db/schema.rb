@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_12_142658) do
+ActiveRecord::Schema.define(version: 2021_04_28_194143) do
 
   create_table "answers", force: :cascade do |t|
     t.integer "question_id"
@@ -42,14 +42,8 @@ ActiveRecord::Schema.define(version: 2021_04_12_142658) do
   end
 
   create_table "reqs", force: :cascade do |t|
-    t.integer "dbr_id"
-    t.datetime "start_time"
-    t.datetime "completion_time"
     t.string "name"
-    t.string "email"
     t.string "title"
-    t.string "office_symbol"
-    t.string "work_phone_number"
     t.string "operating_entity"
     t.string "grp"
     t.string "unit"
@@ -67,6 +61,25 @@ ActiveRecord::Schema.define(version: 2021_04_12_142658) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "office_id"
     t.integer "user_id"
+    t.string "req_number"
+    t.string "status"
+    t.integer "owner_ranking"
+    t.string "priority_level"
+    t.integer "budget_authority"
+    t.string "sag"
+    t.string "panel"
+    t.string "object_class"
+    t.string "esp"
+    t.string "aai"
+    t.integer "total_minus_wingfunded"
+    t.integer "ep_funded"
+    t.integer "total_minus_epfunded"
+    t.datetime "needby_date"
+    t.string "final_FY"
+    t.string "contract_number"
+    t.datetime "pop_start_date"
+    t.string "create_by_org"
+    t.string "reviewed_by"
     t.index ["office_id"], name: "index_reqs_on_office_id"
     t.index ["user_id"], name: "index_reqs_on_user_id"
   end
