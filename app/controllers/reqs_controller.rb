@@ -51,7 +51,6 @@ class ReqsController < ApplicationController
         flash[:notice] = "Your requirement has been saved"
         format.html { redirect_to @req }
         format.json { render :show, status: :created, location: @req }
-      etext-nord0lse
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @req.errors, status: :unprocessable_entity }
       end
