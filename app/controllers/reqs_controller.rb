@@ -46,6 +46,8 @@ class ReqsController < ApplicationController
     @req.office = current_user.office
     @req.user = current_user
 
+    #It's possible I will need to define how to build the requirement number here for the find or create by to function properly
+
     respond_to do |format|
       if @req.save
         flash[:notice] = "Your requirement has been saved"
@@ -85,33 +87,21 @@ class ReqsController < ApplicationController
     CSV.foreach(params['upload'].to_path, headers: true, encoding: 'ISO-8859-1') do |row| 
       req = Req.find_or_initialize_by(req_number: row["Requirement Number"])
 
-      req.req_number = row["Requirement Number"]
+#      req.req_number = row["Requirement Number"]
       req.priority = row["Priority"]
       req.title = row["Title"]
-      req.req_total = row["Dollar amount of requirement (total)"]
-      req.funding_secured = row["How much funding has been secured so far?"]
-      req.operating_entity = row["18SA or F6790?"]
+      req.req_total = row["Requirement Total"]
+      req.funding_secured = row["Wing Funded Total"]
+      req.operating_entity = row["Operating Entity"]
       req.grp = row["Group"]
-      req.unit = row["Unit"]
+      req.unit = row["Unit/ Directorate"]
       req.pec = row["PEC"]
-      req.rccc = row["RCCC"]
+      req.rccc = row["Cost Center"]
       req.eeic = row["EEIC"]
+      req.object_class = row["Object Class"]
+      req.esp = row["ESP"]
+      req.aai = row["AAI"]
       req.method_of_purchase = row["Method of Purchase"]
-      req.point_of_contact = row["Who is the point of contact in your unit to whom questions about this project could be answered?"]
-
-      req.add_answer(:pitch, row["Pitch"])
-      req.add_answer(:problem, row["What is the problem you trying to solve?"])
-      req.add_answer(:solution, row["What is the solution to your problem?"])
-      req.add_answer(:solution_progress, row["Where are you at on implementing your solution?"])
-      req.add_answer(:mission_impact, row["What is the mission impact of your problem?"])
-      req.add_answer(:attempted_self_help, row["Have you attempted to 'self-help' your problem?"])
-      req.add_answer(:current_working_solution, row["How are you currently dealing with your problem? How are your resources/time being spent now?"])
-      req.add_answer(:investment_vs_workaround, row["Why should money be invested in your project, rather than a workaround?"])
-
-      # uncomment if the user uploading is fma_role = true. It is conceivable that you'd later add a data field to the csv that has the correct office, then you'd remove this.
-      req.office = current_user.office
-      # you would not want to do what is described above for this field here.
-      req.user = current_user
 
       req.status = row["Status"]
       req.owner_ranking = row["Owner Ranking"]
@@ -119,9 +109,6 @@ class ReqsController < ApplicationController
       req.budget_authority = row["BA"]
       req.sag = row["SAG"]
       req.panel = row["Panel"]
-      req.object_class = row["Object Class"]
-      req.esp = row["ESP"]
-      req.aai = row["AAI"]
       req.total_minus_wingfunded = row[" Unfunded Total based on Wing Funded"]
       req.ep_funded = row[" EP Funded Amount"]
       req.total_minus_epfunded = row[" Unfunded Amount Based on EP Funding"]
@@ -133,33 +120,23 @@ class ReqsController < ApplicationController
       req.reviewed_by = row["Created By Org"]
       req.reviewed_by = row["AFGSC/FMAO Reveiwed By"]
 
-      req.add_answer(:justification, row["Justification"]
-      req.add_answer(:impact, row["Impact if not Funded"]
-      req.add_answer(:pem_remarks, row["PEM Remarks"]
-      req.add_answer(:hq_remarks, row["HQ FMA Remarks"]
-      req.add_answer(:is_recurring, row["Is Recurring"]
-      req.add_answer(:is_civpay, row["Is Civ Pay "]
+
+      # uncomment if the user uploading is fma_role = true. 
+      # It is conceivable that you'd later add a data field 
+      # to the csv that has the correct office, then you'd remove this.
+      req.office = current_user.office
+      
+      # you would not want to do what is described above for this field here.
+      req.user = current_user
+
+      req.add_answer(:justification, row["Justification"])
+      req.add_answer(:impact, row["Impact if not Funded"])
+      req.add_answer(:pem_remarks, row["PEM Remarks"])
+      req.add_answer(:hq_remarks, row["HQ FMA Remarks"])
+      req.add_answer(:is_recurring, row["Is Recurring"])
+      req.add_answer(:is_civpay, row["Is Civ Pay "])
       req.save
-^
-:req_number
-:status
-:owner_ranking
-:priority_level
-:budget_authority
-:sag
-:panel
-:object_class
-:esp
-:aai
-:total_minus_wingfunded
-:ep_funded
-:total_minus_epfunded
-:needby_date
-:final_FY
-:contract_number
-:pop_start_date
-:create_by_org
-:reviewed_by
+
 
 
     end
@@ -197,9 +174,26 @@ class ReqsController < ApplicationController
                                   :pec,
                                   :rccc,
                                   :eeic,
-                                  :point_of_contact, 
                                   :priority,
-                                  :dbr_id,
+                                  :req_number,
+                                  :status,
+                                  :owner_ranking,
+                                  :priority_level,
+                                  :budget_authority,
+                                  :sag,
+                                  :panel,
+                                  :object_class,
+                                  :esp,
+                                  :aai,
+                                  :total_minus_wingfunded,
+                                  :ep_funded,
+                                  :total_minus_epfunded,
+                                  :needby_date,
+                                  :final_FY,
+                                  :contract_number,
+                                  :pop_start_date,
+                                  :create_by_org,
+                                  :reviewed_by,
                                   answers_attributes: [
                                     :question_id,
                                     :id,
