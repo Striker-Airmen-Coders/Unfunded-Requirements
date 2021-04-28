@@ -20,6 +20,7 @@ class AddDbrFieldsToReqs < ActiveRecord::Migration[6.1]
    add_colummn :reqs, :create_by_org, :string
    add_colummn :reqs, :reviewed_by, :string
    #If headquarters users have an account, convert these to foreign keys and add 'Reviewer' type to models
+
    remove_colummn :reqs, :dbr_id
    remove_colummn :reqs, :start_time
    remove_colummn :reqs, :completion_time

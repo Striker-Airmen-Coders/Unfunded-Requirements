@@ -8,4 +8,10 @@ reqs = Question.create([
   { text: "How are you currently dealing with your problem? How are your resources/time being spent now?", type: :text, key: :current_working_solution, office: office  },
   { text: "Why should money be invested in your project, rather than a workaround?", type: :text, key: :investment_vs_workaround, office: office  },
   { text: "Have you attempted to self-help your problem?", type: :boolean, key: :attempted_self_help, office: office  },
+  { text: "Justification", type: :text, key: :justification },
+  { text: "Impact if not funded", type: :text, key: :impact },
+  { text: "PEM Remarks", type: :text, key: :pem_remarks },
+  { text: "HQ FMA Remarks", type: :text, key: :hq_remarks },
+  { text: "Is this a recurring requirement?", type: :boolean, key: :is_recurring },
+  { text: "Is this requirement CivPay?", type: :boolean, key: :is_civpay },
 ])
