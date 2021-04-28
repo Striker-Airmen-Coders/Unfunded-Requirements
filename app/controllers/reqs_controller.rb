@@ -83,15 +83,10 @@ class ReqsController < ApplicationController
 
   def import
     CSV.foreach(params['upload'].to_path, headers: true, encoding: 'ISO-8859-1') do |row| 
-      req = Req.find_or_initialize_by(dbr_id: row["ID"])
+      req = Req.find_or_initialize_by(req_number: row["Requirement Number"])
 
+      req.req_number = row["Requirement Number"]
       req.priority = row["Priority"]
-      req.start_time = row["Start time"]
-      req.completion_time = row["Completion time"]
-      req.email = row["Email"]
-      req.name = row["Name"]
-      req.office_symbol = row["Your Office Symbol"]
-      req.work_phone_number = row["Your Work Phone Number"]
       req.title = row["Title"]
       req.req_total = row["Dollar amount of requirement (total)"]
       req.funding_secured = row["How much funding has been secured so far?"]
@@ -113,10 +108,59 @@ class ReqsController < ApplicationController
       req.add_answer(:current_working_solution, row["How are you currently dealing with your problem? How are your resources/time being spent now?"])
       req.add_answer(:investment_vs_workaround, row["Why should money be invested in your project, rather than a workaround?"])
 
-      # uncomment if the user uploading is fma_role = true
+      # uncomment if the user uploading is fma_role = true. It is conceivable that you'd later add a data field to the csv that has the correct office, then you'd remove this.
       req.office = current_user.office
+      # you would not want to do what is described above for this field here.
       req.user = current_user
+
+      req.status = row["Status"]
+      req.owner_ranking = row["Owner Ranking"]
+      req.priority_level = row["Priority Level (0, 1, 2, A, E)"]
+      req.budget_authority = row["BA"]
+      req.sag = row["SAG"]
+      req.panel = row["Panel"]
+      req.object_class = row["Object Class"]
+      req.esp = row["ESP"]
+      req.aai = row["AAI"]
+      req.total_minus_wingfunded = row[" Unfunded Total based on Wing Funded"]
+      req.ep_funded = row[" EP Funded Amount"]
+      req.total_minus_epfunded = row[" Unfunded Amount Based on EP Funding"]
+      req.needby_date = row[" Need By Date"]
+      req.final_FY = row["Final FY"]
+      req.contract_number = row["Contract Number"]
+      req.pop_start_date = row["PoP Start Date"]
+      req.create_by_org = row["PoP End Date"]
+      req.reviewed_by = row["Created By Org"]
+      req.reviewed_by = row["AFGSC/FMAO Reveiwed By"]
+
+      req.add_answer(:justification, row["Justification"]
+      req.add_answer(:impact, row["Impact if not Funded"]
+      req.add_answer(:pem_remarks, row["PEM Remarks"]
+      req.add_answer(:hq_remarks, row["HQ FMA Remarks"]
+      req.add_answer(:is_recurring, row["Is Recurring"]
+      req.add_answer(:is_civpay, row["Is Civ Pay "]
       req.save
+^
+:req_number
+:status
+:owner_ranking
+:priority_level
+:budget_authority
+:sag
+:panel
+:object_class
+:esp
+:aai
+:total_minus_wingfunded
+:ep_funded
+:total_minus_epfunded
+:needby_date
+:final_FY
+:contract_number
+:pop_start_date
+:create_by_org
+:reviewed_by
+
 
     end
   end
