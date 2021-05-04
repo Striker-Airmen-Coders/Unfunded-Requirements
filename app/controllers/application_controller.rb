@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
     current_user.try(:office)
   end
 
+  def to_bool(string)
+    string == "Yes" ? true : false 
+  end
+
   protected
 
   def configure_permited_parameters

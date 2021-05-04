@@ -90,7 +90,7 @@ class ReqsController < ApplicationController
 #      req.req_number = row["Requirement Number"]
       req.priority = row["Priority"]
       req.title = row["Title"]
-      req.req_total = row[" Requirement Total"]
+      req.req_total = row["Requirement Total"]
       req.funding_secured = row["Wing Funded Total"]
       req.operating_entity = row["Operating Entity"]
       req.grp = row["Group"]
@@ -133,8 +133,8 @@ class ReqsController < ApplicationController
       req.add_answer(:impact, row["Impact if not Funded"])
       req.add_answer(:pem_remarks, row["PEM Remarks"])
       req.add_answer(:hq_remarks, row["HQ FMA Remarks"])
-      req.add_answer(:is_recurring, row["Is Recurring"])
-      req.add_answer(:is_civpay, row["Is Civ Pay "])
+      req.add_answer(:is_recurring, to_bool(row["Is Recurring"]))
+      req.add_answer(:is_civpay, to_bool(row["Is Civ Pay"]))
       req.save
 
 
