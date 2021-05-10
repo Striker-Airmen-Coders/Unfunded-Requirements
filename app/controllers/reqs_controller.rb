@@ -31,6 +31,8 @@ class ReqsController < ApplicationController
     @req.questions.each do |q|
       @req.answers.build(question_id: q.id)
     end
+
+    #It's possible I will need to define how to build the requirement number here for the find or create by to function properly
   end
 
   # GET /reqs/1/edit
@@ -46,7 +48,6 @@ class ReqsController < ApplicationController
     @req.office = current_user.office
     @req.user = current_user
 
-    #It's possible I will need to define how to build the requirement number here for the find or create by to function properly
 
     respond_to do |format|
       if @req.save
@@ -85,12 +86,16 @@ class ReqsController < ApplicationController
 
   def import
     CSV.foreach(params['upload'].to_path, headers: true, encoding: 'ISO-8859-1') do |row| 
-      req = Req.find_or_initialize_by(req_number: row["Requirement Number"])
 
-#      req.req_number = row["Requirement Number"]
+      req = Req.create #initialize_by(req_id)
+
+
+      req.req_number = row["Requirement Number"]
+#      req.dbr_id = row["Requirement Number"].last(6).to_i 
+      req.fiscal_year = row["Requirement Number"].first(4).to_i
       req.priority = row["Priority"]
       req.title = row["Title"]
-      req.req_total = row["Requirement Total"].gsub(/,/, '').to_i
+      req.req_total = row["Requirement Total"].gsub(/,/, '').to_i #comma remove on nums
       req.funding_secured = row["Wing Funded Total"]
       req.operating_entity = row["Operating Entity"]
       req.grp = row["Group"]
