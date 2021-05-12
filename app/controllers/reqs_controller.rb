@@ -87,33 +87,38 @@ class ReqsController < ApplicationController
   def import
     CSV.foreach(params['upload'].to_path, headers: true, encoding: 'ISO-8859-1') do |row| 
 
-      req = Req.create #initialize_by(req_id)
-
+      req = Req.find_or_initialize_by(dbr_id: row["Requirement Number"].last(6).to_i)
+          #this actually needs to grab the whole thing, but I don't know
+          #how to initialize a value with this pattern:
+          #2022-F6790-000001 which is Fiscal Year, Operating Entity, ID num (diff OEs all start from 0 and increment)
 
       req.req_number = row["Requirement Number"]
-#      req.dbr_id = row["Requirement Number"].last(6).to_i 
       req.fiscal_year = row["Requirement Number"].first(4).to_i
-      req.priority = row["Priority"]
+      req.create_by_org = row["Created By"]
+      req.status = row["Status"]
+      req.operating_entity = row["OE"]
       req.title = row["Title"]
-      req.req_total = row["Requirement Total"].gsub(/,/, '').to_i #comma remove on nums
-      req.funding_secured = row["Wing Funded Total"]
-      req.operating_entity = row["Operating Entity"]
+      req.pec = row["PEC"]
+      req.sag = row["SAG"]
+      req.panel = row["Panel"]
+      req.majcom_panel = row["MAJCOM Panel"]
+      req.majcom_directorate = row["MAJCOM Directorate"]
+      req.eeic = row["EEIC"]
+      req.object_class = row["OSC"]
+      req.esp = row["ESP"]
+      req.rccc = row["Cost Center"]
+      req.aai = row["AAI"]
+      req.req_total = row["Requirement Amount"].gsub(/,/, '').to_i #comma remove on nums
+      req.funding_secured = row["Funded Amount"]
+      req.authorized_amount = row["Authorized Amount"]
+      req.priority = row["Priority"]
       req.grp = row["Group"]
       req.unit = row["Unit/ Directorate"]
-      req.pec = row["PEC"]
-      req.rccc = row["Cost Center"]
-      req.eeic = row["EEIC"]
-      req.object_class = row["Object Class"]
-      req.esp = row["ESP"]
-      req.aai = row["AAI"]
       req.method_of_purchase = row["Method of Purchase"]
 
-      req.status = row["Status"]
       req.owner_ranking = row["Owner Ranking"]
       req.priority_level = row["Priority Level (0, 1, 2, A, E)"]
       req.budget_authority = row["BA"]
-      req.sag = row["SAG"]
-      req.panel = row["Panel"]
       req.total_minus_wingfunded = row[" Unfunded Total based on Wing Funded"]
       req.ep_funded = row[" EP Funded Amount"]
       req.total_minus_epfunded = row[" Unfunded Amount Based on EP Funding"]
@@ -121,8 +126,7 @@ class ReqsController < ApplicationController
       req.final_FY = row["Final FY"]
       req.contract_number = row["Contract Number"]
       req.pop_start_date = row["PoP Start Date"]
-      req.create_by_org = row["PoP End Date"]
-      req.reviewed_by = row["Created By Org"]
+      req.pop_end_date = row["PoP End Date"]
       req.reviewed_by = row["AFGSC/FMAO Reveiwed By"]
 
 

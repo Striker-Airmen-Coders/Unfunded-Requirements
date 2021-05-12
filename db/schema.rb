@@ -42,6 +42,7 @@ ActiveRecord::Schema.define(version: 2021_04_28_194143) do
   end
 
   create_table "reqs", force: :cascade do |t|
+    t.integer "dbr_id"
     t.string "name"
     t.string "title"
     t.string "operating_entity"
@@ -80,6 +81,7 @@ ActiveRecord::Schema.define(version: 2021_04_28_194143) do
     t.datetime "pop_start_date"
     t.string "create_by_org"
     t.string "reviewed_by"
+    t.integer "fiscal_year"
     t.index ["office_id"], name: "index_reqs_on_office_id"
     t.index ["user_id"], name: "index_reqs_on_user_id"
   end
