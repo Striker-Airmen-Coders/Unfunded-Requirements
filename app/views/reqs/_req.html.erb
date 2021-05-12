@@ -18,7 +18,7 @@
       <div class="text-xl">
          <div class="pl-4 text-right"><%= req.req_total %></div>
          <div class="pl-4 text-right border-b border-nord0">- <%= req.funding_secured %></div>
-         <div class="pl-4 text-right">$<%= number_with_delimiter(req.total - req.funding_secured, :delimiter => ',') %></div>
+         <div class="pl-4 text-right">$<%= number_with_delimiter(req.req_total - req.funding_secured, :delimiter => ',') %></div>
        </div>
     </div>
     <div class="flex flex-row justify-around pt-4">

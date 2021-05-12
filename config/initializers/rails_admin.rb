@@ -3,7 +3,7 @@ RailsAdmin.config do |config|
 
   config.model 'Req' do
     list do
-      field :priority
+      field :owner_priority
       field :grp
       field :unit
       field :title

@@ -35,7 +35,7 @@ class CreateReqs < ActiveRecord::Migration[6.1]
       t.string :contract_number 
       t.string :reviewed_by 
       t.string :point_of_contact
-
+      t.string :installation
       t.timestamps
     end
   end
