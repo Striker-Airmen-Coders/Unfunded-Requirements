@@ -11,13 +11,6 @@
     </div>
     <div class="flex px-2 justify-between pt-2">
       <div class="text-xl">
-        <div class="text-nord0 text-opacity-25">
-          <% if req.operating_entity == "F6790" then %>
-            <strong class="text-nord0">F6790</strong> / 18SA
-          <% else %>
-            F6790 / <strong class="text-nord0">18SA</strong>
-          <% end %>
-        </div>
         <div class="flex justify-between"><div>OE:</div> <%= req.operating_entity %></div>
         <div class="flex justify-between"><div>Group:</div> <%= req.grp %></div>
         <div class="flex justify-between"><div>Unit:</div> <%= req.unit %></div>
@@ -25,7 +18,7 @@
       <div class="text-xl">
          <div class="pl-4 text-right"><%= req.req_total %></div>
          <div class="pl-4 text-right border-b border-nord0">- <%= req.funding_secured %></div>
-         <div class="pl-4 text-right">$<%= number_with_delimiter(req.total_minus_wingfunded, :delimiter => ',') %></div>
+         <div class="pl-4 text-right">$<%= number_with_delimiter(req.total - req.funding_secured, :delimiter => ',') %></div>
        </div>
     </div>
     <div class="flex flex-row justify-around pt-4">
@@ -35,7 +28,7 @@
       <div class="border border-nord0 border-2 p-1"><%= req.method_of_purchase %></div>
     </div>
     <p class="line-clamp-5 mt-3 pt-1 px-1 border-t-2 border-nord0">
-      <%= req.answer_for(:pitch) %>
+      <%= req.answer_for(:justification) %>
     </p>
   </div>
 <% end %>
