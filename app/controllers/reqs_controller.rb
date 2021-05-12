@@ -111,26 +111,24 @@ class ReqsController < ApplicationController
       req.req_total = row["Requirement Amount"].gsub(/,/, '').to_i #comma remove on nums
       req.funding_secured = row["Funded Amount"]
       req.authorized_amount = row["Authorized Amount"]
-      req.priority = row["Priority"]
-      req.grp = row["Group"]
-      req.unit = row["Unit/ Directorate"]
-      req.method_of_purchase = row["Method of Purchase"]
-
-      req.owner_ranking = row["Owner Ranking"]
-      req.priority_level = row["Priority Level (0, 1, 2, A, E)"]
-      req.budget_authority = row["BA"]
-      req.total_minus_wingfunded = row[" Unfunded Total based on Wing Funded"]
-      req.ep_funded = row[" EP Funded Amount"]
-      req.total_minus_epfunded = row[" Unfunded Amount Based on EP Funding"]
-      req.needby_date = row[" Need By Date"]
+      req.owner_priority = row["Owner Priority"]
+      req.grp = row["Group"] #acronym logic here
+      req.unit = row["Unit"]
       req.final_FY = row["Final FY"]
-      req.contract_number = row["Contract Number"]
       req.pop_start_date = row["PoP Start Date"]
       req.pop_end_date = row["PoP End Date"]
-      req.reviewed_by = row["AFGSC/FMAO Reveiwed By"]
+
+      #These fields aren't on the most recent export, but could be useful
+      req.method_of_purchase = row["Method of Purchase"]
+      req.priority_level = row["Priority Level (0, 1, 2, A, E)"]
+      req.budget_authority = row["BA"]
+      req.needby_date = row["Need By Date"]
+      req.contract_number = row["Contract Number"]
+      req.reviewed_by = row["AFGSC/FMAO Reviewed By"]
 
 
       # uncomment if the user uploading is fma_role = true. 
+      # comment if HQ is uploading it.
       # It is conceivable that you'd later add a data field 
       # to the csv that has the correct office, then you'd remove this.
       req.office = current_user.office
@@ -138,12 +136,13 @@ class ReqsController < ApplicationController
       # you would not want to do what is described above for this field here.
       req.user = current_user
 
+      #possibly add line item remark idk there's nothing in the sample data
       req.add_answer(:justification, row["Justification"])
       req.add_answer(:impact, row["Impact if not Funded"])
       req.add_answer(:pem_remarks, row["PEM Remarks"])
       req.add_answer(:hq_remarks, row["HQ FMA Remarks"])
-      req.add_answer(:is_recurring, to_bool(row["Is Recurring"]))
-      req.add_answer(:is_civpay, to_bool(row["Is Civ Pay"]))
+      req.add_answer(:is_recurring, to_bool(row["Recurring"]))
+      req.add_answer(:is_civpay, to_bool(row["Civ Pay"]))
       req.save
 
 
