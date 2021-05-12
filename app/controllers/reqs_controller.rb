@@ -112,7 +112,7 @@ class ReqsController < ApplicationController
       req.funding_secured = row["Funded Amount"]
       req.authorized_amount = row["Authorized Amount"]
       req.owner_priority = row["Owner Priority"]
-      req.grp = row["Group"] #acronym logic here
+      req.grp = row["Group"] #acronym logic here? Lookup/translate not replace
       req.unit = row["Unit"]
       req.final_FY = row["Final FY"]
       req.pop_start_date = row["PoP Start Date"]
@@ -125,7 +125,6 @@ class ReqsController < ApplicationController
       req.needby_date = row["Need By Date"]
       req.contract_number = row["Contract Number"]
       req.reviewed_by = row["AFGSC/FMAO Reviewed By"]
-
 
       # uncomment if the user uploading is fma_role = true. 
       # comment if HQ is uploading it.
@@ -145,7 +144,6 @@ class ReqsController < ApplicationController
       req.add_answer(:is_civpay, to_bool(row["Civ Pay"]))
       req.save
 
-
     end
   end
 
@@ -157,50 +155,40 @@ class ReqsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def req_params
-      params.require(:req).permit(:name, 
-                                  :title,
-                                  :email,
-                                  :office_symbol,
-                                  :work_phone_number,
-                                  :req_total,
-                                  :funding_secured,
-                                  :start_time, 
-                                  :completion_time,
-                                  :method_of_purchase,
-                                  :pitch,
-                                  :problem,
-                                  :solution,
-                                  :solution_progress,
-                                  :mission_impact,
-                                  :attempted_self_help,
-                                  :current_working_solution,
-                                  :investment_vs_workaround,
+      params.require(:req).permit(:dbr_id,
+                                  :req_number, 
+                                  :fiscal_year, 
+                                  :create_by_org, 
+                                  :status, 
                                   :operating_entity, 
+                                  :title, 
+                                  :pec, 
+                                  :sag, 
+                                  :panel, 
+                                  :majcom_panel, 
+                                  :majcom_directorate, 
+                                  :eeic, 
+                                  :object_class, 
+                                  :esp, 
+                                  :rccc, 
+                                  :aai, 
+                                  :req_total, 
+                                  :funding_secured, 
+                                  :authorized_amount, 
+                                  :owner_priority, 
                                   :grp, 
                                   :unit, 
-                                  :pec,
-                                  :rccc,
-                                  :eeic,
-                                  :priority,
-                                  :req_number,
-                                  :status,
-                                  :owner_ranking,
-                                  :priority_level,
-                                  :budget_authority,
-                                  :sag,
-                                  :panel,
-                                  :object_class,
-                                  :esp,
-                                  :aai,
-                                  :total_minus_wingfunded,
-                                  :ep_funded,
-                                  :total_minus_epfunded,
-                                  :needby_date,
-                                  :final_FY,
-                                  :contract_number,
-                                  :pop_start_date,
-                                  :create_by_org,
-                                  :reviewed_by,
+                                  :final_FY, 
+                                  :pop_start_date, 
+                                  :pop_end_date, 
+                                  :method_of_purchase, 
+                                  :priority_level, 
+                                  :budget_authority, 
+                                  :needby_date, 
+                                  :contract_number, 
+                                  :reviewed_by, 
+                                  :point_of_contact,
+                                  :installation,
                                   answers_attributes: [
                                     :question_id,
                                     :id,
