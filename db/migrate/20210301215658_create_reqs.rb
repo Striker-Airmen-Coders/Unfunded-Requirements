@@ -1,6 +1,7 @@
 class CreateReqs < ActiveRecord::Migration[6.1]
   def change
     create_table :reqs do |t|
+
       t.integer :dbr_id
       t.string :req_number 
       t.integer :fiscal_year 
@@ -33,6 +34,7 @@ class CreateReqs < ActiveRecord::Migration[6.1]
       t.datetime :needby_date 
       t.string :contract_number 
       t.string :reviewed_by 
+      t.string :point_of_contact
 
       t.timestamps
     end
