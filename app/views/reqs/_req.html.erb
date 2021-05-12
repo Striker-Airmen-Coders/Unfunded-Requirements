@@ -1,6 +1,6 @@
 <div>
   <div class="text-nord5 flex justify-between ">
-    <div class="text-2xl"><%= req.priority %></div>
+    <div class="text-2xl"><%= req.owner_priority %></div>
     <div class="self-end border border-nord0 hover:border-nord5 px-1 m-1 text-nord0 hover:text-nord5"><%= link_to 'Edit', edit_req_path(req)%></div>
   </div>
 
@@ -18,6 +18,7 @@
             F6790 / <strong class="text-nord0">18SA</strong>
           <% end %>
         </div>
+        <div class="flex justify-between"><div>OE:</div> <%= req.operating_entity %></div>
         <div class="flex justify-between"><div>Group:</div> <%= req.grp %></div>
         <div class="flex justify-between"><div>Unit:</div> <%= req.unit %></div>
       </div>
