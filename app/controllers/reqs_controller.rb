@@ -138,7 +138,7 @@ class ReqsController < ApplicationController
       #possibly add line item remark idk there's nothing in the sample data
       req.add_answer(:justification, row["Justification"])
       req.add_answer(:impact, row["Impact if not Funded"])
-      req.add_answer(:pem_remarks, row["PEM Remarks"])
+      #req.add_answer(:pem_remarks, row["PEM Remarks"])
       req.add_answer(:hq_remarks, row["HQ FMA Remarks"])
       req.add_answer(:is_recurring, to_bool(row["Recurring"]))
       req.add_answer(:is_civpay, to_bool(row["Civ Pay"]))
