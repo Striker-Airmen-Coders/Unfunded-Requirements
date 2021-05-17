@@ -10,12 +10,12 @@
 
 <% if current_user.hq_role == true %>
   <div class="flex flex-row flex-wrap justify-around gap-6 mt-2 m-8">
-    <%= @reqs.each do |req|  %>
-      <%= render 'flatreq', :req => req %>  
+    <% @reqs.each do |req|  %>
+      <%= render "flatreq", :req => req %>  
     <% end %>
   </div>
 <% else %>
   <div class="flex flex-row flex-wrap justify-around gap-6 mt-2 m-8">
-    <%= render @reqs %>  
+    <%= render @reqs || "No Requirements have been loaded into the system." %>  
   </div>
 <% end %>
