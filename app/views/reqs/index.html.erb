@@ -10,9 +10,22 @@
 
 <% if current_user.hq_role == true %>
   <div class="">
-    <% @reqs.each do |req|  %>
-      <%= render "flatreq", :req => req %>  
-    <% end %>
+    <table class="relative w-full border">
+      <thead>
+        <tr>
+          <th class="sticky top-0 px-6 py-3 text-nord0 bg-nord5">Priority</th>
+          <th class="sticky top-0 px-6 py-3 text-nord0 bg-nord5">Title</th>
+          <th class="sticky top-0 px-6 py-3 text-nord0 bg-nord5">Justification</th>
+          <th class="sticky top-0 px-6 py-3 text-nord0 bg-nord5">Impact if not Funded</th>
+          <th class="sticky top-0 px-6 py-3 text-nord0 bg-nord5">Total Cost</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @reqs.each do |req|  %>
+          <%= render "flatreq", :req => req %>  
+        <% end %>
+      </tbody>
+    </table>
   </div>
 <% else %>
   <div class="flex flex-row flex-wrap justify-around gap-6 mt-2 m-8">
