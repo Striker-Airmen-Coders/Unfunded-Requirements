@@ -1,27 +1,33 @@
- <div class="flex flex-row items-center">
-  <div class="w-1/3 flex flex-row justify-between text-2xl text-nord5 mx-4">
-    <h1 class="self-center w-1/4"><%= req.owner_priority %></h1>
-    <h1 class="text-center break-words line-clamp-2 w-3/4 ">
-      <%= req.title %>
-    </h1>
+<div class="flex flex-row">
+  <div class="text-nord5 flex justify-between ">
+    <div class="text-2xl m-4"><%= req.owner_priority %></div>
+    
   </div>
-  <%= link_to req do %>
-    <div class="relative px-2 h-24 justify-around flex flex-row bg-nord5 text-nord0">
-      <p class="self-center line-clamp-3 m-1 ">
-        <%= req.answer_for(:justification) %>
-      </p>
-      <p class="self-center line-clamp-3 m-1">
-        <%= req.answer_for(:impact) %>
-      </p>
-    </div>
-    <span class="absolute p-2 text-nord5">TAG TEXT</span>
-  <% end %>
-  <span class="text-nord5 text-2xl m-2">
-    $<%= number_with_delimiter(req.req_total, 
-                               :delimiter => ',') %>
-  </span>
-  <div class="border border-nord0 hover:border-nord5 px-1 m-1 text-nord0 hover:text-nord5">
-    <% link_to 'Edit', edit_req_path(req)%>
-  </div>
-</div>
 
+<%= link_to req do %>
+  <div class="bg-nord5 px-1 text-nord0 h-52 w-72">
+    <div class=" flex flex-wrap justify-center content-center align-middle text-2xl text-nord0 h-20 border-b-2 border-nord0 mb-2">
+      <div class="text-center line-clamp-2"><%= req.title %></div>
+    </div>
+    <div class="flex px-2 justify-between pt-2">
+      <div class="text-xl">
+        <div class="flex justify-between"><div>OE:</div> <%= req.operating_entity %></div>
+        <div class="flex justify-between"><div>Grp:</div> <%= req.grp %></div>
+        <div class="flex justify-between"><div>Unit:</div> <%= req.unit %></div>
+      </div>
+      <div class="text-xl">
+         <div class="pl-4 text-right"><%= req.req_total %></div>
+         <div class="pl-4 text-right border-b border-nord0">- <%= req.funding_secured %></div>
+         <div class="pl-4 text-right">$<%= number_with_delimiter(req.req_total - req.funding_secured, :delimiter => ',') %></div>
+       </div>
+    </div>
+  </div>
+<% end %>
+<div class="text-nord5 text-lg px-2">
+  <p class="pt-2">Justification: <%= req.answer_for(:justification) %></p>
+  <p class="pt-2">Impact if not funded: <%= req.answer_for(:impact) %></p> 
+</div>
+<div class="h-52 w-72 border border-nord5">
+  <p class="text-nord5">Prioritization stuff</p>
+</div>
+</div>
