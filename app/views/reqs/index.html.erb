@@ -6,9 +6,9 @@
 
 <%= render "shared/infopanel" %>
 <div class="pt-4" />
-<% render "shared/filterbar" %>
+<%= render "shared/filterbar" %>
 
-<% if current_user.hq_role == true %>
+<% if current_user.hq_role == false %>
   <div class="flex flex-col gap-6">
     <% @reqs.each do |req|  %>
       <%= render "flatreq", :req => req %>  

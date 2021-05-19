@@ -12,7 +12,8 @@ class ReqsController < ApplicationController
     if current_user.hq_role == true
       @reqs = Req.all
       @search = Req.ransack(params[:q])
-      @reqs = @search.result
+      @reqs = @search.result#.mine(current_user)
+                            # I don't understand scopes well enough to be sure this works
     else
       @search = Req.ransack(params[:q])
       @reqs = @search.result
@@ -81,6 +82,17 @@ class ReqsController < ApplicationController
       flash[:notice] = "Req was successfully destroyed."
       format.html { redirect_to reqs_url }
       format.json { head :no_content }
+    end
+  end
+
+  def tagged
+    #I think this will get all reqs rather than scoping as desired.
+    #When it misbehaves, this is the problem
+    #try Req.mine(current_user) instead of req, look to the index as well
+    if params[:tag].present?
+      @reqs = Req.tagged_with(params[:tag])
+    else
+      @reqs = Req.all
     end
   end
 
@@ -189,6 +201,7 @@ class ReqsController < ApplicationController
                                   :reviewed_by, 
                                   :point_of_contact,
                                   :installation,
+                                  :tag_list,
                                   answers_attributes: [
                                     :question_id,
                                     :id,

@@ -4,6 +4,7 @@ class Req < ApplicationRecord
   belongs_to :office
   belongs_to :user
   has_many :answers
+  acts_as_taggable_on :tags
 
   accepts_nested_attributes_for :answers
 

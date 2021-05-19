@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   resources :reqs do
       post 'import', on: :collection
   end
+  
+  get '/tagged', to: "reqs#tagged", as: :tagged
 
   devise_for :users, controllers: {
     sessions: 'users/sessions',
