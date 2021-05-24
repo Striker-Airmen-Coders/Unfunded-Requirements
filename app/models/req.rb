@@ -1,6 +1,7 @@
 require 'date'
 
 class Req < ApplicationRecord
+  has_paper_trail
   belongs_to :office
   belongs_to :user
   has_many :answers
