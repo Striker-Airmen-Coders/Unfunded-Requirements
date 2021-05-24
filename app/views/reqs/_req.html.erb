@@ -32,7 +32,9 @@
     </p>
   </div>
 <% end %>
+
 <% req.tag_list.each do |t| %>
-  <%= link_to t, tagged_path(tag: t), :class => "text-nord5" %>
+  <% link_to t, tagged_path(tag: t), :class => "text-nord5" %>
 <% end %>
+<span class="text-nord5"><%= req.tag_list %></span>
 </div>

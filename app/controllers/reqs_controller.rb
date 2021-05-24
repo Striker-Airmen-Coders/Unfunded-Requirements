@@ -13,7 +13,7 @@ class ReqsController < ApplicationController
       @reqs = Req.all
       @search = Req.ransack(params[:q])
       @reqs = @search.result#.mine(current_user)
-                            # I don't understand scopes well enough to be sure this works
+                            # I don't understand scopes well enough to be sure this works, the scope MIGHT understand hq seeing all reqs but idk
     else
       @search = Req.ransack(params[:q])
       @reqs = @search.result
